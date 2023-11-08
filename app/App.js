@@ -8,7 +8,8 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
         <View>
-          <Text>Waldorf Parents App</Text>
+          <Text style={styles.headerText}>Waldorf Parents App</Text>
+          <Text>Welcome !!</Text>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -18,8 +19,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ff85ba",
     alignItems: "center",
     justifyContent: "center",
+  },
+  headerText: {
+    fontSize: "30px",
   },
 });
