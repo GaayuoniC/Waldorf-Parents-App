@@ -27,6 +27,7 @@ export function HomePage() {
               dignissimos vitae eligendi. Architecto sit dolorum eius .{" "}
             </p>
           </div>
+          <button>Login</button>
         </div>
       </div>
     </div>
