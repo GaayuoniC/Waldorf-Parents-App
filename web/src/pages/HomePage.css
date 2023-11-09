@@ -20,11 +20,32 @@
   color: var(--primary-color);
 }
 .home-welcome > div {
-  width: 500px;
+  width: 700px;
   height: 400px;
   flex-wrap: wrap;
   text-align: justify;
   border: 1px solid black;
   border-radius: 12px;
   padding: 10px;
+  max-width: 100%;
+}
+/* .home-layout {
+  display: flex;
+  flex-direction: row;
+} */
+.welcome-items {
+  display: flex;
+  gap: 20px;
+}
+button {
+  justify-content: center;
+  width: 6em;
+  height: 3.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .home-welcome > div {
+    width: auto;
+  }
 }
