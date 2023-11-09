@@ -1,0 +1,30 @@
+.home-container {
+  display: flex;
+  /* flex-direction: column; */
+}
+.home-items {
+  display: flex;
+  margin: 0 auto;
+  gap: 20px;
+  flex-direction: column;
+}
+.home-sides {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+}
+.home-items > div > h1 {
+  color: var(--primary-color);
+}
+.home-welcome > div {
+  width: 500px;
+  height: 400px;
+  flex-wrap: wrap;
+  text-align: justify;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 10px;
+}
