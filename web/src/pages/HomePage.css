@@ -3,7 +3,6 @@
   /* flex-direction: column; */
 }
 .home-items {
-  display: flex;
   margin: 0 auto;
   gap: 20px;
   flex-direction: column;

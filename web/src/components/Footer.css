@@ -1,11 +1,5 @@
-.footer-container {
+footer {
   display: flex;
-}
-
-.footer-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   background-color: var(--primary-color);
   gap: 50px;
   /* align-content: space-between; */

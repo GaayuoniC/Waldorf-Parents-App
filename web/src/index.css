@@ -7,7 +7,19 @@
   --clr-test-1: #e2ff99;
   --clr-test-2: #90cfdf;
   --clr-test-3: #d2dbd8;
+  --clr-h-1: #367714;
 }
 main {
   padding: 10px 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  /* color from waldorf */
+  color: var(--clr-h-1);
 }
