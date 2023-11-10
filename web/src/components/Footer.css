@@ -1,0 +1,19 @@
+.footer-container {
+  display: flex;
+}
+
+.footer-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: var(--primary-color);
+  gap: 50px;
+  /* align-content: space-between; */
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+}

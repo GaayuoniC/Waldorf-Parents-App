@@ -1,3 +1,13 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --primary-color: #cf77ce;
+  --clr-test-1: #e2ff99;
+  --clr-test-2: #90cfdf;
+  --clr-test-3: #d2dbd8;
+}
+main {
+  padding: 10px 60px;
 }
