@@ -1,5 +1,6 @@
-import { Slot } from "expo-router";
+import { Tabs } from "expo-router";
+import { Text, View } from "react-native";
 
-export function HomeLayout() {
-  return <Slot />;
+export default function HomeLayout() {
+  return <Tabs />;
 }
