@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { MyTabs } from "./assets/components/MyTabs";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
           <Text style={styles.headerText}>Waldorf Parents App</Text>
           <Text>Welcome !!</Text>
         </View>
+        <MyTabs />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -24,6 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headerText: {
-    fontSize: "30px",
+    fontSize: 30,
   },
 });
