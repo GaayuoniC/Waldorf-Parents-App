@@ -3,6 +3,7 @@
     "name": "waldorf-parents-app",
     "slug": "waldorf-parents-app",
     "version": "1.0.0",
+    "scheme": "parents-app",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
