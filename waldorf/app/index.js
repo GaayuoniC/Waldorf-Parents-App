@@ -4,10 +4,12 @@ import HomePage from "../pages/HomePage";
 
 export default function Page() {
   return (
-    <View>
+    <View style={styles.container}>
       <Link href="/offers"> Offers</Link>
       <Link href="/requests"> Request</Link>
-      {/* <HomePage /> */}
+      <View>
+        <HomePage />
+      </View>
     </View>
   );
 }
