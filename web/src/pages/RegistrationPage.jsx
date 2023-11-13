@@ -8,14 +8,14 @@ export function RegistrationPage() {
     email: "",
     password: "",
   });
-  //console.log("User details", userData);
+  //Photo uploading to be done later with the function below;
 
-  const [selectedFoto, setSelectedFoto] = useState(null);
+  //   const [selectedFoto, setSelectedFoto] = useState(null);
 
-  function handleFotoChange(event) {
-    const file = event.target.files[0];
-    selectedFoto(file);
-  }
+  //   function handleFotoChange(event) {
+  //     const file = event.target.files[0];
+  //     selectedFoto(file);
+  //   }
   //   function handleUploadFoto(){
   //     if(selectedFoto){
 
@@ -42,6 +42,7 @@ export function RegistrationPage() {
           name="firstName"
           value={userData.firstName}
           onChange={handleChange}
+          required
         />
       </label>
       {/* <br /> */}
@@ -52,6 +53,7 @@ export function RegistrationPage() {
           name="lastName"
           value={userData.lastName}
           onChange={handleChange}
+          required
         />
       </label>
       <form>
@@ -62,6 +64,7 @@ export function RegistrationPage() {
             name="username"
             value={userData.username}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -72,6 +75,7 @@ export function RegistrationPage() {
             name="email"
             value={userData.email}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -82,6 +86,7 @@ export function RegistrationPage() {
             name="password"
             value={userData.password}
             onChange={handleChange}
+            required
           />
         </label>
 

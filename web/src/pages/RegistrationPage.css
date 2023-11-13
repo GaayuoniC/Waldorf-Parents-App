@@ -10,6 +10,10 @@
 #submit {
   background-color: var(--clr-test-1);
   border-radius: var(--border-radius);
+  cursor: pointer;
+}
+#submit :hover {
+  background-color: var(--primary-color);
 }
 
 label {
