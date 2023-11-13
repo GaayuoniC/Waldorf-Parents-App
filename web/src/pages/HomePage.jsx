@@ -11,19 +11,20 @@ export function HomePage() {
           <div className="welcome-items">
             <div>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim,
-                quo. Sequi dolore quaerat laborum quisquam veritatis esse,
-                doloremque quae nostrum modi corrupti incidunt maiores, ab ad
-                dignissimos vitae eligendi. Architecto sit dolorum eius
-                accusantium ratione molestias rerum veritatis ipsam vero saepe
-                repudiandae voluptatibus, obcaecati laborum quae, officiis,
-                laudantium tempore excepturi.
+                Welcome to the Waldorf school parents helper site. The site is
+                made with the main intention of making life a little bit easier
+                for parents. As a parent or guardian, you can place an offer to
+                help other parents kids get to school safely and timely. You can
+                also ask for help in out post requests section.
               </p>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim,
-                quo. Sequi dolore quaerat laborum quisquam veritatis esse,
-                doloremque quae nostrum modi corrupti incidunt maiores, ab ad
-                dignissimos vitae eligendi. Architecto sit dolorum eius .
+                Once you register as a parent, you can have easy access to all
+                our services;asking for help and offering to help other parents
+                who might need help with their kids.
+              </p>
+              <p>
+                Feel free to give us any feedback that you think might be of
+                help to us and other parents
               </p>
             </div>
             <div>
