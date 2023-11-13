@@ -1,7 +1,10 @@
 export function Offers() {
   return (
     <>
-      <h1>Offers</h1>
+      <h2>Offers</h2>
+      <section>
+        <p>Available offers</p>
+      </section>
     </>
   );
 }

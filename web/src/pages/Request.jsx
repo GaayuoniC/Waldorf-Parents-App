@@ -1,7 +1,10 @@
 export function Requests() {
   return (
     <>
-      <h1>Requests</h1>
+      <h2>Requests</h2>
+      <section>
+        <p>You can place your request for help here. </p>
+      </section>
     </>
   );
 }

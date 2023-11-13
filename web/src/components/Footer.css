@@ -11,3 +11,9 @@ footer {
   left: 0;
   height: 50px;
 }
+.contact {
+  text-decoration: none;
+}
+.contact :hover {
+  color: white;
+}
