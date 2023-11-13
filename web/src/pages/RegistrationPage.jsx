@@ -33,7 +33,7 @@ export function RegistrationPage() {
   console.log("User details", userData);
 
   return (
-    <div>
+    <div className="form-container">
       <h2> Registration Page </h2>
       <label htmlFor="firstName" className="firstName">
         Enter first name:
@@ -44,7 +44,7 @@ export function RegistrationPage() {
           onChange={handleChange}
         />
       </label>
-      <br />
+      {/* <br /> */}
       <label htmlFor="lastName" className="lastName">
         Enter last name:
         <input
@@ -64,7 +64,7 @@ export function RegistrationPage() {
             onChange={handleChange}
           />
         </label>
-        <br />
+
         <label htmlFor="email">
           Email:
           <input
@@ -74,7 +74,7 @@ export function RegistrationPage() {
             onChange={handleChange}
           />
         </label>
-        <br />
+
         <label htmlFor="password">
           Password:
           <input
@@ -84,8 +84,8 @@ export function RegistrationPage() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <button type="submit" onSubmit={handleSubmit}>
+
+        <button type="submit" onSubmit={handleSubmit} id="submit">
           Register
         </button>
       </form>
