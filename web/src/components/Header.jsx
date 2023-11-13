@@ -1,12 +1,17 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export function Header() {
   return (
     <header className="header-container">
       <nav className="nav-bar">
-        <Link to="/" className="links">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
           <p> Home </p>
-        </Link>
+        </NavLink>
         <Link to="/offers" className="links">
           <p> Offers </p>
         </Link>
