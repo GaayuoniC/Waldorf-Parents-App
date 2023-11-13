@@ -1,10 +1,10 @@
-import { Text, View, Button } from "react-native";
-export function HomePage() {
+import { Text, View, Button, StyleSheet, Platform } from "react-native";
+export default function HomePage() {
   return (
-    <>
+    <View>
       <View>
         <Text>
-          Welcome to the Waldorf school parents helper site. The site is made
+          Welcome to the Waldorf school parents helper App. The site is made
           with the main intention of making life a little bit easier for
           parents. As a parent or guardian, you can place an offer to help other
           parents kids get to school safely and timely. You can also ask for
@@ -21,10 +21,21 @@ export function HomePage() {
         </Text>
 
         <View>
-          <Button>Login</Button>
+          <Button title="Login" />
           <Text>Not registered? Please register here!</Text>
         </View>
       </View>
-    </>
+    </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: Platform.OS === "ios" ? 20 : 18,
+  },
+});
