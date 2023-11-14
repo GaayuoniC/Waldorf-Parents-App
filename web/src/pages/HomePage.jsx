@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 export function HomePage() {
   return (
     <div className="home-container">
@@ -29,7 +30,10 @@ export function HomePage() {
             </div>
             <div>
               <button>Login</button>
-              <p>Not registered? Please register here!</p>
+              <p>
+                Not registered? Please register
+                <Link to="/registration">here!</Link>
+              </p>
             </div>
           </div>
         </div>

@@ -17,3 +17,6 @@
 .links :hover {
   color: white;
 }
+.nav-bar a.active {
+  color: red;
+}

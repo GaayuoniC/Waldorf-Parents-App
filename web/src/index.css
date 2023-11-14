@@ -8,6 +8,8 @@
   --clr-test-2: #90cfdf;
   --clr-test-3: #d2dbd8;
   --clr-h-1: #367714;
+
+  --border-radius: 6px;
 }
 main {
   padding: 10px 60px;
