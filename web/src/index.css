@@ -14,7 +14,8 @@
 }
 main {
   padding: 10px 60px;
-  --background-color: #f8f8f8;
+  background-color: var(--background-color);
+
   /* Soft white background color */
 }
 
