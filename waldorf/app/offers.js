@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     // width: "99%",
-    margin: 20,
+    margin: 10,
   },
   text: {
     fontSize: Platform.OS === "ios" ? 20 : 18,

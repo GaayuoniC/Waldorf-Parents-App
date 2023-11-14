@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+
+    margin: 10,
   },
   text: {
     fontSize: Platform.OS === "ios" ? 20 : 18,

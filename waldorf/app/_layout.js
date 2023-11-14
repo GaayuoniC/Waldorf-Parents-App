@@ -30,7 +30,7 @@ export default function HomeLayout() {
             backgroundColor: "#FF8811",
             fontSize: 10,
             tabBarIcon: ({ color, size }) => (
-              <Entypo name="home" size={size} color={color} />
+              <Entypo name="price-tag" size={size} color={color} />
             ),
           }}
         />
@@ -40,7 +40,7 @@ export default function HomeLayout() {
             title: "Requests",
             backgroundColor: "#cf77ce;",
             tabBarIcon: ({ color, size }) => (
-              <Entypo name="home" size={size} color={color} />
+              <Entypo name="shopping-bag" size={size} color={color} />
             ),
           }}
         />

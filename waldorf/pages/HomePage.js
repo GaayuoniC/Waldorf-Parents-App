@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     // justifyContent: "center",
-    marginBottom: 20,
-    padding: 20,
+    marginBottom: 10,
+    padding: 10,
     borderRadius: 20,
 
     //Come back and refactor this style
   },
   text: {
     fontSize: Platform.OS === "ios" ? 20 : 18,
-    lineHeight: 30,
+    lineHeight: Platform.OS === "ios" ? 30 : 26,
   },
   welcome: {
     fontSize: Platform.OS === "ios" ? 30 : 28,
