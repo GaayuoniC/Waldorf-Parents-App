@@ -1,12 +1,16 @@
 export function UserProfile({
-  profile = { name: "Test", email: "dee@hotmail", avatar: "hello" },
+  profile = {
+    name: "Rob Green",
+    email: "dee@hotmail",
+    avatar: "https://pokeapi.co/api/v2/pokemon/1",
+  },
 }) {
   const { name, email, avatar } = profile;
 
   return (
     <div className="user-profile">
-      <img src={avatar} alt={name} />
-      <h2>{name}</h2>
+      <img src={avatar} alt={name} width={50} height={20} />
+      <h4>{name}</h4>
       <p>Email: {email}</p>
     </div>
   );
