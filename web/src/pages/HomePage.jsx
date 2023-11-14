@@ -1,4 +1,5 @@
 import "./HomePage.css";
+
 import { UserProfile } from "../components/UserProfile";
 export function HomePage() {
   return (
