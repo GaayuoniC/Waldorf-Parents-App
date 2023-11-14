@@ -21,6 +21,11 @@ export default function HomeLayout() {
             tabBarIcon: ({ color, size }) => (
               <Entypo name="home" size={size} color={color} />
             ),
+            tabBarLabel: "Home",
+            tabBarLabelStyle: {
+              fontSize: 16,
+              fontWeight: "bold",
+            },
           }}
         />
         <Tabs.Screen
@@ -32,6 +37,11 @@ export default function HomeLayout() {
             tabBarIcon: ({ color, size }) => (
               <Entypo name="price-tag" size={size} color={color} />
             ),
+            tabBarLabel: "Offers",
+            tabBarLabelStyle: {
+              fontSize: 16,
+              fontWeight: "bold",
+            },
           }}
         />
         <Tabs.Screen
@@ -42,6 +52,11 @@ export default function HomeLayout() {
             tabBarIcon: ({ color, size }) => (
               <Entypo name="shopping-bag" size={size} color={color} />
             ),
+            tabBarLabel: "Request",
+            tabBarLabelStyle: {
+              fontSize: 16,
+              fontWeight: "bold",
+            },
           }}
         />
       </Tabs>
