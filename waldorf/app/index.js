@@ -5,8 +5,10 @@ import HomePage from "../pages/HomePage";
 export default function Page() {
   return (
     <View style={styles.container}>
-      <Link href="/offers"> Offers</Link>
-      <Link href="/requests"> Request</Link>
+      <View style={styles.link}>
+        <Link href="/offers"> Offers</Link>
+        <Link href="/requests"> Request</Link>
+      </View>
       <View>
         <HomePage />
       </View>
@@ -24,5 +26,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: Platform.OS === "ios" ? 20 : 18,
+  },
+  link: {
+    flexDirection: "row",
+    gap: 50,
   },
 });

@@ -1,6 +1,6 @@
+import { Entypo } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { Text, View } from "react-native";
-import { MaterialIcons, Entypo } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeLayout() {
@@ -49,3 +49,15 @@ export default function HomeLayout() {
     </SafeAreaProvider>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    // flex: 2,
+    backgroundColor: "#cf77ce",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  },
+  text: {
+    fontSize: Platform.OS === "ios" ? 20 : 18,
+  },
+});
