@@ -14,6 +14,13 @@
 .links {
   text-decoration: none;
 }
-.links :hover {
+
+.active {
   color: white;
+  font-size: xx-large;
+  text-decoration: none;
+}
+.pending {
+  color: green;
+  text-decoration: none;
 }
