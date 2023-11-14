@@ -15,15 +15,12 @@
   text-decoration: none;
 }
 
-.active {
+.nav-bar a.active {
   color: white;
   font-size: xx-large;
   text-decoration: none;
 }
-.pending {
-  color: green;
+
+.nav-bar > p {
   text-decoration: none;
-}
-.nav-bar a.active {
-  color: red;
 }
