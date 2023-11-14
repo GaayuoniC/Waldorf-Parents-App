@@ -38,7 +38,7 @@ export function LoginPage() {
           onChange={handleUserPasswordChange}
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
