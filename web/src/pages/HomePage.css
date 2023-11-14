@@ -24,6 +24,8 @@
   flex-wrap: wrap;
   text-align: justify;
   border: 1px solid black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+
   border-radius: 12px;
   padding: 10px;
   max-width: 100%;
@@ -38,10 +40,17 @@
 }
 button {
   justify-content: center;
-  width: 6em;
-  height: 3.5em;
+  width: 7em;
+  height: 3.1em;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 1em;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+}
+button:hover {
+  background-color: #77cf77;
+  color: black;
 }
 @media (max-width: 768px) {
   .home-welcome > div {

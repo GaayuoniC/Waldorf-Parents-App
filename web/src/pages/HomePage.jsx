@@ -35,7 +35,7 @@ export function HomePage() {
 
               <p>
                 Not registered? Please register
-                <NavLink to="/registration">here!</NavLink>
+                <NavLink to="/registration"> here!</NavLink>
               </p>
             </div>
           </div>
