@@ -24,3 +24,6 @@
   color: green;
   text-decoration: none;
 }
+.nav-bar a.active {
+  color: red;
+}

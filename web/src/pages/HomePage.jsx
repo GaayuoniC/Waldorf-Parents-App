@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 export function HomePage() {
   return (
     <div className="home-container">
@@ -29,13 +29,13 @@ export function HomePage() {
               </p>
             </div>
             <div>
-              <NavLink to="/login">
+              <Link to="/login">
                 <button>Login</button>
-              </NavLink>
+              </Link>
 
               <p>
                 Not registered? Please register
-                <NavLink to="/registration"> here!</NavLink>
+                <Link to="/registration">here!</Link>
               </p>
             </div>
           </div>

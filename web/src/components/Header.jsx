@@ -6,26 +6,16 @@ export function Header() {
       <nav className="nav-bar">
         <NavLink
           to="/"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
+          // className={({ isActive, isPending }) =>
+          //   isPending ? "pending" : isActive ? "active" : ""
+          // }
         >
           <p> Home </p>
         </NavLink>
-        <NavLink
-          to="/offers"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
+        <NavLink to="/offers" className="links">
           <p> Offers </p>
         </NavLink>
-        <NavLink
-          to="/requests"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
+        <NavLink to="/requests" className="links">
           <p> Requests </p>
         </NavLink>
       </nav>
