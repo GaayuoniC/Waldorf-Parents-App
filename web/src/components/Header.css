@@ -15,9 +15,7 @@
 .links {
   text-decoration: none;
 }
-.links :hover {
-  color: white;
-}
+
 .nav-bar a.active {
   color: black;
 }

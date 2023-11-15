@@ -4,12 +4,7 @@ export function Header() {
   return (
     <header className="header-container">
       <nav className="nav-bar">
-        <NavLink
-          to="/"
-          // className={({ isActive, isPending }) =>
-          //   isPending ? "pending" : isActive ? "active" : ""
-          // }
-        >
+        <NavLink to="/" className="links">
           <p> Home </p>
         </NavLink>
         <NavLink to="/offers" className="links">

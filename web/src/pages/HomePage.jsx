@@ -1,4 +1,6 @@
 import "./HomePage.css";
+
+import { UserProfile } from "../components/UserProfile";
 import { Link } from "react-router-dom";
 export function HomePage() {
   return (
@@ -7,6 +9,7 @@ export function HomePage() {
         <div>
           <h1>Waldorf Parents Helper!!</h1>
         </div>
+        <UserProfile />
         <div className="home-welcome">
           <h2>Welcome/Willkommen</h2>
           <div className="welcome-items">
@@ -29,7 +32,10 @@ export function HomePage() {
               </p>
             </div>
             <div>
-              <button>Login</button>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+
               <p>
                 Not registered? Please register
                 <Link to="/registration">here!</Link>
