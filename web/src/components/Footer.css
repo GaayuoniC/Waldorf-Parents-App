@@ -1,6 +1,8 @@
 footer {
   display: flex;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  background-color: var(--primary-header);
+
   gap: 50px;
   /* align-content: space-between; */
   width: 100%;
