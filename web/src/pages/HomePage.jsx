@@ -29,7 +29,10 @@ export function HomePage() {
               </p>
             </div>
             <div>
-              <button>Login</button>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+
               <p>
                 Not registered? Please register
                 <Link to="/registration">here!</Link>
