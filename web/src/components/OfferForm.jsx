@@ -19,7 +19,9 @@ export function OfferForm() {
 
   return (
     <div className="offer-container">
-      <p id="offer-help">Make an offer to help here!</p>
+      <p id="offer-help">
+        <span> Make an offer to help here! </span>
+      </p>
 
       <form className="offer-form-container">
         <label className="title-label">
@@ -43,7 +45,6 @@ export function OfferForm() {
           Post
         </button>
       </form>
-      <h2>Available offers:</h2>
     </div>
   );
 }
