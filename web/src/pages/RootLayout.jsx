@@ -7,7 +7,8 @@ export function RootLayout() {
     <>
       <Header />
       <main>
-        <h1>Welcome </h1>
+        <h1>Waldorf Parents Helper!!</h1>
+
         <Outlet />
       </main>
       <Footer />

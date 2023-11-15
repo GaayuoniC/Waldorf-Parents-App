@@ -45,7 +45,7 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
-  background-color: var(--primary-color);
+  background-color: var(--primary-header);
   border-radius: 12px;
 }
 button:hover {
