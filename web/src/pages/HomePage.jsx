@@ -1,6 +1,7 @@
 import "./HomePage.css";
 
 import { UserProfile } from "../components/UserProfile";
+import { Link } from "react-router-dom";
 export function HomePage() {
   return (
     <div className="home-container">
@@ -31,8 +32,14 @@ export function HomePage() {
               </p>
             </div>
             <div>
-              <button>Login</button>
-              <p>Not registered? Please register here!</p>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+
+              <p>
+                Not registered? Please register
+                <Link to="/registration">here!</Link>
+              </p>
             </div>
           </div>
         </div>

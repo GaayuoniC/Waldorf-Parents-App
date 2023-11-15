@@ -4,13 +4,19 @@
   font-weight: 400;
 
   --primary-color: #cf77ce;
+  --primary-header: #d6531f;
   --clr-test-1: #e2ff99;
   --clr-test-2: #90cfdf;
   --clr-test-3: #d2dbd8;
   --clr-h-1: #367714;
+
+  --border-radius: 6px;
 }
 main {
   padding: 10px 60px;
+  background-color: var(--background-color);
+
+  /* Soft white background color */
 }
 
 * {

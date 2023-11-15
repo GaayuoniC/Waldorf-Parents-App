@@ -5,7 +5,8 @@
 
 .nav-bar {
   display: flex;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  background-color: var(--primary-header);
   gap: 50px;
   width: 100%;
   justify-content: space-evenly;
@@ -14,6 +15,7 @@
 .links {
   text-decoration: none;
 }
-.links :hover {
-  color: white;
+
+.nav-bar a.active {
+  color: black;
 }
