@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../components/OfferForm.css";
 
 export function OfferForm() {
   const [offerTitle, setOfferTitle] = useState("");
@@ -17,27 +18,32 @@ export function OfferForm() {
   }
 
   return (
-    <form>
-      <label>
-        Title:
-        <input
-          type="text"
-          value={offerTitle}
-          onChange={(e) => setOfferTitle(e.target.value)}
-        ></input>
-      </label>
-      <br />
-      <label>
-        Offer Description:
-        <textarea
-          value={offerDescription}
-          onChange={(e) => setOfferDescription(e.target.value)}
-        ></textarea>
-      </label>
-      <br />
-      <button type="submit" onSubmit={handleSubmitOfferForm}>
-        Post
-      </button>
-    </form>
+    <div className="offer-container">
+      <p id="offer-help">Make an offer to help here!</p>
+
+      <form className="offer-form-container">
+        <label className="title-label">
+          <p> Type of help: </p>
+          <input
+            type="text"
+            value={offerTitle}
+            onChange={(e) => setOfferTitle(e.target.value)}
+          ></input>
+        </label>
+
+        <label>
+          <p> Offer description: </p>
+          <textarea
+            value={offerDescription}
+            onChange={(e) => setOfferDescription(e.target.value)}
+          ></textarea>
+        </label>
+
+        <button type="submit" onSubmit={handleSubmitOfferForm}>
+          Post
+        </button>
+      </form>
+      <h2>Available offers:</h2>
+    </div>
   );
 }

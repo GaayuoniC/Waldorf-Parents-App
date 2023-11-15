@@ -1,0 +1,53 @@
+.offer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  border: 1px solid black;
+  margin: auto;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+}
+#offer-help {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.title-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .offer-container {
+    max-width: 300px;
+    margin: auto;
+  }
+  .offer-form-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #offer-help {
+    align-self: center;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .offer-container {
+    max-width: 200px;
+    margin: auto;
+  }
+}
