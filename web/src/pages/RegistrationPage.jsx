@@ -90,7 +90,7 @@ export function RegistrationPage() {
           />
         </label>
 
-        <button type="submit" onSubmit={handleSubmit} id="submit">
+        <button type="submit" onSubmit={handleSubmit}>
           Register
         </button>
       </form>

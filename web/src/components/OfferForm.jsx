@@ -4,20 +4,20 @@ export function OfferForm() {
   const [offerTitle, setOfferTitle] = useState("");
   const [offerDescription, setOfferDescription] = useState("");
 
-  function handleSubmitOfferForm() {
+  function handleSubmitOfferForm(event) {
     event.preventDefault();
     //validate and then submit the form with this if statement
-    if (offerTitle && offerDescription) {
-      onSubmit({ offerTitle, offerDescription });
-      setOfferTitle("");
-      setOfferDescription("");
-    } else {
-      alert("Please fill in all fields");
-    }
+    // if (offerTitle && offerDescription) {
+    //   onSubmit({ offerTitle, offerDescription });
+    //   setOfferTitle("");
+    //   setOfferDescription("");
+    // } else {
+    //   alert("Please fill in all fields");
+    // }
   }
 
   return (
-    <form onSubmit={handleSubmitOfferForm}>
+    <form>
       <label>
         Title:
         <input
@@ -35,7 +35,9 @@ export function OfferForm() {
         ></textarea>
       </label>
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit" onSubmit={handleSubmitOfferForm}>
+        Post
+      </button>
     </form>
   );
 }

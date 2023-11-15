@@ -8,6 +8,7 @@
   max-width: 300px;
   border-radius: var(--border-radius);
 }
+/* }
 #submit {
   background-color: var(--clr-test-1);
   border-radius: var(--border-radius);
@@ -26,7 +27,7 @@ input {
   padding: 8px;
   margin-bottom: 8px;
   margin-top: 6px;
-}
+} */
 
 @media (max-width: 768px) {
   .login-container {

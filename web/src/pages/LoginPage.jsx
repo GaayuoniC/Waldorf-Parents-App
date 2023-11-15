@@ -19,7 +19,7 @@ export function LoginPage() {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit}>
+      <form>
         <h3>Please Login</h3>
         <label htmlFor="username">Enter email :</label>
         <input
@@ -32,14 +32,16 @@ export function LoginPage() {
         />
         <label htmlFor="userpassword">Enter password : </label>
         <input
-          type="text"
+          type="password"
           id="password"
           value={userPassword}
           name="password"
           onChange={handleUserPasswordChange}
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit" onSubmit={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );
