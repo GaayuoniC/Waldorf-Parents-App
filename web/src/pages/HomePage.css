@@ -16,7 +16,7 @@
   justify-content: center;
 }
 .home-items > div > h1 {
-  color: var(--primary-color);
+  color: var(--clr-h-1);
 }
 .home-welcome > div {
   width: 700px;
