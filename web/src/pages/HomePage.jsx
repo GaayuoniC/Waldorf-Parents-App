@@ -6,9 +6,6 @@ export function HomePage() {
   return (
     <div className="home-container">
       <div className="home-items">
-        <div>
-          <h1>Waldorf Parents Helper!!</h1>
-        </div>
         <UserProfile />
         <div className="home-welcome">
           <h2>Welcome/Willkommen</h2>
@@ -38,7 +35,7 @@ export function HomePage() {
 
               <p>
                 Not registered? Please register
-                <Link to="/registration">here!</Link>
+                <Link to="/registration"> here!</Link>
               </p>
             </div>
           </div>

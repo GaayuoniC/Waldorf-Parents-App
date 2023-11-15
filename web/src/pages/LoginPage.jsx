@@ -1,18 +1,19 @@
 import { useState } from "react";
+import "../pages/LoginPage.css";
 
 export function LoginPage() {
-  const [userName, setUserName] = useState("christiono");
-  const [userPassword, setUserPassword] = useState("######");
+  const [email, setEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
   function handleUserNameChange(e) {
-    setUserName(e.target.value);
+    setEmail(e.target.value);
   }
   function handleUserPasswordChange(e) {
     setUserPassword(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Username:", userName);
+    console.log("Username:", email);
     console.log("Password:", userPassword); //Testing. need authentication later
   }
 
@@ -20,16 +21,16 @@ export function LoginPage() {
     <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h3>Please Login</h3>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Enter email :</label>
         <input
           type="text"
-          id="username"
-          value={userName}
+          id="email"
+          value={email}
           name="username"
           onChange={handleUserNameChange}
           required
         />
-        <label htmlFor="userpassword">Enter password: </label>
+        <label htmlFor="userpassword">Enter password : </label>
         <input
           type="text"
           id="password"
