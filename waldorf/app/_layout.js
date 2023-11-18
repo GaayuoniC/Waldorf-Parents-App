@@ -19,7 +19,8 @@ export default function HomeLayout() {
             name="index"
             options={{
               title: "Home",
-              // backgroundColor: "#FF8811",
+              headerStyle: { backgroundColor: "#cf77ce" },
+              headerTintColor: "white",
 
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="home" size={size} color={color} />
@@ -38,8 +39,9 @@ export default function HomeLayout() {
             name="offers"
             options={{
               title: "Offers",
-              backgroundColor: "#FF8811",
-              fontSize: 10,
+              headerStyle: { backgroundColor: "#cf77ce" },
+              headerTintColor: "white",
+
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="price-tag" size={size} color={color} />
               ),
@@ -55,8 +57,9 @@ export default function HomeLayout() {
           <Tabs.Screen
             name="request"
             options={{
-              title: "Requests",
-              backgroundColor: "#cf77ce;",
+              title: "request",
+              headerStyle: { backgroundColor: "#cf77ce" },
+              headerTintColor: "white",
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="shopping-bag" size={size} color={color} />
               ),
@@ -65,6 +68,7 @@ export default function HomeLayout() {
 
               tabBarLabelStyle: {
                 fontSize: 12,
+
                 fontWeight: "bold",
                 color: "black",
               },
