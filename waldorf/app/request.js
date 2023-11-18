@@ -3,7 +3,7 @@ import { Link } from "expo-router";
 
 export default function Requests() {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Request for help</Text>
       <Link href="/"> Home</Link>
     </View>
@@ -12,7 +12,7 @@ export default function Requests() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d6531f",
+    // backgroundColor: "#d6531f",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,

@@ -19,11 +19,10 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d6531f", //Not a suitable place!!
+    // backgroundColor: "#d6531f", //Not a suitable place!!
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-
     margin: 10,
   },
   text: {
@@ -32,5 +31,7 @@ const styles = StyleSheet.create({
   link: {
     flexDirection: "row",
     gap: 50,
+    // backgroundColor: "yellow",
+    margin: 10,
   },
 });

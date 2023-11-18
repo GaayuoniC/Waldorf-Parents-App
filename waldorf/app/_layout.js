@@ -6,27 +6,31 @@ import { StatusBar } from "expo-status-bar";
 
 export default function HomeLayout() {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={styles.container}>
       <View style={styles.safearea}>
         <Tabs
           screenOptions={{
             tabBarActiveTintColor: "#cf77ce",
             tabBarInactiveTintColor: "blue",
+            tabBarStyle: { backgroundColor: "#cf77ce", padding: 10 },
           }}
         >
           <Tabs.Screen
             name="index"
             options={{
               title: "Home",
-              backgroundColor: "#FF8811",
+              // backgroundColor: "#FF8811",
 
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="home" size={size} color={color} />
               ),
               tabBarLabel: "Home",
+              tabBarActiveTintColor: "white",
+
               tabBarLabelStyle: {
-                fontSize: 16,
+                fontSize: 12,
                 fontWeight: "bold",
+                color: "black",
               },
             }}
           />
@@ -40,9 +44,11 @@ export default function HomeLayout() {
                 <Entypo name="price-tag" size={size} color={color} />
               ),
               tabBarLabel: "Offers",
+              tabBarActiveTintColor: "white",
               tabBarLabelStyle: {
-                fontSize: 16,
+                fontSize: 12,
                 fontWeight: "bold",
+                color: "black",
               },
             }}
           />
@@ -55,9 +61,12 @@ export default function HomeLayout() {
                 <Entypo name="shopping-bag" size={size} color={color} />
               ),
               tabBarLabel: "Request",
+              tabBarActiveTintColor: "white",
+
               tabBarLabelStyle: {
-                fontSize: 16,
+                fontSize: 12,
                 fontWeight: "bold",
+                color: "black",
               },
             }}
           />
@@ -68,18 +77,20 @@ export default function HomeLayout() {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    backgroundColor: "#cf77ce",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
+    // flex: 2,
+    // backgroundColor: "#cf77ce",
+    backgroundColor: "#f7f7ff",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // padding: 20,
+    //
   },
   text: {
     fontSize: Platform.OS === "ios" ? 20 : 18,
   },
   safearea: {
     flex: 1,
-    backgroundColor: "green",
+    // backgroundColor: "green",
     // width: 400,
     // padding: 20,
     // borderRadius: 12,

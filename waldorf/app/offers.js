@@ -12,7 +12,7 @@ export default function Offers() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d6531f",
+    // backgroundColor: "#d6531f",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
