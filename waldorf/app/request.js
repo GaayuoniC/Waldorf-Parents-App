@@ -12,7 +12,7 @@ export default function Requests() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#cf77ce",
+    backgroundColor: "#d6531f",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,

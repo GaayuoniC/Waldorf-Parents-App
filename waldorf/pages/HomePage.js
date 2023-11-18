@@ -36,8 +36,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // justifyContent: "center",
     marginBottom: 10,
-    padding: 10,
-    borderRadius: 20,
+    padding: 40,
+    // borderRadius: 20,
+    width: Platform.OS === "ios" ? 420 : 380,
 
     //Come back and refactor this style
   },
@@ -49,5 +50,6 @@ const styles = StyleSheet.create({
     fontSize: Platform.OS === "ios" ? 30 : 28,
     fontStyle: "italic",
     marginBottom: 20,
+    color: "green",
   },
 });

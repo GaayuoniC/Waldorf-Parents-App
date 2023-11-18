@@ -19,7 +19,7 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#cf77ce",
+    backgroundColor: "#d6531f", //Not a suitable place!!
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
