@@ -57,7 +57,7 @@ export default function HomeLayout() {
           <Tabs.Screen
             name="request"
             options={{
-              title: "request",
+              title: "Request",
               headerStyle: { backgroundColor: "#cf77ce" },
               headerTintColor: "white",
               tabBarIcon: ({ color, size }) => (

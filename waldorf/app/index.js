@@ -5,10 +5,10 @@ import HomePage from "../pages/HomePage";
 export default function Page() {
   return (
     <View style={styles.container}>
-      <View style={styles.link}>
-        <Link href="/offers"> Offers</Link>
-        <Link href="/requests"> Request</Link>
-      </View>
+      {/* <View style={styles.link}> */}
+      {/* <Link href="/offers"> Offers</Link>
+        <Link href="/requests"> Request</Link> */}
+      {/* </View> */}
       <View>
         <HomePage />
       </View>
@@ -18,7 +18,7 @@ export default function Page() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // backgroundColor: "#d6531f", //Not a suitable place!!
     alignItems: "center",
     justifyContent: "center",
