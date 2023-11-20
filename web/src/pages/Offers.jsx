@@ -8,8 +8,8 @@ export function Offers() {
       <h2>Offers</h2>≈
       <section>
         <span onClick={() => setShowPost(!showPost)}>
-          {" "}
-          Click here to post an offer to help!!{" "}
+          {/* use hover for the span later */} Click here to post an offer to
+          help!!{" "}
         </span>
         {showPost && <OfferForm />}
         <h2>Available offers:</h2>
