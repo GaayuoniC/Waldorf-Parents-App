@@ -9,6 +9,14 @@ import { Requests } from "./pages/Request.jsx";
 import { Contact } from "./pages/Contact.jsx";
 import { RegistrationPage } from "./pages/RegistrationPage.jsx";
 import { LoginPage } from "./pages/LoginPage.jsx";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+  SignIn,
+  SignUp,
+} from "@clerk/clerk-react";
 
 const router = createBrowserRouter([
   {
