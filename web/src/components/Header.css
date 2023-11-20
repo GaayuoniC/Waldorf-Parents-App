@@ -17,5 +17,11 @@
 }
 
 .nav-bar a.active {
-  color: black;
+  /* color: black; */
+  color: white;
+}
+span:hover {
+  cursor: pointer;
+  color: green;
+  font-size: larger;
 }

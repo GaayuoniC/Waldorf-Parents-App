@@ -13,15 +13,20 @@ export function Header() {
     <header className="header-container">
       <nav className="nav-bar">
         <NavLink to="/" className="links">
-          <p> Home </p>
+          Home
         </NavLink>
         <NavLink to="/offers" className="links">
-          <p> Offers </p>
+          Offers
         </NavLink>
         <NavLink to="/requests" className="links">
-          <p> Requests </p>
+          Requests
         </NavLink>
-        {isSignedIn && <NavLink to="/userprofile"> Profile</NavLink>}
+        {isSignedIn && (
+          <NavLink to="/userprofile" className="links">
+            {" "}
+            Profile
+          </NavLink>
+        )}
         <div>
           {isSignedIn ? (
             <>
@@ -36,9 +41,9 @@ export function Header() {
             </>
           ) : (
             <>
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
+              <NavLink to="/login" className="links">
+                Login
+              </NavLink>
             </>
           )}
         </div>
