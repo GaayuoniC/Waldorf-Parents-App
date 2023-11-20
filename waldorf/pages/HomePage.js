@@ -1,4 +1,5 @@
 import { Text, View, Button, StyleSheet, Platform } from "react-native";
+import { Link } from "expo-router";
 export default function HomePage() {
   return (
     <>
@@ -21,8 +22,8 @@ export default function HomePage() {
       </Text>
 
       <View>
-        <Button title="Login" />
-        <Text>Not registered? Please register here!</Text>
+        <Button title="Login" style={styles.loginButton} />
+        <Text>Not registered? Please register, here!</Text>
       </View>
     </>
   );
@@ -30,12 +31,11 @@ export default function HomePage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "red",
     alignItems: "center",
     // justifyContent: "center",
     marginBottom: 10,
     padding: 40,
-    // borderRadius: 20,
+    borderRadius: 20,
     width: Platform.OS === "ios" ? 420 : 380,
 
     //Come back and refactor this style
@@ -49,5 +49,8 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     marginBottom: 20,
     color: "green",
+  },
+  loginButton: {
+    color: "#cf77ce",
   },
 });

@@ -12,14 +12,14 @@ export default function HomeLayout() {
           screenOptions={{
             tabBarActiveTintColor: "#cf77ce",
             tabBarInactiveTintColor: "blue",
-            tabBarStyle: { backgroundColor: "#cf77ce", padding: 10 },
+            tabBarStyle: { backgroundColor: "#d6531f", padding: 10 },
           }}
         >
           <Tabs.Screen
             name="index"
             options={{
               title: "Home",
-              headerStyle: { backgroundColor: "#cf77ce" },
+              headerStyle: { backgroundColor: "#d6531f" },
               headerTintColor: "white",
 
               tabBarIcon: ({ color, size }) => (
@@ -39,7 +39,7 @@ export default function HomeLayout() {
             name="offers"
             options={{
               title: "Offers",
-              headerStyle: { backgroundColor: "#cf77ce" },
+              headerStyle: { backgroundColor: "#d6531f" },
               headerTintColor: "white",
 
               tabBarIcon: ({ color, size }) => (
@@ -58,7 +58,7 @@ export default function HomeLayout() {
             name="request"
             options={{
               title: "Request",
-              headerStyle: { backgroundColor: "#cf77ce" },
+              headerStyle: { backgroundColor: "#d6531f" },
               headerTintColor: "white",
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="shopping-bag" size={size} color={color} />
