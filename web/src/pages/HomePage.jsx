@@ -1,12 +1,13 @@
+import { useUser } from "@clerk/clerk-react";
 import "./HomePage.css";
 
-import { UserProfile } from "../components/UserProfile";
+// import { UserProfile } from "../components/UserProfile";
 import { Link } from "react-router-dom";
 export function HomePage() {
+  const { isSignedIn } = useUser();
   return (
     <div className="home-container">
       <div className="home-items">
-        <UserProfile />
         <div className="home-welcome">
           <h2>Welcome/Willkommen</h2>
           <div className="welcome-items">
@@ -28,16 +29,19 @@ export function HomePage() {
                 help to us and other parents
               </p>
             </div>
-            <div>
-              <Link to="/login">
-                <button>Login</button>
-              </Link>
 
-              <p>
-                Not registered? Please register
-                <Link to="/registration"> here!</Link>
-              </p>
-            </div>
+            {!isSignedIn ? (
+              <div>
+                <Link to="/login">
+                  <button>Login</button>
+                </Link>
+
+                <p>
+                  Not registered? Please register
+                  <Link to="/registration"> here!</Link>
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

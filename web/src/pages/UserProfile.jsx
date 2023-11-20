@@ -12,6 +12,7 @@ export function UserProfile({
       <img src={avatar} alt={name} width={70} height={70} />
       <h4>{name}</h4>
       <p>Email: {email}</p>
+      <h1>hello</h1>
     </div>
   );
 }

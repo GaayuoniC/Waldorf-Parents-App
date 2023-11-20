@@ -7,8 +7,21 @@ import { RootLayout } from "./pages/RootLayout.jsx";
 import { Offers } from "./pages/Offers.jsx";
 import { Requests } from "./pages/Request.jsx";
 import { Contact } from "./pages/Contact.jsx";
-import { RegistrationPage } from "./pages/RegistrationPage.jsx";
-import { LoginPage } from "./pages/LoginPage.jsx";
+// import { RegistrationPage } from "./pages/RegistrationPage.jsx";
+import { UserProfile } from "./pages/UserProfile.jsx";
+// import { LoginPage } from "./pages/LoginPage.jsx";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+  SignIn,
+  SignUp,
+} from "@clerk/clerk-react";
+if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key");
+}
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const router = createBrowserRouter([
   {
@@ -22,15 +35,50 @@ const router = createBrowserRouter([
       },
       { path: "requests", element: <Requests /> },
       { path: "contact", element: <Contact /> },
-      { path: "registration", element: <RegistrationPage /> },
-      { path: "login", element: <LoginPage /> },
+      {
+        path: "/registration/*",
+        element: (
+          <SignUp
+            routing="path"
+            path="/registration"
+            signInUrl="http://localhost:5173/login"
+          />
+        ),
+      },
+      {
+        path: "/login/*",
+        element: (
+          <SignIn
+            routing="path"
+            path="/login"
+            signUpUrl="http://http://localhost:5173/registration"
+          />
+        ),
+      },
+      {
+        path: "/userprofile/*",
+        element: (
+          <>
+            <SignedIn>
+              <UserProfile />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        ),
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
+    <ClerkProvider
+      publishableKey={clerkPubKey}
+      signInUrl="http://localhost:5173/login"
+    >
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </React.StrictMode>
 );
