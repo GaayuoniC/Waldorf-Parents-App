@@ -1,12 +1,11 @@
 import "./HomePage.css";
 
-import { UserProfile } from "../components/UserProfile";
+// import { UserProfile } from "../components/UserProfile";
 import { Link } from "react-router-dom";
 export function HomePage() {
   return (
     <div className="home-container">
       <div className="home-items">
-        <UserProfile />
         <div className="home-welcome">
           <h2>Welcome/Willkommen</h2>
           <div className="welcome-items">
