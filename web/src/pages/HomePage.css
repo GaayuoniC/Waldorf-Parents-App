@@ -23,8 +23,8 @@
   height: 400px;
   flex-wrap: wrap;
   text-align: justify;
-  border: 1px solid black;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
 
   border-radius: 12px;
   padding: 20px;
