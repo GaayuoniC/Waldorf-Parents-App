@@ -1,6 +1,13 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { useState } from "react";
-import { Pressable, Text, TextInput, View, Alert } from "react-native";
+import {
+  Pressable,
+  Text,
+  TextInput,
+  View,
+  Alert,
+  SafeAreaView,
+} from "react-native";
 import { styles } from "../../app/styles";
 import { router } from "expo-router";
 
@@ -8,7 +15,7 @@ function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
 
   const { signIn, setActive, isLoaded } = useSignIn();
-  const { usSignedIn } = useUser();
+  const { useSignedIn } = useUser();
 
   function handleChangeData(element, value) {
     setFormDetails((prev) => {
@@ -43,6 +50,7 @@ function Login() {
           <Text style={[styles.label]}>Email</Text>
           <TextInput
             autoCapitalize="none"
+            autoCompleteType="email"
             autoCorrect={false}
             placeholderTextColor="rgba(28,53,63, 1)"
             style={[styles.input]}

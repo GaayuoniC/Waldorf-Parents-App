@@ -1,6 +1,6 @@
 import { Entypo } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Redirect } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
@@ -21,7 +21,7 @@ export default function HomeLayout() {
 
   return (
     <SafeAreaProvider style={styles.container}>
-      <View style={styles.safearea}>
+      <View>
         <Tabs
           screenOptions={{
             tabBarActiveTintColor: "#cf77ce",

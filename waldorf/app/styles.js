@@ -12,6 +12,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+    // backgroundColor: colors.baseOrange,
+  },
+  safeArea: {
+    backgroundColor: colors.baseOrange,
+    // flex: 2,
   },
   heading: {
     color: colors.headerColor,
@@ -27,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: colors.black,
-    fontSize: 16,
+    fontSize: Platform.OS === "ios" ? 20 : 18,
   },
   input: {
     color: colors.black,
