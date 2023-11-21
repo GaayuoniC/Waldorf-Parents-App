@@ -1,102 +1,29 @@
-import { Entypo } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
-import { StyleSheet, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
+import { Slot } from "expo-router";
+import { ClerkProvider } from "@clerk/clerk-expo";
 
 export default function HomeLayout() {
+  const tokenCache = {
+    async getToken(key) {
+      try {
+        return SecureStore.getItemAsync(key);
+      } catch (err) {
+        return null;
+      }
+    },
+    async saveToken(key, value) {
+      try {
+        return SecureStore.setItemAsync(key, value);
+      } catch (err) {
+        return;
+      }
+    },
+  };
   return (
-    <SafeAreaProvider style={styles.container}>
-      <View style={styles.safearea}>
-        <Tabs
-          screenOptions={{
-            tabBarActiveTintColor: "#cf77ce",
-            tabBarInactiveTintColor: "blue",
-            tabBarStyle: { backgroundColor: "#d6531f", padding: 10 },
-          }}
-        >
-          <Tabs.Screen
-            name="index"
-            options={{
-              title: "Home",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
-
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="home" size={size} color={color} />
-              ),
-              tabBarLabel: "Home",
-              tabBarActiveTintColor: "white",
-
-              tabBarLabelStyle: {
-                fontSize: 12,
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-          <Tabs.Screen
-            name="offers"
-            options={{
-              title: "Offers",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
-
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="price-tag" size={size} color={color} />
-              ),
-              tabBarLabel: "Offers",
-              tabBarActiveTintColor: "white",
-              tabBarLabelStyle: {
-                fontSize: 12,
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-          <Tabs.Screen
-            name="request"
-            options={{
-              title: "Request",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="shopping-bag" size={size} color={color} />
-              ),
-              tabBarLabel: "Request",
-              tabBarActiveTintColor: "white",
-
-              tabBarLabelStyle: {
-                fontSize: 12,
-
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-        </Tabs>
-      </View>
-    </SafeAreaProvider>
+    <ClerkProvider
+      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      tokenCache={tokenCache}
+    >
+      <Slot />
+    </ClerkProvider>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    // flex: 2,
-    // backgroundColor: "#cf77ce",
-    backgroundColor: "#f7f7ff",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // padding: 20,
-    //
-  },
-  text: {
-    fontSize: Platform.OS === "ios" ? 20 : 18,
-  },
-  safearea: {
-    flex: 1,
-    // backgroundColor: "green",
-    // width: 400,
-    // padding: 20,
-    // borderRadius: 12,
-  },
-});
