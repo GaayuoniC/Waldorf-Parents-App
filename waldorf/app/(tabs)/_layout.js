@@ -2,8 +2,23 @@ import { Entypo } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Redirect } from "expo-router";
+import { useUser } from "@clerk/clerk-expo";
 
 export default function HomeLayout() {
+  const { isSignedIn, isLoaded } = useUser();
+
+  if (!isLoaded) {
+    return (
+      <View>
+        <Text>Loading Page</Text>
+      </View>
+    );
+  }
+  if (!isSignedIn) {
+    return <Redirect href="/login" />;
+  }
+
   return (
     <SafeAreaProvider style={styles.container}>
       <View style={styles.safearea}>

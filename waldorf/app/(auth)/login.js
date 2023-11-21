@@ -1,14 +1,20 @@
+import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { useState } from "react";
-import { Text, TextInput, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 
-export function Login() {
+function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
+
+  const { signIn, setActive, isLoaded } = useSignIn();
+  const { usSignedIn } = useUser();
 
   function handleChangeData(element, value) {
     setFormDetails((prev) => {
       return { ...prev, [element]: value };
     });
   }
+
+  function handleSubmit() {}
 
   return (
     <View>
@@ -29,7 +35,11 @@ export function Login() {
             value={formDetails.password}
           ></TextInput>
         </View>
+        <Pressable onPress={() => handleSubmit()}>
+          <Text>Login</Text>
+        </Pressable>
       </View>
     </View>
   );
 }
+export default Login;
