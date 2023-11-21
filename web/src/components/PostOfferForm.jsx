@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../components/OfferForm.css";
 
-export function OfferForm() {
-  const [offerTitle, setOfferTitle] = useState("");
-  const [offerDescription, setOfferDescription] = useState("");
+export function PostOfferForm() {
+  const [postTitle, setPostTitle] = useState("");
+  const [postDescription, setPostDescription] = useState("");
 
   function handleSubmitOfferForm(event) {
     event.preventDefault();
@@ -20,25 +20,25 @@ export function OfferForm() {
   return (
     <div className="offer-container">
       <p id="offer-help">
-        <span> Make an offer to help here! </span>
+        <span>Place a request for help here! </span>
       </p>
 
       <form className="offer-form-container">
         <label className="title-label">
-          <p> Type of help: </p>
+          <p> Type of request: </p>
           <input
             type="text"
-            value={offerTitle}
-            onChange={(e) => setOfferTitle(e.target.value)}
+            value={postTitle}
+            onChange={(e) => setPostTitle(e.target.value)}
           ></input>
         </label>
 
-        <label>
-          <p> Offer description: </p>
+        <label className="title-label">
+          <p> Request description: </p>
           <textarea
             className="text-area"
-            value={offerDescription}
-            onChange={(e) => setOfferDescription(e.target.value)}
+            value={postDescription}
+            onChange={(e) => setPostDescription(e.target.value)}
           ></textarea>
         </label>
 
