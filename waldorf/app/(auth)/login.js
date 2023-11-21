@@ -1,7 +1,8 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
-import { styles, colors } from "../../app/styles";
+import { Pressable, Text, TextInput, View, Alert } from "react-native";
+import { styles } from "../../app/styles";
+import { router } from "expo-router";
 
 function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
@@ -15,7 +16,21 @@ function Login() {
     });
   }
 
-  function handleSubmit() {}
+  async function handleSubmit() {
+    if (!isLoaded) {
+      return;
+    }
+    try {
+      const completeSignIn = await signIn.create({
+        identifier: formDetails.email,
+        password: formDetails.password,
+      });
+      await setActive({ session: completeSignIn.createdSessionId });
+      router.replace("/");
+    } catch (error) {
+      Alert.alert("Error loading page");
+    }
+  }
 
   return (
     <View style={[styles.container]}>
@@ -27,6 +42,9 @@ function Login() {
         <View>
           <Text style={[styles.label]}>Email</Text>
           <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholderTextColor="rgba(28,53,63, 1)"
             style={[styles.input]}
             onChangeText={(value) => handleChangeData("email", value)}
             value={formDetails.email}
@@ -39,6 +57,7 @@ function Login() {
             onChangeText={(value) => handleChangeData("password", value)}
             value={formDetails.password}
             secureTextEntry={true}
+            autoCapitalize="none"
           ></TextInput>
         </View>
         <Pressable onPress={() => handleSubmit()}>
