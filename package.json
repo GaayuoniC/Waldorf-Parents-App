@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@clerk/clerk-expo": "^0.19.18",
-    "expo-router": "^2.0.13"
-  }
-}
