@@ -7,16 +7,33 @@ export const colors = {
   white: "#eeffff",
   highlight: "#ee6c4d",
 };
+// export const newInputStyle = {
+//   ...input,
+//   height: 50,
+// }; //using the spread operator to add specific height...did not function!!
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightBlue,
+    borderRadius: 12,
+    backgroundColor: "#f7f7ff",
     alignItems: "center",
     justifyContent: "center",
+    width: Platform.OS === "ios" ? 380 : 360,
     padding: 20,
+    ...Platform.select({
+      ios: {
+        shadowColor: "rgba(0, 0, 0, 0.15)",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 1,
+        shadowRadius: 12,
+      },
+      android: { elevation: 4 },
+    }),
   },
-  text: {
+  // Used the spread operator to be able to style for ios and android seperately
+  //found the solution online!!!
+  textPrimary: {
     color: colors.white,
     fontSize: 16,
   },
@@ -56,8 +73,22 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     minWidth: 300,
   },
+
   form: {
     width: "100%",
     gap: 4,
+  },
+  text: {
+    fontSize: Platform.OS === "ios" ? 20 : 18,
+    lineHeight: Platform.OS === "ios" ? 30 : 26,
+  },
+  welcome: {
+    fontSize: Platform.OS === "ios" ? 30 : 28,
+    fontStyle: "italic",
+    marginBottom: 20,
+    color: "green",
+  },
+  loginButton: {
+    color: "#cf77ce",
   },
 });

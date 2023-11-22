@@ -1,13 +1,6 @@
-import { colors, styles } from "../styles/FormStyles2";
-import {
-  Button,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
 import { useState } from "react";
+import { Button, Text, TextInput, View } from "react-native";
+import { styles } from "../styles/FormStyles2";
 
 export function PostRequestForm() {
   const [postRequest, setPostRequest] = useState({
