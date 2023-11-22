@@ -1,11 +1,13 @@
 import { Link } from "expo-router";
 import { Text, View, StyleSheet } from "react-native";
+import { OfferForm } from "../components/OfferForm";
 
 export default function Offers() {
   return (
     <View style={styles.container}>
       <Text name="Offers"> Offers </Text>
       <Link href="/"> Home</Link>
+      <OfferForm />
     </View>
   );
 }

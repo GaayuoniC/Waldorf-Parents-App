@@ -1,11 +1,13 @@
 import { Text, View, StyleSheet } from "react-native";
 import { Link } from "expo-router";
+import { PostRequestForm } from "../components/PostRequestForm";
 
 export default function Requests() {
   return (
-    <View>
-      <Text>Request for help</Text>
+    <View style={styles.container}>
+      {/* <Text>Request for help</Text> */}
       <Link href="/"> Home</Link>
+      <PostRequestForm />
     </View>
   );
 }
