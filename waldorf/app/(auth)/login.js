@@ -1,15 +1,9 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
-import { useState } from "react";
-import {
-  Pressable,
-  Text,
-  TextInput,
-  View,
-  Alert,
-  SafeAreaView,
-} from "react-native";
-import { styles } from "../../app/styles";
 import { router } from "expo-router";
+import { useState } from "react";
+import { Alert, Pressable, Text, TextInput, View } from "react-native";
+
+import { styles } from "../../app/styles";
 
 function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });

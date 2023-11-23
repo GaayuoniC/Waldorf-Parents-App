@@ -1,7 +1,7 @@
-import { Link } from "expo-router";
-import { Text, View, StyleSheet, Button } from "react-native";
-import { OfferForm } from "../components/OfferForm";
 import { useState } from "react";
+import { Button, Platform, StyleSheet, Text, View } from "react-native";
+
+import { OfferForm } from "../components/OfferForm";
 
 export default function Offers() {
   const [showPost, setShowPost] = useState(false);
@@ -32,15 +32,3 @@ const styles = StyleSheet.create({
     fontSize: Platform.OS === "ios" ? 20 : 18,
   },
 });
-// import { styles } from "../styles/FormStyles2";
-
-{
-  /* <Text style={styles.welcome}>Waldorf Parents' App</Text> */
-}
-
-{
-  /* <Text name="Offers"> Offers </Text> */
-}
-{
-  /* <Link href="/"> Home</Link> */
-}

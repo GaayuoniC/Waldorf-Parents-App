@@ -1,5 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet, View, Platform } from "react-native";
+
 import HomePage from "../../pages/HomePage";
 
 export default function Page() {

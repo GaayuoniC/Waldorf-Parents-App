@@ -1,4 +1,5 @@
-import { Button, Platform, StyleSheet, Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
+
 import { styles } from "../styles/FormStyles2";
 
 export default function HomePage() {

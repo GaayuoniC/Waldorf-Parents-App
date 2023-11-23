@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Platform } from "react-native";
 import { Link } from "expo-router";
 import { PostRequestForm } from "../components/PostRequestForm";
 import { useState } from "react";
@@ -30,14 +30,3 @@ const styles = StyleSheet.create({
     fontSize: Platform.OS === "ios" ? 20 : 18,
   },
 });
-
-{
-  /* <Text style={styles.welcome}>Waldorf Parents' App</Text> */
-}
-
-{
-  /* <Text>Request for help</Text> */
-}
-{
-  /* <Link href="/"> Home</Link> */
-}

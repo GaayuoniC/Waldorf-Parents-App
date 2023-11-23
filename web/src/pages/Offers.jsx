@@ -33,6 +33,7 @@ export function Offers() {
             );
           })}
         </div>
+
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
             {/* use hover for the span later */} Click here to post an offer to
