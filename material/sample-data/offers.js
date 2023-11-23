@@ -31,4 +31,20 @@ export const offers = [
     modeOfTransportation: "bike", // car, bus, bike, walk
     direction: "from_school", // to_school, from_school, both
   },
+  {
+    id: "abc",
+    parentName: "Sascha",
+    startingAddress: "Calculi 34, 6900 Bonnheimstr",
+    date: "2023-12-01",
+    modeOfTransportation: "bike", // car, bus, bike, walk
+    direction: "from_school", // to_school, from_school, both
+  },
+  {
+    id: "abc",
+    parentName: "Ralf",
+    startingAddress: "Calculi 34, 6900 Bonnheimstr",
+    date: "2023-12-01",
+    modeOfTransportation: "bike", // car, bus, bike, walk
+    direction: "from_school", // to_school, from_school, both
+  },
 ];

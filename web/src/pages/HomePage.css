@@ -30,10 +30,7 @@
   padding: 20px;
   max-width: 100%;
 }
-/* .home-layout {
-  display: flex;
-  flex-direction: row;
-} */
+
 .welcome-items {
   display: flex;
   gap: 20px;
@@ -45,7 +42,7 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
-  background-color: var(--primary-header);
+  background-color: var(--footer-clr);
   border-radius: 12px;
 }
 button:hover {

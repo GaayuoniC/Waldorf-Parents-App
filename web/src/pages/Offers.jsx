@@ -21,7 +21,7 @@ export function Offers() {
             console.log("checking", item);
             return (
               <ul key={item.parentName} className="parents-card">
-                <li style={{ marginRight: 10 }}>
+                <li style={{ padding: 10 }}>
                   Parent name: {item.parentName} <br />
                   Direction of travel: {item.direction}
                   <br />
