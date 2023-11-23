@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
-import { styles } from "../styles/FormStyles2";
+import { styles, colors } from "../styles/FormStyles2";
 
-export function PostRequestForm() {
+export function OfferForm() {
   const [postRequest, setPostRequest] = useState({
     title: "",
     description: "",
   });
-  function handlePostChange(name, value) {
+  function handleOfferChange(name, value) {
     // const { name, value } = e.target;
     setPostRequest((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmitPostRequest(e) {
+  function handleSubmitOfferRequest(e) {
     e.preventDefault();
   }
 
@@ -24,23 +24,20 @@ export function PostRequestForm() {
         <TextInput
           // style={}
           style={[styles.input]}
-          placeholder="Enter title of request"
-          onChangeText={(text) => handlePostChange("title", text)}
+          placeholder="Enter title of offer"
+          onChangeText={(text) => handleOfferChange("title", text)}
           value={postRequest.title}
         />
       </View>
       <View style={[styles.form]}>
-        <Text>Description of request needed: </Text>
+        <Text>Description of offer to help: </Text>
         <TextInput
           style={[styles.input]}
-          placeholder="Enter description of help requested"
-          onChangeText={(text) => handlePostChange("description", text)}
+          placeholder="Enter description of help to offer"
+          onChangeText={(text) => handleOfferChange("description", text)}
           value={postRequest.description}
         />
-        <Button title="Post" onPress={handleSubmitPostRequest} />
-      </View>
-      <View>
-        <Text>Available requests for help:</Text>
+        <Button title="Submit offer" onPress={handleSubmitOfferRequest} />
       </View>
     </View>
   );
