@@ -14,8 +14,8 @@
   width: 350px;
 }
 .parent-info-titles {
-  font-weight: bold;
-  margin-right: 10px;
+  font-weight: 500;
+  margin-right: 3px;
   /* color: var(--clr-h-1); */
 }
 

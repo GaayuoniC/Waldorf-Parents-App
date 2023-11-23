@@ -36,7 +36,7 @@ input {
   border-radius: var(--border-radius);
   min-width: 200px;
   max-width: 600px;
-  min-height: 35px;
+  height: 35px;
   max-height: 300px;
   margin-top: 5px;
   padding: 10px;
