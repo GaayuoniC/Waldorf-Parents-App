@@ -21,6 +21,14 @@ export const offers = [
     startingAddress: "Cassa 134, 6900 Hustonstr",
     date: "2023-12-01",
     modeOfTransportation: "walk", // car, bus, bike, walk
+    direction: "to_school", // to_school, from_school, both
+  },
+  {
+    id: "abc",
+    parentName: "Staicy",
+    startingAddress: "Cassa 134, 6900 Bonnheimstr",
+    date: "2023-12-01",
+    modeOfTransportation: "bike", // car, bus, bike, walk
     direction: "from_school", // to_school, from_school, both
   },
 ];
