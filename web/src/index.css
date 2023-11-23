@@ -28,6 +28,11 @@ main {
 }
 
 h1 {
-  /* color from waldorf */
+  /* color from waldorf school */
   color: var(--clr-h-1);
+  font-weight: 400;
+}
+h2,
+h3 {
+  font-weight: 400;
 }

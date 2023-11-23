@@ -21,13 +21,22 @@ export function Offers() {
             console.log("checking", item);
             return (
               <ul key={item.parentName} className="parents-card">
-                <li style={{ padding: 10 }}>
-                  Parent name: {item.parentName} <br />
-                  Direction of travel: {item.direction}
+                <li className="parent-info">
+                  <span className="parent-info-titles"> Parent name: </span>
+                  {item.parentName} <br />
+                  <span className="parent-info-titles">Starting address:</span>
+                  {item.startingAddress}
                   <br />
-                  Mode of Transport: {item.modeOfTransportation}
+                  <span className="parent-info-titles">
+                    Direction of travel:
+                  </span>
+                  {item.direction}
                   <br />
-                  Date: {item.date}
+                  <span className="parent-info-titles">Mode of Transport:</span>
+                  {item.modeOfTransportation}
+                  <br />
+                  <span className="parent-info-titles"> Date: </span>
+                  {item.date}
                 </li>
               </ul>
             );

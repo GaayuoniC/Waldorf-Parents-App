@@ -17,32 +17,48 @@ export const offers = [
   },
   {
     id: "abc",
-    parentName: "Arefin",
+    parentName: "Arefin Hasnat",
     startingAddress: "Cassa 134, 6900 Hustonstr",
     date: "2023-12-01",
     modeOfTransportation: "walk", // car, bus, bike, walk
     direction: "to_school", // to_school, from_school, both
   },
   {
-    id: "abc",
-    parentName: "Staicy",
-    startingAddress: "Cassa 134, 6900 Bonnheimstr",
+    id: "abcd",
+    parentName: "Staicy Stadtler",
+    startingAddress: "Skala 134, 6900 Bonnheimstr",
     date: "2023-12-01",
     modeOfTransportation: "bike", // car, bus, bike, walk
     direction: "from_school", // to_school, from_school, both
   },
   {
-    id: "abc",
-    parentName: "Sascha",
-    startingAddress: "Calculi 34, 6900 Bonnheimstr",
+    id: "abcde",
+    parentName: "Sascha Rose",
+    startingAddress: "Ferrari 1, 6900 Bonnheimstr",
     date: "2023-12-01",
     modeOfTransportation: "bike", // car, bus, bike, walk
     direction: "from_school", // to_school, from_school, both
   },
   {
-    id: "abc",
-    parentName: "Ralf",
-    startingAddress: "Calculi 34, 6900 Bonnheimstr",
+    id: "abcdef",
+    parentName: "Ralf Siewert",
+    startingAddress: "Bayer Munchen FC 1, 6900 Bonnheimstr",
+    date: "2023-12-01",
+    modeOfTransportation: "bike", // car, bus, bike, walk
+    direction: "from_school", // to_school, from_school, both
+  },
+  {
+    id: "abcdefg",
+    parentName: "Mert Tercen",
+    startingAddress: "Calculi 34, 6900 Freedom Lane",
+    date: "2023-12-01",
+    modeOfTransportation: "bike", // car, bus, bike, walk
+    direction: "from_school", // to_school, from_school, both
+  },
+  {
+    id: "abc-1",
+    parentName: "Silke Grotegut",
+    startingAddress: "Azonto 100, 6900 Freedom Lane",
     date: "2023-12-01",
     modeOfTransportation: "bike", // car, bus, bike, walk
     direction: "from_school", // to_school, from_school, both
