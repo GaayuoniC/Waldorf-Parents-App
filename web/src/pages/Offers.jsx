@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { OfferForm } from "../components/OfferForm";
+import axios from "axios";
+
 export function Offers() {
   const [showPost, setShowPost] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
+  const [data, setData] = useState();
 
   return (
     <>
