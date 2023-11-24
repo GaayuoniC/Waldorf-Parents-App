@@ -19,77 +19,73 @@ export default function HomeLayout() {
   }
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <View>
-        <Tabs
-          screenOptions={{
-            tabBarActiveTintColor: "#cf77ce",
-            tabBarInactiveTintColor: "blue",
-            tabBarStyle: { backgroundColor: "#d6531f", padding: 10 },
-          }}
-        >
-          <Tabs.Screen
-            name="index"
-            options={{
-              title: "Home",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#cf77ce",
+        tabBarInactiveTintColor: "blue",
+        tabBarStyle: { backgroundColor: "#d6531f", padding: 10 },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          headerStyle: { backgroundColor: "#d6531f" },
+          headerTintColor: "white",
 
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="home" size={size} color={color} />
-              ),
-              tabBarLabel: "Home",
-              tabBarActiveTintColor: "white",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="home" size={size} color={color} />
+          ),
+          tabBarLabel: "Home",
+          tabBarActiveTintColor: "white",
 
-              tabBarLabelStyle: {
-                fontSize: 12,
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-          <Tabs.Screen
-            name="offers"
-            options={{
-              title: "Offers",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "bold",
+            color: "black",
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="offers"
+        options={{
+          title: "Offers",
+          headerStyle: { backgroundColor: "#d6531f" },
+          headerTintColor: "white",
 
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="price-tag" size={size} color={color} />
-              ),
-              tabBarLabel: "Offers",
-              tabBarActiveTintColor: "white",
-              tabBarLabelStyle: {
-                fontSize: 12,
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-          <Tabs.Screen
-            name="request"
-            options={{
-              title: "Request",
-              headerStyle: { backgroundColor: "#d6531f" },
-              headerTintColor: "white",
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="shopping-bag" size={size} color={color} />
-              ),
-              tabBarLabel: "Request",
-              tabBarActiveTintColor: "white",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="price-tag" size={size} color={color} />
+          ),
+          tabBarLabel: "Offers",
+          tabBarActiveTintColor: "white",
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "bold",
+            color: "black",
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="request"
+        options={{
+          title: "Request",
+          headerStyle: { backgroundColor: "#d6531f" },
+          headerTintColor: "white",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="shopping-bag" size={size} color={color} />
+          ),
+          tabBarLabel: "Request",
+          tabBarActiveTintColor: "white",
 
-              tabBarLabelStyle: {
-                fontSize: 12,
+          tabBarLabelStyle: {
+            fontSize: 12,
 
-                fontWeight: "bold",
-                color: "black",
-              },
-            }}
-          />
-        </Tabs>
-      </View>
-    </SafeAreaProvider>
+            fontWeight: "bold",
+            color: "black",
+          },
+        }}
+      />
+    </Tabs>
   );
 }
 const styles = StyleSheet.create({

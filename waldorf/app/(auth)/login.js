@@ -50,7 +50,7 @@ function Login() {
             style={[styles.input]}
             onChangeText={(value) => handleChangeData("email", value)}
             value={formDetails.email}
-          ></TextInput>
+          />
         </View>
         <View>
           <Text style={[styles.label]}>Enter password</Text>
@@ -58,9 +58,9 @@ function Login() {
             style={[styles.input]}
             onChangeText={(value) => handleChangeData("password", value)}
             value={formDetails.password}
-            secureTextEntry={true}
+            secureTextEntry
             autoCapitalize="none"
-          ></TextInput>
+          />
         </View>
         <Pressable onPress={() => handleSubmit()}>
           <Text style={[styles.label]}>Login</Text>

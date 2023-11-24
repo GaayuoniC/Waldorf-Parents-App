@@ -1,8 +1,10 @@
-import { StyleSheet, View, Platform } from "react-native";
+import { useAuth } from "@clerk/clerk-expo";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 import HomePage from "../../pages/HomePage";
 
 export default function Page() {
+  const { signOut } = useAuth();
   return (
     <View style={styles.container}>
       {/* <View style={styles.link}> */}
@@ -11,6 +13,9 @@ export default function Page() {
       {/* </View> */}
       <View>
         <HomePage />
+        <Pressable onPress={signOut}>
+          <Text>Logout</Text>
+        </Pressable>
       </View>
     </View>
   );
