@@ -1,5 +1,5 @@
-import { Slot } from "expo-router";
 import { ClerkProvider } from "@clerk/clerk-expo";
+import { Slot } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 
 export default function HomeLayout() {
@@ -14,9 +14,7 @@ export default function HomeLayout() {
     async saveToken(key, value) {
       try {
         return SecureStore.setItemAsync(key, value);
-      } catch (err) {
-        return;
-      }
+      } catch (err) {}
     },
   };
   return (

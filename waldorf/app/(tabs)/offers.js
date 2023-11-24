@@ -1,7 +1,8 @@
 import { Link } from "expo-router";
-import { Text, View, StyleSheet, Button } from "react-native";
-import { OfferForm } from "../components/OfferForm";
 import { useState } from "react";
+import { Text, View, StyleSheet, Button } from "react-native";
+
+import { OfferForm } from "../components/OfferForm";
 
 export default function Offers() {
   const [showPost, setShowPost] = useState(false);
