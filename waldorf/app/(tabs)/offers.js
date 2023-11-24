@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Platform, StyleSheet, Text, View } from "react-native";
 
-import { OfferForm } from "../components/OfferForm";
+import { OfferForm } from "../../components/OfferForm";
 
 export default function Offers() {
   const [showPost, setShowPost] = useState(false);
