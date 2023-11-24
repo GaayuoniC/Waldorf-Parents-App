@@ -9,7 +9,7 @@ function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
 
   const { signIn, setActive, isLoaded } = useSignIn();
-  const { useSignedIn } = useUser();
+  const { isSignedIn } = useUser();
 
   function handleChangeData(element, value) {
     setFormDetails((prev) => {
@@ -65,6 +65,7 @@ function Login() {
         <Pressable onPress={() => handleSubmit()}>
           <Text style={[styles.label]}>Login</Text>
         </Pressable>
+        <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
       </View>
     </View>
   );
