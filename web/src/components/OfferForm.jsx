@@ -2,8 +2,15 @@ import { useState } from "react";
 import "../components/OfferForm.css";
 
 export function OfferForm() {
-  const [offerTitle, setOfferTitle] = useState("");
-  const [offerDescription, setOfferDescription] = useState("");
+  const [postOffer, setPostOffer] = useState({
+    parentName: "",
+    startStreet: "",
+    startZip: "",
+    startCity: "",
+    dateOfTransportation: "",
+    modeOfTransportation: "",
+    direction: "",
+  });
 
   function handleSubmitOfferForm(event) {
     event.preventDefault();
@@ -25,21 +32,64 @@ export function OfferForm() {
 
       <form className="offer-form-container">
         <label className="title-label">
-          <p> Type of help: </p>
+          <p> Enter name: </p>
           <input
             type="text"
-            value={offerTitle}
-            onChange={(e) => setOfferTitle(e.target.value)}
+            value={postOffer.parentName}
+            onChange={(e) => setPostOffer(e.target.value)}
           ></input>
         </label>
 
-        <label>
-          <p> Offer description: </p>
-          <textarea
-            className="text-area"
-            value={offerDescription}
-            onChange={(e) => setOfferDescription(e.target.value)}
-          ></textarea>
+        <label className="title-label">
+          <p> Enter starting street: </p>
+          <input
+            type="text"
+            value={postOffer.startStreet}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
+        </label>
+
+        <label className="title-label">
+          <p> Enter start zip/postcode: </p>
+          <input
+            type="text"
+            value={postOffer.startZip}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
+        </label>
+        <label className="title-label">
+          <p> Enter start city: </p>
+          <input
+            type="text"
+            value={postOffer.startCity}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
+        </label>
+        <label className="title-label">
+          <p> Date of transportation: </p>
+          <input
+            type="text"
+            value={postOffer.dateOfTransportation}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
+        </label>
+
+        <label className="title-label">
+          <p> Mode to transport: </p>
+          <input
+            type="text"
+            value={postOffer.modeOfTransportation}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
+        </label>
+
+        <label className="title-label">
+          <p> Direction </p>
+          <input
+            type="text"
+            value={postOffer.dateOfTransportation}
+            onChange={(e) => setPostOffer(e.target.value)}
+          ></input>
         </label>
 
         <button type="submit" onSubmit={handleSubmitOfferForm}>

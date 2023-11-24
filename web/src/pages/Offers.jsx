@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { OfferForm } from "../components/OfferForm";
 import axios from "axios";
-import { offers } from "../../../material/sample-data/offers";
 import "../pages/Offers.css";
 
 export function Offers() {
@@ -65,8 +64,7 @@ export function Offers() {
 
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
-            {/* use hover for the span later */} Click here to post an offer to
-            help!!
+            Click here to post an offer to help!!
           </span>
           {showPost && <OfferForm />}
         </div>
