@@ -23,10 +23,20 @@ export class PostOfferRequest {
   })
   parentName: string;
   @ApiProperty({
-    description: 'Parent name',
-    example: 'John Doe',
+    description: 'Start address: street & house number',
+    example: 'Dorfstr. 1',
   })
-  startingAddress: string;
+  start_street: string;
+  @ApiProperty({
+    description: 'Start address: zip code',
+    example: '12345',
+  })
+  start_zip: string;
+  @ApiProperty({
+    description: 'Start address: city',
+    example: 'Entenhausen',
+  })
+  start_city: string;
   @ApiProperty({
     description: 'Date',
     example: '2023-12-06T09:00:00.000Z',
