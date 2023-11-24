@@ -51,7 +51,7 @@ const router = createBrowserRouter([
           <SignIn
             routing="path"
             path="/login"
-            signUpUrl="http://http://localhost:5173/registration"
+            signUpUrl="http://localhost:5173/registration"
           />
         ),
       },

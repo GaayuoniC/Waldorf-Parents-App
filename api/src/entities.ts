@@ -16,17 +16,17 @@ export class OfferEntity {
     description: 'Start address: street & house number',
     example: 'Dorfstr. 1',
   })
-  start_street: string;
+  startStreet: string;
   @ApiProperty({
     description: 'Start address: zip code',
     example: '12345',
   })
-  start_zip: string;
+  startZip: string;
   @ApiProperty({
     description: 'Start address: city',
     example: 'Entenhausen',
   })
-  start_city: string;
+  startCity: string;
   @ApiProperty({
     description: 'Date',
     example: '2023-12-06T09:00:00.000Z',
@@ -45,9 +45,9 @@ export class OfferEntity {
   constructor(offer: Offer) {
     this.id = offer.id;
     this.parentName = offer.parentName;
-    this.start_street = offer.start_street;
-    this.start_zip = offer.start_zip;
-    this.start_city = offer.start_city;
+    this.startStreet = offer.startStreet;
+    this.startZip = offer.startZip;
+    this.startCity = offer.startCity;
     this.dateOfTransportation = offer.dateOfTransportation;
     this.modeOfTransportation = offer.modeOfTransportation;
     this.direction = offer.direction;

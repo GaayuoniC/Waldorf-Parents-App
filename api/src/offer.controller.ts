@@ -26,17 +26,17 @@ export class PostOfferRequest {
     description: 'Start address: street & house number',
     example: 'Dorfstr. 1',
   })
-  start_street: string;
+  startStreet: string;
   @ApiProperty({
     description: 'Start address: zip code',
     example: '12345',
   })
-  start_zip: string;
+  startZip: string;
   @ApiProperty({
     description: 'Start address: city',
     example: 'Entenhausen',
   })
-  start_city: string;
+  startCity: string;
   @ApiProperty({
     description: 'Date',
     example: '2023-12-06T09:00:00.000Z',
