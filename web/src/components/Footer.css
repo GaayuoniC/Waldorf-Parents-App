@@ -1,7 +1,6 @@
 footer {
   display: flex;
-  /* background-color: var(--primary-color); */
-  background-color: var(--primary-header);
+  background-color: var(--footer-clr);
 
   gap: 50px;
   /* align-content: space-between; */
@@ -15,7 +14,20 @@ footer {
 }
 .contact {
   text-decoration: none;
+  color: black;
 }
 .contact :hover {
   color: white;
+}
+
+@media (max-width: 768px) {
+  footer {
+    border-top: 1px solid white;
+  }
+  button {
+    background-color: var(--clr-h-1);
+  }
+  button:hover {
+    background-color: var(--primary-header);
+  }
 }

@@ -1,8 +1,7 @@
-import { Link } from "expo-router";
 import { useState } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Button, Platform, StyleSheet, Text, View } from "react-native";
 
-import { PostRequestForm } from "../components/PostRequestForm";
+import { PostRequestForm } from "../../components/PostRequestForm";
 
 export default function Requests() {
   const [showPost, setShowPost] = useState(false);
@@ -31,14 +30,3 @@ const styles = StyleSheet.create({
     fontSize: Platform.OS === "ios" ? 20 : 18,
   },
 });
-
-{
-  /* <Text style={styles.welcome}>Waldorf Parents' App</Text> */
-}
-
-{
-  /* <Text>Request for help</Text> */
-}
-{
-  /* <Link href="/"> Home</Link> */
-}

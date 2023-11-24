@@ -7,14 +7,16 @@ export default function HomeLayout() {
     async getToken(key) {
       try {
         return SecureStore.getItemAsync(key);
-      } catch (err) {
+      } catch (error) {
         return null;
       }
     },
     async saveToken(key, value) {
       try {
         return SecureStore.setItemAsync(key, value);
-      } catch (err) {}
+      } catch (error) {
+        return;
+      }
     },
   };
   return (

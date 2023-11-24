@@ -1,14 +1,7 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import { useState } from "react";
-import {
-  Pressable,
-  Text,
-  TextInput,
-  View,
-  Alert,
-  SafeAreaView,
-} from "react-native";
+import { Alert, Pressable, Text, TextInput, View } from "react-native";
 
 import { styles } from "../../app/styles";
 

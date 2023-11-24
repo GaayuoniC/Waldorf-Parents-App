@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 export const colors = {
   mediumBlue: "#98c1d9",

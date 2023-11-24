@@ -35,6 +35,7 @@ export function Header() {
                 onClick={() => {
                   signOut();
                 }}
+                style={{ marginLeft: 10, textDecoration: "none" }}
               >
                 Log Out
               </NavLink>
