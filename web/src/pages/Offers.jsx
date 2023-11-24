@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OfferForm } from "../components/OfferForm";
 import axios from "axios";
 import { offers } from "../../../material/sample-data/offers";
@@ -8,15 +8,33 @@ export function Offers() {
   const [showPost, setShowPost] = useState(false);
   const [isloading, setIsLoading] = useState(false);
   const [data, setData] = useState();
+  // console.log(data);
 
-  const dummyData = offers;
+  // const dummyData = offers;
+  const url = "https://api/offers";
+
+  useEffect(() => {
+    async function loadOffers() {
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get(url);
+        setData(data.parentName);
+        console.debug(data); //debugging check
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadOffers();
+  }, []);
 
   return (
     <>
       <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
-        <div className="parents-container">
+        {/* <div className="parents-container">
           {dummyData.map((item) => {
             console.log("checking", item);
             return (
@@ -41,7 +59,7 @@ export function Offers() {
               </ul>
             );
           })}
-        </div>
+        </div> */}
 
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
