@@ -23,7 +23,6 @@ export function Header() {
         </NavLink>
         {isSignedIn && (
           <NavLink to="/userprofile" className="links">
-            {" "}
             Profile
           </NavLink>
         )}
