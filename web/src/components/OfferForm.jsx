@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../components/OfferForm.css";
+import axios from "axios";
 
 export function OfferForm() {
   const [postOffer, setPostOffer] = useState({
@@ -12,16 +13,16 @@ export function OfferForm() {
     direction: "",
   });
 
+  function handleChange(event, field) {
+    setPostOffer({
+      ...postOffer,
+      [field]: event.target.value,
+    });
+  }
+
   function handleSubmitOfferForm(event) {
     event.preventDefault();
-    //validate and then submit the form with this if statement
-    // if (offerTitle && offerDescription) {
-    //   onSubmit({ offerTitle, offerDescription });
-    //   setOfferTitle("");
-    //   setOfferDescription("");
-    // } else {
-    //   alert("Please fill in all fields");
-    // }
+    console.log("Form submitted", postOffer);
   }
 
   return (
@@ -30,13 +31,13 @@ export function OfferForm() {
         <span> Make an offer to help here! </span>
       </p>
 
-      <form className="offer-form-container">
+      <form className="offer-form-container" onSubmit={handleSubmitOfferForm}>
         <label className="title-label">
           <p> Enter name: </p>
           <input
             type="text"
             value={postOffer.parentName}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "parentName")}
           ></input>
         </label>
 
@@ -45,7 +46,7 @@ export function OfferForm() {
           <input
             type="text"
             value={postOffer.startStreet}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "startStreet")}
           ></input>
         </label>
 
@@ -54,7 +55,7 @@ export function OfferForm() {
           <input
             type="text"
             value={postOffer.startZip}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "startZip")}
           ></input>
         </label>
         <label className="title-label">
@@ -62,7 +63,7 @@ export function OfferForm() {
           <input
             type="text"
             value={postOffer.startCity}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "startCity")}
           ></input>
         </label>
         <label className="title-label">
@@ -70,7 +71,7 @@ export function OfferForm() {
           <input
             type="text"
             value={postOffer.dateOfTransportation}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "dateOfTransportation")}
           ></input>
         </label>
 
@@ -79,7 +80,7 @@ export function OfferForm() {
           <input
             type="text"
             value={postOffer.modeOfTransportation}
-            onChange={(e) => setPostOffer(e.target.value)}
+            onChange={(e) => handleChange(e, "modeOfTransportation")}
           ></input>
         </label>
 
@@ -87,14 +88,12 @@ export function OfferForm() {
           <p> Direction </p>
           <input
             type="text"
-            value={postOffer.dateOfTransportation}
-            onChange={(e) => setPostOffer(e.target.value)}
+            value={postOffer.direction}
+            onChange={(e) => handleChange(e, "direction")}
           ></input>
         </label>
 
-        <button type="submit" onSubmit={handleSubmitOfferForm}>
-          Post
-        </button>
+        <button type="submit">Post</button>
       </form>
     </div>
   );
