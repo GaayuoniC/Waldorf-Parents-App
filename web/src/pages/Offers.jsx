@@ -7,18 +7,21 @@ import "../pages/Offers.css";
 export function Offers() {
   const [showPost, setShowPost] = useState(false);
   const [isloading, setIsLoading] = useState(false);
-  const [data, setData] = useState();
+  const [offers, setOffers] = useState([]);
   // console.log(data);
 
   // const dummyData = offers;
-  const url = "https://api/offers";
+  const url = "/api/offers";
 
   useEffect(() => {
     async function loadOffers() {
       try {
         setIsLoading(true);
+        console.log("start loading");
         const { data } = await axios.get(url);
-        setData(data.parentName);
+        console.log("finished loading");
+
+        setOffers(data.parentName);
         console.debug(data); //debugging check
       } catch (error) {
         console.log(error);
