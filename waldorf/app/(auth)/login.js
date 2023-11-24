@@ -39,7 +39,7 @@ function Login() {
   }
 
   const handleTestLogin = async () => {
-    await login("", "");
+    await login("gayuoni@hotmail.com", "ShitMicrosoft112");
   };
 
   const handleFailedLogin = async () => {

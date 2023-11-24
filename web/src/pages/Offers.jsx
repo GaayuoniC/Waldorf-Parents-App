@@ -17,14 +17,13 @@ export function Offers() {
     async function loadOffers() {
       try {
         setIsLoading(true);
-        console.log("start loading");
-        const { data } = await axios.get(url);
-        console.log("finished loading");
 
-        setOffers(data.parentName);
+        const { data } = await axios.get(url);
+
+        setOffers(data);
         console.debug(data); //debugging check
       } catch (error) {
-        console.log(error);
+        console.log("Data loading error ! Please check your code again", error);
       } finally {
         setIsLoading(false);
       }
@@ -37,11 +36,11 @@ export function Offers() {
       <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
-        {/* <div className="parents-container">
-          {dummyData.map((item) => {
-            console.log("checking", item);
+
+        <div className="parents-container">
+          {offers.map((item) => {
             return (
-              <ul key={item.parentName} className="parents-card">
+              <ul key={item.id} className="parents-card">
                 <li className="parent-info">
                   <span className="parent-info-titles"> Parent name: </span>
                   {item.parentName} <br />
@@ -57,12 +56,12 @@ export function Offers() {
                   {item.modeOfTransportation}
                   <br />
                   <span className="parent-info-titles"> Date: </span>
-                  {item.date}
+                  {item.dateOfTtransportation}
                 </li>
               </ul>
             );
           })}
-        </div> */}
+        </div>
 
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
