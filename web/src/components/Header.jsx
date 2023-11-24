@@ -15,17 +15,20 @@ export function Header() {
         <NavLink to="/" className="links">
           Home
         </NavLink>
-        <NavLink to="/offers" className="links">
-          Offers
-        </NavLink>
-        <NavLink to="/requests" className="links">
-          Requests
-        </NavLink>
         {isSignedIn && (
-          <NavLink to="/userprofile" className="links">
-            Profile
-          </NavLink>
+          <>
+            <NavLink to="/offers" className="links">
+              Offers
+            </NavLink>
+            <NavLink to="/requests" className="links">
+              Requests
+            </NavLink>
+            <NavLink to="/userprofile" className="links">
+              Profile
+            </NavLink>
+          </>
         )}
+
         <div>
           {isSignedIn ? (
             <>
