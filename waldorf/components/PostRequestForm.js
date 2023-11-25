@@ -40,9 +40,6 @@ export function PostRequestForm() {
         />
         <Button title="Post" onPress={handleSubmitPostRequest} />
       </View>
-      <View>
-        <Text>Available requests for help:</Text>
-      </View>
     </View>
   );
 }

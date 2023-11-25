@@ -9,10 +9,11 @@ export default function Requests() {
   return (
     <>
       <View style={[styles.container]}>
+        <View>
+          <Text>Available requests :</Text>
+        </View>
         <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
         {showPost && <PostRequestForm />}
-
-        <Text>Available requests :</Text>
       </View>
     </>
   );
