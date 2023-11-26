@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Platform, StyleSheet, Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
 import { PostRequestForm } from "../../components/PostRequestForm";
 import { styles } from "../../styles/FormStyles2";

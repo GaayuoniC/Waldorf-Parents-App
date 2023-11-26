@@ -1,8 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { Entypo } from "@expo/vector-icons";
 import { Redirect, Tabs } from "expo-router";
-import { StyleSheet, Text, View, Platform } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Platform, StyleSheet, Text, View } from "react-native";
 
 export default function HomeLayout() {
   const { isSignedIn, isLoaded } = useUser();
