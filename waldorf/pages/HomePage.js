@@ -1,11 +1,14 @@
+import { useUser } from "@clerk/clerk-expo";
 import { Button, Text, View } from "react-native";
 
 import { styles } from "../styles/FormStyles2";
 
 export default function HomePage() {
+  const { isSignedIn } = useUser();
+
   return (
     <>
-      <Text style={styles.welcome}>Waldorf Parents' App</Text>
+      <Text style={[styles.welcome]}>Waldorf Parents' App</Text>
       <View style={[styles.container]}>
         <Text style={styles.text}>
           Welcome to the Waldorf school parents helper App. The site is made
@@ -24,10 +27,12 @@ export default function HomePage() {
           us and other parents
         </Text>
 
-        <View>
-          <Button title="Login" style={styles.loginButton} />
-          <Text>Not registered? Please register, here!</Text>
-        </View>
+        {!isSignedIn ? (
+          <View>
+            <Button title="Login" style={styles.loginButton} />
+            <Text>Not registered? Please register, here!</Text>
+          </View>
+        ) : null}
       </View>
     </>
   );

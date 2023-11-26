@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Platform, StyleSheet, Text, View } from "react-native";
 
+import { styles } from "../../styles/FormStyles2";
 import { OfferForm } from "../../components/OfferForm";
 
 export default function Offers() {
@@ -30,10 +31,12 @@ export default function Offers() {
 
   return (
     <>
+      <Text style={styles.welcome}>Waldorf Parents' App</Text>
+
       {isLoading ? (
         <Text>Loading offers</Text>
       ) : (
-        <View style={styles.container}>
+        <View style={[styles.container]}>
           <View style={styles.offerTitle}>
             <Text>Available offers :</Text>
             <View>
@@ -49,17 +52,17 @@ export default function Offers() {
     </>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: Platform.OS === "ios" ? 20 : 18,
-  },
-  offerTitle: {
-    paddingTop: 30,
-    marginBottom: Platform.OS === "ios" ? 0 : 10,
-  },
-});
+// const styles1 = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   text: {
+//     fontSize: Platform.OS === "ios" ? 20 : 18,
+//   },
+//   offerTitle: {
+//     paddingTop: 30,
+//     marginBottom: Platform.OS === "ios" ? 0 : 10,
+//   },
+// });
