@@ -35,32 +35,39 @@ export function Offers() {
       <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
-
-        <div className="parents-container">
-          {offers.map((item) => {
-            return (
-              <ul key={item.id} className="parents-card">
-                <li className="parent-info">
-                  <span className="parent-info-titles"> Parent name: </span>
-                  {item.parentName} <br />
-                  <span className="parent-info-titles">Starting address:</span>
-                  {item.startingAddress}
-                  <br />
-                  <span className="parent-info-titles">
-                    Direction of travel:
-                  </span>
-                  {item.direction}
-                  <br />
-                  <span className="parent-info-titles">Mode of Transport:</span>
-                  {item.modeOfTransportation}
-                  <br />
-                  <span className="parent-info-titles"> Date: </span>
-                  {item.dateOfTtransportation}
-                </li>
-              </ul>
-            );
-          })}
-        </div>
+        {isloading ? (
+          <h4> Loading offfers...please wait</h4>
+        ) : (
+          <div className="parents-container">
+            {offers.map((item) => {
+              return (
+                <ul key={item.id} className="parents-card">
+                  <li className="parent-info">
+                    <span className="parent-info-titles"> Parent name: </span>
+                    {item.parentName} <br />
+                    <span className="parent-info-titles">
+                      Starting address:
+                    </span>
+                    {item.startingAddress}
+                    <br />
+                    <span className="parent-info-titles">
+                      Direction of travel:
+                    </span>
+                    {item.direction}
+                    <br />
+                    <span className="parent-info-titles">
+                      Mode of Transport:
+                    </span>
+                    {item.modeOfTransportation}
+                    <br />
+                    <span className="parent-info-titles"> Date: </span>
+                    {item.dateOfTtransportation}
+                  </li>
+                </ul>
+              );
+            })}
+          </div>
+        )}
 
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
