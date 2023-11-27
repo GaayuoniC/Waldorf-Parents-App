@@ -14,6 +14,7 @@ export default function Offers() {
   const [isLoading, setIsLoading] = useState(false);
 
   const url = "http://192.168.178.32:3000/offers";
+  //for app http synthax is a must
   useEffect(() => {
     async function loadOffers() {
       try {
@@ -23,7 +24,7 @@ export default function Offers() {
             Authorization: `Bearer ${await getToken()}`,
           },
         });
-        console.debug(data); //data fetching not working!!
+        console.debug(data);
 
         setOffers(data);
       } catch (error) {
@@ -47,7 +48,17 @@ export default function Offers() {
             <Text>Available offers :</Text>
             <View>
               {offers.map((item) => {
-                return <Text key={item.id}>{item.parentName}</Text>;
+                return (
+                  <Text key={item.id}>
+                    Parent Name: {item.parentName} Starting street:
+                    {item.startStreet}
+                    Postal code: {item.startZip}
+                    Starting city: {item.startCity}
+                    Date of transport{item.dateOfTransportion}
+                    Mode of transportation{item.modeOfTransportation}
+                    Direction of travel{item.direction}
+                  </Text>
+                );
               })}
             </View>
           </View>
