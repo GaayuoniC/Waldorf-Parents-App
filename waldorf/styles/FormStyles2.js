@@ -94,4 +94,20 @@ export const styles = StyleSheet.create({
   loginButton: {
     color: "#cf77ce",
   },
+  parentDetail: {
+    fontSize: 15,
+    marginBottom: 10,
+    fontWeight: "bold",
+    // marginRight: 50,
+    // paddingRight: 20,
+  },
+  parentDetailText: {
+    color: "#000000",
+  },
+  horizontalLine: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    width: "100%",
+    marginVertical: 10,
+  },
 });

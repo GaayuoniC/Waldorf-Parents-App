@@ -1,7 +1,7 @@
+import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
-import { useAuth } from "@clerk/clerk-expo";
 
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/FormStyles2";
@@ -49,15 +49,35 @@ export default function Offers() {
             <View>
               {offers.map((item) => {
                 return (
-                  <Text key={item.id}>
-                    Parent Name: {item.parentName} Starting street:
-                    {item.startStreet}
-                    Postal code: {item.startZip}
-                    Starting city: {item.startCity}
-                    Date of transport{item.dateOfTransportion}
-                    Mode of transportation{item.modeOfTransportation}
-                    Direction of travel{item.direction}
-                  </Text>
+                  <View key={item.id} style={[styles.horizontalLine]}>
+                    <Text>
+                      <Text style={[styles.parentDetail]}>Parent Name: </Text>
+                      {item.parentName} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Starting street:{" "}
+                      </Text>
+                      {item.startStreet}
+                      {"\n"}
+                      <Text style={[styles.parentDetail]}>Postal code:</Text>
+                      {item.startZip} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Starting city:{""}{" "}
+                      </Text>
+                      {item.startCity} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Date of transport:{" "}
+                      </Text>
+                      {item.dateOfTransportation} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Mode of transportation:{" "}
+                      </Text>
+                      {item.modeOfTransportation} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Direction of travel:{" "}
+                      </Text>
+                      {item.direction} {"\n"}
+                    </Text>
+                  </View>
                 );
               })}
             </View>
