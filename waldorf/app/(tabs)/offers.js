@@ -18,7 +18,7 @@ export default function Offers() {
   const { getToken } = useAuth();
   const [showPost, setShowPost] = useState(false);
   const [offers, setOffers] = useState([]);
-  console.log(offers); //Checking
+  // console.log(offers);
   const [isLoading, setIsLoading] = useState(false);
 
   const url = "http://192.168.178.32:3000/offers";
@@ -32,7 +32,7 @@ export default function Offers() {
             Authorization: `Bearer ${await getToken()}`,
           },
         });
-        console.debug(data);
+        // console.debug(data);
 
         setOffers(data);
       } catch (error) {
@@ -50,61 +50,59 @@ export default function Offers() {
 
   return (
     //Need to utilise scroll view here!!!
-    <View style={[styles.container]}>
+    <ScrollView
+      // style={[styles.container]}
+      contentContainerStyle={[styles.scrollViewContent]}
+    >
       <Text style={styles.welcome}>Waldorf Parents' App</Text>
 
       {isLoading ? (
-        <View>
+        <View style={styles.loadingContainer}>
           <Text>Loading offers</Text>
           <ActivityIndicator size="large" color="yellow" />
           {/* Come back and refactor color here */}
         </View>
       ) : (
-        <View>
+        <View style={[styles.offerContainer]}>
           <View style={styles.offerTitle}>
-            <View>
-              <Text style={[styles.availabilityText]}>Available offers :</Text>
-            </View>
-            <View>
-              {offers.map((item) => {
-                return (
-                  <View key={item.id} style={[styles.horizontalLine]}>
-                    <Text>
-                      <Text style={[styles.parentDetail]}>Parent Name: </Text>
-                      {item.parentName} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Starting street:{" "}
-                      </Text>
-                      {item.startStreet}
-                      {"\n"}
-                      <Text style={[styles.parentDetail]}>Postal code: </Text>
-                      {item.startZip} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Starting city:{""}{" "}
-                      </Text>
-                      {item.startCity} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Date of transport:{" "}
-                      </Text>
-                      {handleDateDayJs(item.dateOfTransportation)} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Mode of transportation:{" "}
-                      </Text>
-                      {item.modeOfTransportation} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Direction of travel:{" "}
-                      </Text>
-                      {item.direction} {"\n"}
+            <Text style={[styles.availabilityText]}>Available offers :</Text>
+
+            {offers.map((item) => {
+              return (
+                <View key={item.id} style={[styles.horizontalLine]}>
+                  <Text>
+                    <Text style={[styles.parentDetail]}>Parent Name: </Text>
+                    {item.parentName} {"\n"}
+                    <Text style={[styles.parentDetail]}>Starting street: </Text>
+                    {item.startStreet}
+                    {"\n"}
+                    <Text style={[styles.parentDetail]}>Postal code: </Text>
+                    {item.startZip} {"\n"}
+                    <Text style={[styles.parentDetail]}>
+                      Starting city:{""}{" "}
                     </Text>
-                  </View>
-                );
-              })}
-            </View>
+                    {item.startCity} {"\n"}
+                    <Text style={[styles.parentDetail]}>
+                      Date of transport:{" "}
+                    </Text>
+                    {handleDateDayJs(item.dateOfTransportation)} {"\n"}
+                    <Text style={[styles.parentDetail]}>
+                      Mode of transportation:{" "}
+                    </Text>
+                    {item.modeOfTransportation} {"\n"}
+                    <Text style={[styles.parentDetail]}>
+                      Direction of travel:{" "}
+                    </Text>
+                    {item.direction} {"\n"}
+                  </Text>
+                </View>
+              );
+            })}
+            <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
+            {showPost && <OfferForm />}
           </View>
-          <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
-          {showPost && <OfferForm />}
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 }

@@ -15,7 +15,6 @@ export const colors = {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     borderRadius: 12,
     backgroundColor: "#f7f7ff",
     alignItems: "flex-start",
@@ -34,12 +33,21 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 1,
         shadowRadius: 12,
+        scrollViewContent: {
+          alignItems: "center",
+          justifyContent: "center",
+        },
       },
       android: { elevation: 4 },
     }),
   },
   // Used the spread operator to be able to style for ios and android seperately
   //found the solution online!!!
+  scrollViewContent: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   textPrimary: {
     color: colors.white,
     fontSize: 16,
@@ -120,7 +128,3 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-// export const combinedHorizAvailText = StyleSheet.flatten([
-//   styles.availabilityText,
-//   styles.horizontalLine,
-// ]);

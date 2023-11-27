@@ -23,9 +23,9 @@ export function OfferForm() {
   }
 
   return (
-    <View style={[styles.container]}>
+    <View>
       {/* <Text>Post a request for help here!</Text> */}
-      <View style={[styles.form]}>
+      <View>
         <Text>Enter name :</Text>
         <TextInput
           // style={}
@@ -36,7 +36,7 @@ export function OfferForm() {
           value={postRequest.parentName}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Enter starting street :</Text>
         <TextInput
           // style={}
@@ -46,7 +46,7 @@ export function OfferForm() {
           value={postRequest.startStreet}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Enter start zip/postcode :</Text>
         <TextInput
           // style={}
@@ -56,7 +56,7 @@ export function OfferForm() {
           value={postRequest.startZip}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Enter start city :</Text>
         <TextInput
           // style={}
@@ -66,7 +66,7 @@ export function OfferForm() {
           value={postRequest.startCity}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Enter date of transportation :</Text>
         <TextInput
           // style={}
@@ -78,7 +78,7 @@ export function OfferForm() {
           value={postRequest.dateOfTransportation}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Mode of transport :</Text>
         <TextInput
           // style={}
@@ -90,7 +90,7 @@ export function OfferForm() {
           value={postRequest.modeOfTransportation}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Direction of travel : </Text>
         <TextInput
           style={[styles.input]}
@@ -103,3 +103,5 @@ export function OfferForm() {
     </View>
   );
 }
+// style={[styles.container]}
+// style={[styles.form]}
