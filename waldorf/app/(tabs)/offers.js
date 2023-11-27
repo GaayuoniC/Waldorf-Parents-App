@@ -1,22 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
+import { useAuth } from "@clerk/clerk-expo";
 
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/FormStyles2";
 
 export default function Offers() {
+  const { getToken } = useAuth();
   const [showPost, setShowPost] = useState(false);
   const [offers, setOffers] = useState([]);
   console.log(offers); //Checking
   const [isLoading, setIsLoading] = useState(false);
 
-  const url = "/api/offers";
+  const url = "http://192.168.178.32:3000/offers";
   useEffect(() => {
     async function loadOffers() {
       try {
         setIsLoading(true);
-        const { data } = await axios.get(url);
+        const { data } = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${await getToken()}`,
+          },
+        });
         console.debug(data); //data fetching not working!!
 
         setOffers(data);
