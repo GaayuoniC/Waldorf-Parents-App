@@ -2,6 +2,7 @@ import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
+import dayjs from "dayjs";
 
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/FormStyles2";
@@ -35,6 +36,9 @@ export default function Offers() {
     }
     loadOffers();
   }, []);
+  function handleDateDayJs(date) {
+    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
+  }
 
   return (
     <>
@@ -58,7 +62,7 @@ export default function Offers() {
                       </Text>
                       {item.startStreet}
                       {"\n"}
-                      <Text style={[styles.parentDetail]}>Postal code:</Text>
+                      <Text style={[styles.parentDetail]}>Postal code: </Text>
                       {item.startZip} {"\n"}
                       <Text style={[styles.parentDetail]}>
                         Starting city:{""}{" "}
@@ -67,7 +71,7 @@ export default function Offers() {
                       <Text style={[styles.parentDetail]}>
                         Date of transport:{" "}
                       </Text>
-                      {item.dateOfTransportation} {"\n"}
+                      {handleDateDayJs(item.dateOfTransportation)} {"\n"}
                       <Text style={[styles.parentDetail]}>
                         Mode of transportation:{" "}
                       </Text>
