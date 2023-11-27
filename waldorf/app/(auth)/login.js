@@ -47,46 +47,51 @@ function Login() {
   };
 
   return (
-    <View style={[styles.container]}>
-      {/* Take note of the synthax for styles file in native  */}
+    // <SafeAreaProvider style={{ flex: 1, backgroundColor: "yellow" }}>
+    <>
+      <View style={[styles.container]}>
+        {/* Take note of the synthax for styles file in native  */}
 
-      <Text style={[styles.heading]}>Please login in </Text>
+        <Text style={[styles.heading]}>Waldorf Parents' App </Text>
+        <Text style={[styles.moto]}>Always ready to help!</Text>
 
-      <View>
         <View>
-          <Text style={[styles.label]}>Email</Text>
-          <TextInput
-            autoCapitalize="none"
-            autoCompleteType="email"
-            autoCorrect={false}
-            placeholderTextColor="rgba(28,53,63, 1)"
-            style={[styles.input]}
-            onChangeText={(value) => handleChangeData("email", value)}
-            value={formDetails.email}
-          />
+          <View>
+            <Text style={[styles.label]}>Email</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCompleteType="email"
+              autoCorrect={false}
+              placeholderTextColor="rgba(28,53,63, 1)"
+              style={[styles.input]}
+              onChangeText={(value) => handleChangeData("email", value)}
+              value={formDetails.email}
+            />
+          </View>
+          <View>
+            <Text style={[styles.label]}>Password</Text>
+            <TextInput
+              style={[styles.input]}
+              onChangeText={(value) => handleChangeData("password", value)}
+              value={formDetails.password}
+              secureTextEntry
+              autoCapitalize="none"
+            />
+          </View>
+          <Pressable onPress={() => handleSubmit()}>
+            <Text style={[styles.label]}> Login</Text>
+          </Pressable>
+          <Pressable onPress={() => handleTestLogin()}>
+            <Text style={[styles.label]}>Test-Login</Text>
+          </Pressable>
+          <Pressable onPress={() => handleFailedLogin()}>
+            <Text style={[styles.label]}>Failed-Login</Text>
+          </Pressable>
+          <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
         </View>
-        <View>
-          <Text style={[styles.label]}>Enter password</Text>
-          <TextInput
-            style={[styles.input]}
-            onChangeText={(value) => handleChangeData("password", value)}
-            value={formDetails.password}
-            secureTextEntry
-            autoCapitalize="none"
-          />
-        </View>
-        <Pressable onPress={() => handleSubmit()}>
-          <Text style={[styles.label]}>Login</Text>
-        </Pressable>
-        <Pressable onPress={() => handleTestLogin()}>
-          <Text style={[styles.label]}>Test-Login</Text>
-        </Pressable>
-        <Pressable onPress={() => handleFailedLogin()}>
-          <Text style={[styles.label]}>Failed-Login</Text>
-        </Pressable>
-        <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
       </View>
-    </View>
+      {/* </SafeAreaProvider> */}
+    </>
   );
 }
 export default Login;
