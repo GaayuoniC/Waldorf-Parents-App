@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 export const colors = {
   baseOrange: "#d6531f",
   headerColor: "#367714",

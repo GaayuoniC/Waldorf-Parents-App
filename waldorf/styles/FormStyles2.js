@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 export const colors = {
   mediumBlue: "#98c1d9",
@@ -19,8 +19,11 @@ export const styles = StyleSheet.create({
     backgroundColor: "#f7f7ff",
     alignItems: "center",
     justifyContent: "center",
-    width: Platform.OS === "ios" ? 380 : 360,
+    width: Platform.OS === "ios" ? 400 : 360,
+    height: 50,
+    marginLeft: 10,
     padding: 20,
+
     ...Platform.select({
       ios: {
         shadowColor: "rgba(0, 0, 0, 0.15)",

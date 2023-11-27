@@ -9,6 +9,8 @@
   --clr-test-2: #90cfdf;
   --clr-test-3: #d2dbd8;
   --clr-h-1: #367714;
+  /* footer background color with transparancy */
+  --footer-clr: rgba(214, 83, 31, 0.8);
 
   --border-radius: 6px;
 }
@@ -26,6 +28,11 @@ main {
 }
 
 h1 {
-  /* color from waldorf */
+  /* color from waldorf school */
   color: var(--clr-h-1);
+  font-weight: 400;
+}
+h2,
+h3 {
+  font-weight: 400;
 }

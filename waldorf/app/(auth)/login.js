@@ -1,21 +1,15 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
-import { useState } from "react";
-import {
-  Pressable,
-  Text,
-  TextInput,
-  View,
-  Alert,
-  SafeAreaView,
-} from "react-native";
-import { styles } from "../../app/styles";
 import { router } from "expo-router";
+import { useState } from "react";
+import { Alert, Pressable, Text, TextInput, View } from "react-native";
+
+import { styles } from "../../app/styles";
 
 function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
 
   const { signIn, setActive, isLoaded } = useSignIn();
-  const { useSignedIn } = useUser();
+  const { isSignedIn } = useUser();
 
   function handleChangeData(element, value) {
     setFormDetails((prev) => {
@@ -23,21 +17,34 @@ function Login() {
     });
   }
 
-  async function handleSubmit() {
+  async function login(email, password) {
     if (!isLoaded) {
       return;
     }
     try {
       const completeSignIn = await signIn.create({
-        identifier: formDetails.email,
-        password: formDetails.password,
+        identifier: email,
+        password,
       });
       await setActive({ session: completeSignIn.createdSessionId });
       router.replace("/");
     } catch (error) {
-      Alert.alert("Error loading page");
+      console.log(error);
+      Alert.alert("Login failed");
     }
   }
+
+  async function handleSubmit() {
+    await login(formDetails.email, formDetails.password);
+  }
+
+  const handleTestLogin = async () => {
+    await login("gayuoni@hotmail.com", "ShitMicrosoft112");
+  };
+
+  const handleFailedLogin = async () => {
+    await login("a@b.com", "sdfsdf");
+  };
 
   return (
     <View style={[styles.container]}>
@@ -56,7 +63,7 @@ function Login() {
             style={[styles.input]}
             onChangeText={(value) => handleChangeData("email", value)}
             value={formDetails.email}
-          ></TextInput>
+          />
         </View>
         <View>
           <Text style={[styles.label]}>Enter password</Text>
@@ -64,13 +71,20 @@ function Login() {
             style={[styles.input]}
             onChangeText={(value) => handleChangeData("password", value)}
             value={formDetails.password}
-            secureTextEntry={true}
+            secureTextEntry
             autoCapitalize="none"
-          ></TextInput>
+          />
         </View>
         <Pressable onPress={() => handleSubmit()}>
           <Text style={[styles.label]}>Login</Text>
         </Pressable>
+        <Pressable onPress={() => handleTestLogin()}>
+          <Text style={[styles.label]}>Test-Login</Text>
+        </Pressable>
+        <Pressable onPress={() => handleFailedLogin()}>
+          <Text style={[styles.label]}>Failed-Login</Text>
+        </Pressable>
+        <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
       </View>
     </View>
   );

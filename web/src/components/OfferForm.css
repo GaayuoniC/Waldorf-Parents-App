@@ -4,10 +4,7 @@
 }
 
 .offer-form-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 50px;
+  gap: 2px;
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
   margin: auto;
@@ -31,15 +28,20 @@ input {
   margin-bottom: 8px;
   margin-top: 6px;
   border-radius: var(--border-radius);
+  /* background-color: var(--clr-test-2); */
+
+  /* test background color */
+  height: 50px;
 }
-.text-area {
+/* .text-area {
   border-radius: var(--border-radius);
   min-width: 200px;
   max-width: 600px;
-  min-height: 35px;
+  height: 35px;
   max-height: 300px;
   margin-top: 5px;
-}
+  padding: 10px;
+} */
 
 @media (max-width: 768px) {
   .offer-container {

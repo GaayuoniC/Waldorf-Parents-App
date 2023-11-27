@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
+
 import { styles } from "../styles/FormStyles2";
 
 export function PostRequestForm() {
@@ -38,9 +39,6 @@ export function PostRequestForm() {
           value={postRequest.description}
         />
         <Button title="Post" onPress={handleSubmitPostRequest} />
-      </View>
-      <View>
-        <Text>Available requests for help:</Text>
       </View>
     </View>
   );
