@@ -32,7 +32,7 @@ export function OfferForm() {
           style={[styles.input]}
           type="text"
           // placeholder="Please enter your full name"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) => handleOfferChange("parentName", text)}
           value={postRequest.parentName}
         />
       </View>
@@ -42,7 +42,7 @@ export function OfferForm() {
           // style={}
           style={[styles.input]}
           // placeholder="Please enter your street name"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) => handleOfferChange("startStreet", text)}
           value={postRequest.startStreet}
         />
       </View>
@@ -52,7 +52,7 @@ export function OfferForm() {
           // style={}
           style={[styles.input]}
           // placeholder="Please enter your postcode"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) => handleOfferChange("startZip", text)}
           value={postRequest.startZip}
         />
       </View>
@@ -62,7 +62,7 @@ export function OfferForm() {
           // style={}
           style={[styles.input]}
           // placeholder="Please enter your start location/city"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) => handleOfferChange("startCity", text)}
           value={postRequest.startCity}
         />
       </View>
@@ -72,7 +72,9 @@ export function OfferForm() {
           // style={}
           style={[styles.input]}
           // placeholder="Please enter date of transportation"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) =>
+            handleOfferChange("dateOfTransportation", text)
+          }
           value={postRequest.dateOfTransportation}
         />
       </View>
@@ -82,7 +84,9 @@ export function OfferForm() {
           // style={}
           style={[styles.input]}
           // placeholder="Please enter your mode of transport"
-          onChangeText={(text) => handleOfferChange("title", text)}
+          onChangeText={(text) =>
+            handleOfferChange("modeOfTransportation", text)
+          }
           value={postRequest.modeOfTransportation}
         />
       </View>
@@ -91,7 +95,7 @@ export function OfferForm() {
         <TextInput
           style={[styles.input]}
           // placeholder="Please enter your direction of travel"
-          onChangeText={(text) => handleOfferChange("description", text)}
+          onChangeText={(text) => handleOfferChange("direction", text)}
           value={postRequest.direction}
         />
         <Button title="Submit offer" onPress={handleSubmitOfferRequest} />
