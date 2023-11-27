@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
-import { styles, colors } from "../styles/FormStyles2";
+import { styles } from "../styles/FormStyles2";
 
 export function OfferForm() {
   const [postRequest, setPostRequest] = useState({

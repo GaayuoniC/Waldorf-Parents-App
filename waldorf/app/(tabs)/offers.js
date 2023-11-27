@@ -1,11 +1,18 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Button, Text, View } from "react-native";
 import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import {
+  Button,
+  Text,
+  View,
+  ActivityIndicator,
+  Alert,
+  ScrollView,
+} from "react-native";
 
 import { OfferForm } from "../../components/OfferForm";
-import { styles } from "../../styles/FormStyles2";
+import { styles } from "../../styles/MainStyles";
 
 export default function Offers() {
   const { getToken } = useAuth();
@@ -30,6 +37,7 @@ export default function Offers() {
         setOffers(data);
       } catch (error) {
         console.log("Your data was not fetched", error);
+        Alert.alert("The was a problem loading the data ");
       } finally {
         setIsLoading(false);
       }
@@ -41,15 +49,22 @@ export default function Offers() {
   }
 
   return (
-    <>
+    //Need to utilise scroll view here!!!
+    <View style={[styles.container]}>
       <Text style={styles.welcome}>Waldorf Parents' App</Text>
 
       {isLoading ? (
-        <Text>Loading offers</Text>
+        <View>
+          <Text>Loading offers</Text>
+          <ActivityIndicator size="large" color="yellow" />
+          {/* Come back and refactor color here */}
+        </View>
       ) : (
-        <View style={[styles.container]}>
+        <View>
           <View style={styles.offerTitle}>
-            <Text>Available offers :</Text>
+            <View>
+              <Text style={[styles.availabilityText]}>Available offers :</Text>
+            </View>
             <View>
               {offers.map((item) => {
                 return (
@@ -90,20 +105,6 @@ export default function Offers() {
           {showPost && <OfferForm />}
         </View>
       )}
-    </>
+    </View>
   );
 }
-// const styles1 = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   text: {
-//     fontSize: Platform.OS === "ios" ? 20 : 18,
-//   },
-//   offerTitle: {
-//     paddingTop: 30,
-//     marginBottom: Platform.OS === "ios" ? 0 : 10,
-//   },
-// });

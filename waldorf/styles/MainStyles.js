@@ -15,6 +15,7 @@ export const colors = {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     borderRadius: 12,
     backgroundColor: "#f7f7ff",
     alignItems: "flex-start",
@@ -110,7 +111,7 @@ export const styles = StyleSheet.create({
   horizontalLine: {
     borderBottomColor: "black",
     borderBottomWidth: 1,
-    width: "100%",
+    width: "80%",
     marginVertical: 10,
   },
   availabilityText: {

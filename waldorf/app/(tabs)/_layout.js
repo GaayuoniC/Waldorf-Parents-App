@@ -1,7 +1,13 @@
 import { useUser } from "@clerk/clerk-expo";
 import { Entypo } from "@expo/vector-icons";
 import { Redirect, Tabs } from "expo-router";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
 
 export default function HomeLayout() {
   const { isSignedIn, isLoaded } = useUser();
@@ -10,6 +16,7 @@ export default function HomeLayout() {
     return (
       <View>
         <Text>Loading Page</Text>
+        <ActivityIndicator size="large" color="yellow" />
       </View>
     );
   }
