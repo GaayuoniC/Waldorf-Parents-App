@@ -54,8 +54,6 @@ export default function Offers() {
       // style={[styles.container]}
       contentContainerStyle={[styles.scrollViewContent]}
     >
-      <Text style={styles.welcome}>Waldorf Parents' App</Text>
-
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <Text>Loading offers</Text>
@@ -63,43 +61,52 @@ export default function Offers() {
           {/* Come back and refactor color here */}
         </View>
       ) : (
-        <View style={[styles.offerContainer]}>
-          <View style={styles.offerTitle}>
-            <Text style={[styles.availabilityText]}>Available offers :</Text>
+        <View View style={[styles.container]}>
+          <Text style={styles.welcome}>Waldorf Parents' App</Text>
 
-            {offers.map((item) => {
-              return (
-                <View key={item.id} style={[styles.horizontalLine]}>
-                  <Text>
-                    <Text style={[styles.parentDetail]}>Parent Name: </Text>
-                    {item.parentName} {"\n"}
-                    <Text style={[styles.parentDetail]}>Starting street: </Text>
-                    {item.startStreet}
-                    {"\n"}
-                    <Text style={[styles.parentDetail]}>Postal code: </Text>
-                    {item.startZip} {"\n"}
-                    <Text style={[styles.parentDetail]}>
-                      Starting city:{""}{" "}
+          <View style={[styles.offerContainer]}>
+            <View style={styles.offerTitle}>
+              <Text style={[styles.availabilityText]}>Available offers :</Text>
+
+              {offers.map((item) => {
+                return (
+                  <View key={item.id} style={[styles.horizontalLine]}>
+                    <Text>
+                      <Text style={[styles.parentDetail]}>Parent Name: </Text>
+                      {item.parentName} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Starting street:{" "}
+                      </Text>
+                      {item.startStreet}
+                      {"\n"}
+                      <Text style={[styles.parentDetail]}>Postal code: </Text>
+                      {item.startZip} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Starting city:{""}{" "}
+                      </Text>
+                      {item.startCity} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Date of transport:{" "}
+                      </Text>
+                      {handleDateDayJs(item.dateOfTransportation)} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Mode of transportation:{" "}
+                      </Text>
+                      {item.modeOfTransportation} {"\n"}
+                      <Text style={[styles.parentDetail]}>
+                        Direction of travel:{" "}
+                      </Text>
+                      {item.direction} {"\n"}
                     </Text>
-                    {item.startCity} {"\n"}
-                    <Text style={[styles.parentDetail]}>
-                      Date of transport:{" "}
-                    </Text>
-                    {handleDateDayJs(item.dateOfTransportation)} {"\n"}
-                    <Text style={[styles.parentDetail]}>
-                      Mode of transportation:{" "}
-                    </Text>
-                    {item.modeOfTransportation} {"\n"}
-                    <Text style={[styles.parentDetail]}>
-                      Direction of travel:{" "}
-                    </Text>
-                    {item.direction} {"\n"}
-                  </Text>
-                </View>
-              );
-            })}
-            <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
-            {showPost && <OfferForm />}
+                  </View>
+                );
+              })}
+              <Button
+                title="Show/hide"
+                onPress={() => setShowPost(!showPost)}
+              />
+              {showPost && <OfferForm />}
+            </View>
           </View>
         </View>
       )}

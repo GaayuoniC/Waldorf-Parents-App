@@ -117,14 +117,19 @@ export const styles = StyleSheet.create({
     color: "#000000",
   },
   horizontalLine: {
-    borderBottomColor: "black",
+    borderBottomColor: "rgba(0,0,0,0.3)",
     borderBottomWidth: 1,
-    width: "80%",
+    width: "100%",
     marginVertical: 10,
   },
   availabilityText: {
     fontSize: 25,
     alignSelf: "flex-start",
     textDecorationLine: "underline",
+    textDecorationColor: "rgba(0,0,0,0.3)",
+  },
+  loadingContainer: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
