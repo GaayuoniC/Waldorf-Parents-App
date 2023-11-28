@@ -40,7 +40,7 @@ function Login() {
       router.replace("/");
     } catch (error) {
       console.log(error);
-      Alert.alert("Login failed");
+      Alert.alert("Login failed! Please check your details again!");
     }
   }
 
