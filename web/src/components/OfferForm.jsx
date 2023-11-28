@@ -1,16 +1,19 @@
 import { useState } from "react";
 import "../components/OfferForm.css";
 import axios from "axios";
+import dayjs from "dayjs";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export function OfferForm() {
   const [postOffer, setPostOffer] = useState({
-    parentName: "",
-    startStreet: "",
-    startZip: "",
-    startCity: "",
-    dateOfTransportation: "",
-    modeOfTransportation: "",
-    direction: "",
+    parentName: "John Doe",
+    startStreet: "Test street",
+    startZip: "12345",
+    startCity: "Bonn",
+    dateOfTransportation: new Date(),
+    modeOfTransportation: "car",
+    direction: "to_school",
   });
 
   function handleChange(event, field) {
@@ -20,9 +23,26 @@ export function OfferForm() {
     });
   }
 
-  function handleSubmitOfferForm(event) {
+  async function handleSubmitOfferForm(event) {
     event.preventDefault();
     console.log("Form submitted", postOffer);
+    const dataToPost={
+      parentName: postOffer.parentName,
+      startStreet: postOffer.startStreet,
+      startZip: postOffer.startZip,
+      startCity: postOffer.startCity,
+      dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
+      modeOfTransportation: postOffer.modeOfTransportation,
+      direction: postOffer.direction,
+    }
+    console.log("Data to post", dataToPost)
+    try{
+      const {data} = await axios.post("/api/offers", dataToPost);
+      console.log(data);
+    }catch(err){
+      console.log("Error posting offer", err);
+    }
+
   }
 
   return (
@@ -30,6 +50,7 @@ export function OfferForm() {
       <p id="offer-help">
         <span> Make an offer to help here! </span>
       </p>
+      <p>{JSON.stringify(postOffer.dateOfTransportation)}</p>
 
       <form className="offer-form-container" onSubmit={handleSubmitOfferForm}>
         <label className="title-label">
@@ -40,7 +61,13 @@ export function OfferForm() {
             onChange={(e) => handleChange(e, "parentName")}
           ></input>
         </label>
-
+        <DatePicker showTimeInput timeFormat="p" selected={postOffer.dateOfTransportation} onChange={(date) => {
+          console.log("Date changed", date)
+          setPostOffer({
+            ...postOffer,
+            dateOfTransportation: date,
+          });
+        }} />
         <label className="title-label">
           <p> Enter starting street: </p>
           <input
@@ -66,14 +93,15 @@ export function OfferForm() {
             onChange={(e) => handleChange(e, "startCity")}
           ></input>
         </label>
-        <label className="title-label">
+        {/* <label className="title-label">
           <p> Date of transportation: </p>
           <input
             type="text"
             value={postOffer.dateOfTransportation}
             onChange={(e) => handleChange(e, "dateOfTransportation")}
           ></input>
-        </label>
+        </label> */}
+        
 
         <label className="title-label">
           <p> Mode to transport: </p>
