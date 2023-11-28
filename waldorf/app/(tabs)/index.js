@@ -13,7 +13,7 @@ export default function Page() {
       {/* </View> */}
       <View>
         <HomePage />
-        <Pressable onPress={signOut}>
+        <Pressable onPress={signOut} style={styles.logout}>
           <Text>Logout</Text>
         </Pressable>
       </View>
@@ -24,7 +24,6 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    // backgroundColor: "#d6531f", //Not a suitable place!!
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -36,7 +35,10 @@ const styles = StyleSheet.create({
   link: {
     flexDirection: "row",
     gap: 50,
-    // backgroundColor: "yellow",
     margin: 10,
+  },
+  logout: {
+    alignSelf: "center",
+    marginTop: 10,
   },
 });

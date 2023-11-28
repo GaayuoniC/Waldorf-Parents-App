@@ -103,5 +103,3 @@ export function OfferForm() {
     </View>
   );
 }
-// style={[styles.container]}
-// style={[styles.form]}
