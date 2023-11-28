@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    backgroundColor: colors.lightPink,
+    backgroundColor: colors.white,
   },
   safeArea: {
     backgroundColor: colors.baseOrange,
@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
   },
   moto: {
     fontSize: 30,
+    fontWeight: 300,
   },
   label: {
     color: colors.black,
@@ -48,14 +49,25 @@ export const styles = StyleSheet.create({
     margin: 0,
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: colors.white,
+    borderColor: colors.burntSienna,
     paddingHorizontal: 14,
-    paddingVertical: 5,
+    paddingVertical: 15,
     fontSize: 20,
-    backgroundColor: colors.burntSienna,
   },
   form: {
     width: "100%",
     gap: 4,
+  },
+  button: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 10,
+    borderColor: colors.burntSienna,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  buttonPressed: {
+    backgroundColor: colors.burntSienna,
   },
 });

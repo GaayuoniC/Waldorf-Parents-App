@@ -1,12 +1,20 @@
 import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Alert, Pressable, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { styles } from "../../app/styles";
 
 function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
+  const [isPressed, setIsPressed] = useState(false);
 
   const { signIn, setActive, isLoaded } = useSignIn();
   const { isSignedIn } = useUser();
@@ -78,9 +86,17 @@ function Login() {
               autoCapitalize="none"
             />
           </View>
-          <Pressable onPress={() => handleSubmit()}>
-            <Text style={[styles.label]}> Login</Text>
-          </Pressable>
+          <TouchableOpacity
+            onPress={() => handleSubmit()}
+            onPressIn={() => setIsPressed(true)}
+            onPressOut={() => setIsPressed(false)}
+            activeOpacity={0.5}
+            style={[styles.button, isPressed && styles.buttonPressed]}
+          >
+            <Pressable>
+              <Text style={[styles.label]}> Login</Text>
+            </Pressable>
+          </TouchableOpacity>
           <Pressable onPress={() => handleTestLogin()}>
             <Text style={[styles.label]}>Test-Login</Text>
           </Pressable>
