@@ -8,14 +8,16 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 
 import { styles } from "../../app/styles";
 
 function Login() {
   const [formDetails, setFormDetails] = useState({ email: "", password: "" });
-  const [isPressed, setIsPressed] = useState(false);
-
+  const [isPressed, setIsPressed] = useState(false); //equivalent of hover effect in web
+  const [isEmailFocused, setIsEmailFocused] = useState(false); //text input active highlight
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const { signIn, setActive, isLoaded } = useSignIn();
   const { isSignedIn } = useUser();
 
@@ -59,6 +61,10 @@ function Login() {
     <>
       <View style={[styles.container]}>
         {/* Take note of the synthax for styles file in native  */}
+        <Image
+          source={require("../../assets/icon.png")}
+          style={[styles.logo]}
+        />
 
         <Text style={[styles.heading]}>Waldorf Parents' App </Text>
         <Text style={[styles.moto]}>Always ready to help!</Text>
@@ -71,19 +77,23 @@ function Login() {
               autoCompleteType="email"
               autoCorrect={false}
               placeholderTextColor="rgba(28,53,63, 1)"
-              style={[styles.input]}
+              style={[styles.input, isEmailFocused && styles.inputFocus]}
               onChangeText={(value) => handleChangeData("email", value)}
               value={formDetails.email}
+              onFocus={() => setIsEmailFocused(true)}
+              onBlur={() => setIsEmailFocused(false)}
             />
           </View>
           <View>
             <Text style={[styles.label]}>Password</Text>
             <TextInput
-              style={[styles.input]}
+              style={[styles.input, isPasswordFocused && styles.inputFocus]}
               onChangeText={(value) => handleChangeData("password", value)}
               value={formDetails.password}
               secureTextEntry
               autoCapitalize="none"
+              onFocus={() => setIsPasswordFocused(true)}
+              onBlur={() => setIsPasswordFocused(false)}
             />
           </View>
           <TouchableOpacity

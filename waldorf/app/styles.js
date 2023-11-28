@@ -54,6 +54,9 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
     fontSize: 20,
   },
+  inputFocus: {
+    backgroundColor: colors.lightBlue,
+  },
   form: {
     width: "100%",
     gap: 4,
@@ -69,5 +72,9 @@ export const styles = StyleSheet.create({
   },
   buttonPressed: {
     backgroundColor: colors.burntSienna,
+  },
+  logo: {
+    width: 100,
+    height: 150,
   },
 });
