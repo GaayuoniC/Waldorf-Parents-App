@@ -94,4 +94,10 @@ export const styles = StyleSheet.create({
   loginButton: {
     color: "#cf77ce",
   },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
 });

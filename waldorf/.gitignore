@@ -34,3 +34,6 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 .env
+
+#vscode settings
+*.vscode/jason.settings

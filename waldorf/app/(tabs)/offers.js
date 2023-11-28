@@ -1,7 +1,7 @@
+import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
-import { useAuth } from "@clerk/clerk-expo";
 
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/FormStyles2";
@@ -58,17 +58,3 @@ export default function Offers() {
     </>
   );
 }
-// const styles1 = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   text: {
-//     fontSize: Platform.OS === "ios" ? 20 : 18,
-//   },
-//   offerTitle: {
-//     paddingTop: 30,
-//     marginBottom: Platform.OS === "ios" ? 0 : 10,
-//   },
-// });
