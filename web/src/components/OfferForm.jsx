@@ -3,14 +3,15 @@ import "../components/OfferForm.css";
 import axios from "axios";
 
 export function OfferForm() {
+  const [isloading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
-    parentName: "",
-    startStreet: "",
-    startZip: "",
-    startCity: "",
-    dateOfTransportation: "",
-    modeOfTransportation: "",
-    direction: "",
+    parentName: "allen",
+    startStreet: "yoda",
+    startZip: "34",
+    startCity: "tanne",
+    dateOfTransportation: "21-11-23",
+    modeOfTransportation: "bike",
+    direction: "to school",
   });
 
   function handleChange(event, field) {
@@ -20,9 +21,22 @@ export function OfferForm() {
     });
   }
 
-  function handleSubmitOfferForm(event) {
+  async function handleSubmitOfferForm(event) {
     event.preventDefault();
-    console.log("Form submitted", postOffer);
+    console.log("Form submitted", postOffer); //works here
+
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post("api/offers", postOffer);
+      setIsLoading(false);
+      console.log(data);
+      // console.log(data.id)
+    } catch (err) {
+      console.log("Error posting the offer!!", err);
+    }
+
+    const { data: newPost } = axios.post("api/offers", postOffer);
+    console.log(newPost);
   }
 
   return (
