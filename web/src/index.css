@@ -11,6 +11,8 @@
   --clr-h-1: #367714;
   /* footer background color with transparancy */
   --footer-clr: rgba(214, 83, 31, 0.8);
+  --hover-clr: rgba(216,245,253,0.9);
+
 
   --border-radius: 6px;
 }
