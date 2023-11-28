@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     justifyContent: "top",
     // backgroundColor: "green",
 
-    width: Platform.OS === "ios" ? 400 : 360,
+    width: Platform.OS === "ios" ? 400 : 330,
 
     margin: 10,
     padding: 20,

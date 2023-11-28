@@ -26,7 +26,7 @@ export function OfferForm() {
     <View>
       {/* <Text>Post a request for help here!</Text> */}
       <View>
-        <Text>Enter name :</Text>
+        <Text> Name :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -37,7 +37,7 @@ export function OfferForm() {
         />
       </View>
       <View>
-        <Text>Enter starting street :</Text>
+        <Text>Starting street :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -47,7 +47,7 @@ export function OfferForm() {
         />
       </View>
       <View>
-        <Text>Enter start zip/postcode :</Text>
+        <Text>Start zip/postcode :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -57,7 +57,7 @@ export function OfferForm() {
         />
       </View>
       <View>
-        <Text>Enter start city :</Text>
+        <Text>Start city :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -67,7 +67,7 @@ export function OfferForm() {
         />
       </View>
       <View>
-        <Text>Enter date of transportation :</Text>
+        <Text>Date of transportation :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -91,7 +91,7 @@ export function OfferForm() {
         />
       </View>
       <View>
-        <Text>Direction of travel : </Text>
+        <Text>Destination : </Text>
         <TextInput
           style={[styles.input]}
           // placeholder="Please enter your direction of travel"
