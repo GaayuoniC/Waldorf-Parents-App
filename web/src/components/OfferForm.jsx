@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export function OfferForm() {
   const [postOffer, setPostOffer] = useState({
-    parentName: "John Doe",
+    parentName: "Ayoma Doe",
     startStreet: "Test street",
     startZip: "12345",
     startCity: "Bonn",
@@ -26,7 +26,7 @@ export function OfferForm() {
   async function handleSubmitOfferForm(event) {
     event.preventDefault();
     console.log("Form submitted", postOffer);
-    const dataToPost={
+    const dataToPost = {
       parentName: postOffer.parentName,
       startStreet: postOffer.startStreet,
       startZip: postOffer.startZip,
@@ -34,15 +34,14 @@ export function OfferForm() {
       dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
-    }
-    console.log("Data to post", dataToPost)
-    try{
-      const {data} = await axios.post("/api/offers", dataToPost);
+    };
+    console.log("Data to post", dataToPost);
+    try {
+      const { data } = await axios.post("/api/offers", dataToPost);
       console.log(data);
-    }catch(err){
+    } catch (err) {
       console.log("Error posting offer", err);
     }
-
   }
 
   return (
@@ -61,13 +60,18 @@ export function OfferForm() {
             onChange={(e) => handleChange(e, "parentName")}
           ></input>
         </label>
-        <DatePicker showTimeInput timeFormat="p" selected={postOffer.dateOfTransportation} onChange={(date) => {
-          console.log("Date changed", date)
-          setPostOffer({
-            ...postOffer,
-            dateOfTransportation: date,
-          });
-        }} />
+        <DatePicker
+          showTimeInput
+          timeFormat="p"
+          selected={postOffer.dateOfTransportation}
+          onChange={(date) => {
+            console.log("Date changed", date);
+            setPostOffer({
+              ...postOffer,
+              dateOfTransportation: date,
+            });
+          }}
+        />
         <label className="title-label">
           <p> Enter starting street: </p>
           <input
@@ -101,7 +105,6 @@ export function OfferForm() {
             onChange={(e) => handleChange(e, "dateOfTransportation")}
           ></input>
         </label> */}
-        
 
         <label className="title-label">
           <p> Mode to transport: </p>
