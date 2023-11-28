@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export function OfferForm() {
+  const [isloading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
     parentName: "Ayoma Doe",
     startStreet: "Test street",
