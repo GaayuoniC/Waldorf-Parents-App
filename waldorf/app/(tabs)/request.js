@@ -9,13 +9,13 @@ export default function Requests() {
 
   return (
     <View style={[styles.container]}>
-      <Text style={[styles.welcome]}>Waldorf Parents' App</Text>
+      <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
 
       <View>
         <View>
-          <Text style={[styles.availabilityText]}>Available requests :</Text>
+          <Text style={[styles.availabilityText]}>Available requests</Text>
         </View>
-        <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
+        <Button title="Post request" onPress={() => setShowPost(!showPost)} />
         {showPost && <PostRequestForm />}
       </View>
     </View>
