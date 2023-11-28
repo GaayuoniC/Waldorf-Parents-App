@@ -7,14 +7,7 @@ export function PostOfferForm() {
 
   function handleSubmitOfferForm(event) {
     event.preventDefault();
-    //validate and then submit the form with this if statement
-    // if (offerTitle && offerDescription) {
-    //   onSubmit({ offerTitle, offerDescription });
-    //   setOfferTitle("");
-    //   setOfferDescription("");
-    // } else {
-    //   alert("Please fill in all fields");
-    // }
+  
   }
 
   return (
@@ -43,7 +36,7 @@ export function PostOfferForm() {
         </label>
 
         <button type="submit" onSubmit={handleSubmitOfferForm}>
-          Post
+         Add Request
         </button>
       </form>
     </div>
