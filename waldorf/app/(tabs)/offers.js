@@ -62,11 +62,11 @@ export default function Offers() {
         </View>
       ) : (
         <View View style={[styles.container]}>
-          <Text style={styles.welcome}>Waldorf Parents' App</Text>
+          <Text style={styles.welcome}>Waldorf Parents' Helper</Text>
 
           <View style={[styles.offerContainer]}>
             <View style={styles.offerTitle}>
-              <Text style={[styles.availabilityText]}>Available offers :</Text>
+              <Text style={[styles.availabilityText]}>Available offers</Text>
 
               {offers.map((item) => {
                 return (

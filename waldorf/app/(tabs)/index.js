@@ -7,10 +7,6 @@ export default function Page() {
   const { signOut } = useAuth();
   return (
     <View style={styles.container}>
-      {/* <View style={styles.link}> */}
-      {/* <Link href="/offers"> Offers</Link>
-        <Link href="/requests"> Request</Link> */}
-      {/* </View> */}
       <View>
         <HomePage />
         <Pressable onPress={signOut} style={styles.logout}>

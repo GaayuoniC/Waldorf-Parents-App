@@ -8,7 +8,7 @@ export default function HomePage() {
 
   return (
     <View style={[styles.container]}>
-      <Text style={[styles.welcome]}>Waldorf Parents' App</Text>
+      <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
       <View>
         <Text style={styles.text}>
           Welcome to the Waldorf school parents helper App. The site is made
