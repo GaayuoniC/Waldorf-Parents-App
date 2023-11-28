@@ -102,7 +102,7 @@ export default function Offers() {
                 );
               })}
               <Button
-                title="Add offer"
+                title="ADD OFFER"
                 onPress={() => setShowPost(!showPost)}
               />
               {showPost && <OfferForm />}

@@ -15,7 +15,7 @@ export default function Requests() {
         <View>
           <Text style={[styles.availabilityText]}>Available requests</Text>
         </View>
-        <Button title="Post request" onPress={() => setShowPost(!showPost)} />
+        <Button title="ADD REQUEST" onPress={() => setShowPost(!showPost)} />
         {showPost && <PostRequestForm />}
       </View>
     </View>
