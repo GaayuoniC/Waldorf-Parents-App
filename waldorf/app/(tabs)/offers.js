@@ -14,6 +14,11 @@ import {
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/MainStyles";
 
+const url = process.env.EXPO_PUBLIC_API_URL + "/offers";
+if (!process.env.EXPO_PUBLIC_API_URL) {
+  throw new Error("process.env.EXPO_PUBLIC_API_URL is undefined");
+}
+
 export default function Offers() {
   const { getToken } = useAuth();
   const [showPost, setShowPost] = useState(false);
@@ -21,7 +26,6 @@ export default function Offers() {
   // console.log(offers);
   const [isLoading, setIsLoading] = useState(false);
 
-  const url = "http://192.168.178.32:3000/offers";
   //for app http synthax is a must
   useEffect(() => {
     async function loadOffers() {
@@ -44,6 +48,7 @@ export default function Offers() {
     }
     loadOffers();
   }, []);
+
   function handleDateDayJs(date) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
   }
