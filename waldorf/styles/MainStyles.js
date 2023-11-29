@@ -131,5 +131,6 @@ export const styles = StyleSheet.create({
   loadingContainer: {
     alignItems: "center",
     justifyContent: "center",
+    padding: 50,
   },
 });
