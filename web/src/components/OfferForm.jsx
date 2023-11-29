@@ -65,7 +65,8 @@ export function OfferForm({onSubmit}) {
         </label>
         <DatePicker
           showTimeInput
-          timeFormat="p"
+          timeFormat="HH:mm"
+          dateFormat="d.MM.yyyy HH:mm"
           selected={postOffer.dateOfTransportation}
           onChange={(date) => {
             console.log("Date changed", date);
