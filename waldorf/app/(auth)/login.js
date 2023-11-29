@@ -28,6 +28,7 @@ function Login() {
   }
 
   async function login(email, password) {
+    console.log("login()");
     if (!isLoaded) {
       return;
     }
@@ -37,6 +38,7 @@ function Login() {
         password,
       });
       await setActive({ session: completeSignIn.createdSessionId });
+      console.log("signed in");
       router.replace("/");
     } catch (error) {
       console.log(error);
@@ -103,9 +105,7 @@ function Login() {
             activeOpacity={0.5}
             style={[styles.button, isPressed && styles.buttonPressed]}
           >
-            <Pressable>
-              <Text style={[styles.label]}> Login</Text>
-            </Pressable>
+            <Text style={[styles.label]}> Login</Text>
           </TouchableOpacity>
           <Pressable onPress={() => handleTestLogin()}>
             <Text style={[styles.label]}>Test-Login</Text>

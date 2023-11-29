@@ -28,7 +28,7 @@
 span:hover {
   cursor: pointer;
   color: green;
-  font-size: larger;
+  /* font-size: larger; */
 }
 
 @media screen and (min-width:480px) {

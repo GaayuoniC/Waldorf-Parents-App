@@ -21,6 +21,8 @@ main {
   background-color: var(--background-color);
 
   /* Soft white background color */
+  /* TODO: not sure how to do ... */
+  min-height: 80vh;
 }
 
 * {
