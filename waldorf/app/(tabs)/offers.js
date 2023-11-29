@@ -47,7 +47,7 @@ export default function Offers() {
       }
     }
     loadOffers();
-  }, []);
+  }, [showPost]);
 
   function handleDateDayJs(date) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
@@ -110,7 +110,13 @@ export default function Offers() {
                 title="ADD OFFER"
                 onPress={() => setShowPost(!showPost)}
               />
-              {showPost && <OfferForm />}
+              {showPost && (
+                <OfferForm
+                  onSubmit={() => {
+                    setShowPost(false);
+                  }}
+                />
+              )}
             </View>
           </View>
         </View>

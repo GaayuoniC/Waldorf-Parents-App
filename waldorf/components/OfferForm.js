@@ -2,17 +2,17 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
-import DatePicker from "react-datepicker";
+import DatePicker from "react-native-date-picker";
 
 import { styles } from "../styles/FormStyles2";
 
-export function OfferForm() {
+export function OfferForm({ onSubmit }) {
   const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
     startZip: "",
     startCity: "",
-    dateOfTransportation: "",
+    dateOfTransportation: new Date(),
     modeOfTransportation: "",
     direction: "",
   });
@@ -21,8 +21,7 @@ export function OfferForm() {
     setPostOffer((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function handleSubmitOfferForm(e) {
-    e.preventDefault();
+  async function handleSubmitOfferForm() {
     const dataToPost = {
       parentName: postOffer.parentName,
       startStreet: postOffer.startStreet,
@@ -37,8 +36,9 @@ export function OfferForm() {
         "http://192.168.178.32:3000/offers",
         dataToPost
       );
+      console.log(data);
 
-      onsubmit(); //TO DO: hide the form after submission!!
+      onSubmit(); //TO DO: hide the form after submission!! used as a prop
     } catch (error) {
       console.log("Could not post your offer", error);
     }
@@ -46,24 +46,28 @@ export function OfferForm() {
 
   return (
     <View>
-      {/* <Text>Post a request for help here!</Text> */}
       <View>
         <Text> Name :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          type="text"
-          // placeholder="Please enter your full name"
           onChangeText={(text) => handleOfferChange("parentName", text)}
           value={postOffer.parentName}
         />
       </View>
+      {/* <DatePicker
+        mode="calendar"
+        showTimeInput
+        timeFormat="p"
+        selected={postOffer.dateOfTransportation}
+        onDateChange={(date) => {
+          setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
+        }}
+      /> */}
+
       <View>
         <Text>Starting street :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          // placeholder="Please enter your street name"
           onChangeText={(text) => handleOfferChange("startStreet", text)}
           value={postOffer.startStreet}
         />
@@ -71,9 +75,7 @@ export function OfferForm() {
       <View>
         <Text>Start zip/postcode :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          // placeholder="Please enter your postcode"
           onChangeText={(text) => handleOfferChange("startZip", text)}
           value={postOffer.startZip}
         />
@@ -81,31 +83,25 @@ export function OfferForm() {
       <View>
         <Text>Start city :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          // placeholder="Please enter your start location/city"
           onChangeText={(text) => handleOfferChange("startCity", text)}
           value={postOffer.startCity}
         />
       </View>
-      <View>
+      {/* <View>
         <Text>Date of transportation :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          // placeholder="Please enter date of transportation"
           onChangeText={(text) =>
             handleOfferChange("dateOfTransportation", text)
           }
           value={postOffer.dateOfTransportation}
         />
-      </View>
+      </View> */}
       <View>
         <Text>Mode of transport :</Text>
         <TextInput
-          // style={}
           style={[styles.input]}
-          // placeholder="Please enter your mode of transport"
           onChangeText={(text) =>
             handleOfferChange("modeOfTransportation", text)
           }
@@ -116,11 +112,10 @@ export function OfferForm() {
         <Text>Destination : </Text>
         <TextInput
           style={[styles.input]}
-          // placeholder="Please enter your direction of travel"
           onChangeText={(text) => handleOfferChange("direction", text)}
           value={postOffer.direction}
         />
-        <Button title="Submit offer" onPress={handleSubmitOfferForm} />
+        <Button title="Add offer" onPress={handleSubmitOfferForm} />
       </View>
     </View>
   );
