@@ -27,7 +27,7 @@ export function Requests() {
       }
     }
     loadRequests();
-  }, []);
+  }, [showPost]);
 
   return (
     <>
@@ -76,7 +76,13 @@ export function Requests() {
         >
           <p>Click here to place your request for assistance! </p>
         </span>
-        {showPost && <PostRequestForm />}
+        {showPost && (
+          <PostRequestForm
+            onSubmit={() => {
+              setShowPost(false);
+            }}
+          />
+        )}
       </section>
     </>
   );
