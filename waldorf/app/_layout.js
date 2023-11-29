@@ -8,7 +8,7 @@ export default function HomeLayout() {
       try {
         return SecureStore.getItemAsync(key);
       } catch (error) {
-        return null;
+        return console.log(error);
       }
     },
 
