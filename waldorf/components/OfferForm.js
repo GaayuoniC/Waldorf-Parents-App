@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
+import dayjs from "dayjs";
 
 import { styles } from "../styles/FormStyles2";
 
 export function OfferForm() {
-  const [postRequest, setPostRequest] = useState({
+  const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
     startZip: "",
@@ -15,11 +16,20 @@ export function OfferForm() {
   });
   function handleOfferChange(name, value) {
     // const { name, value } = e.target;
-    setPostRequest((prev) => ({ ...prev, [name]: value }));
+    setPostOffer((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmitOfferRequest(e) {
+  function handleSubmitOfferForm(e) {
     e.preventDefault();
+    const dataToPost = {
+      parentName: postOffer.parentName,
+      startStreet: postOffer.startStreet,
+      startZip: postOffer.startZip,
+      startCity: postOffer.startCity,
+      dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
+      modeOfTransportation: postOffer.modeOfTransportation,
+      direction: postOffer.direction,
+    };
   }
 
   return (
@@ -33,7 +43,7 @@ export function OfferForm() {
           type="text"
           // placeholder="Please enter your full name"
           onChangeText={(text) => handleOfferChange("parentName", text)}
-          value={postRequest.parentName}
+          value={postOffer.parentName}
         />
       </View>
       <View>
@@ -43,7 +53,7 @@ export function OfferForm() {
           style={[styles.input]}
           // placeholder="Please enter your street name"
           onChangeText={(text) => handleOfferChange("startStreet", text)}
-          value={postRequest.startStreet}
+          value={postOffer.startStreet}
         />
       </View>
       <View>
@@ -53,7 +63,7 @@ export function OfferForm() {
           style={[styles.input]}
           // placeholder="Please enter your postcode"
           onChangeText={(text) => handleOfferChange("startZip", text)}
-          value={postRequest.startZip}
+          value={postOffer.startZip}
         />
       </View>
       <View>
@@ -63,7 +73,7 @@ export function OfferForm() {
           style={[styles.input]}
           // placeholder="Please enter your start location/city"
           onChangeText={(text) => handleOfferChange("startCity", text)}
-          value={postRequest.startCity}
+          value={postOffer.startCity}
         />
       </View>
       <View>
@@ -75,7 +85,7 @@ export function OfferForm() {
           onChangeText={(text) =>
             handleOfferChange("dateOfTransportation", text)
           }
-          value={postRequest.dateOfTransportation}
+          value={postOffer.dateOfTransportation}
         />
       </View>
       <View>
@@ -87,7 +97,7 @@ export function OfferForm() {
           onChangeText={(text) =>
             handleOfferChange("modeOfTransportation", text)
           }
-          value={postRequest.modeOfTransportation}
+          value={postOffer.modeOfTransportation}
         />
       </View>
       <View>
@@ -96,9 +106,9 @@ export function OfferForm() {
           style={[styles.input]}
           // placeholder="Please enter your direction of travel"
           onChangeText={(text) => handleOfferChange("direction", text)}
-          value={postRequest.direction}
+          value={postOffer.direction}
         />
-        <Button title="Submit offer" onPress={handleSubmitOfferRequest} />
+        <Button title="Submit offer" onPress={handleSubmitOfferForm} />
       </View>
     </View>
   );
