@@ -1,4 +1,4 @@
-import { PostOfferForm } from "../components/PostOfferForm";
+import { PostRequestForm } from "../components/PostRequestForm";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -8,31 +8,20 @@ export function Requests() {
 
   //working progress
 
-  const [request, setRequest] = useState({
-    parentName: "",
-    startingAddress: "",
-    directionOfTravel: "",
-    modeOfTransport: "",
-    date: "",
-  });
+  const [request, setRequest] = useState([]);
   const url = "/api/post";
   useEffect(() => {
     async function loadRequests() {
       try {
         setIsLoading(true);
-        console.log("before data fetch");
+        console.log("before data fetch"); //debug point
 
-        const { data } = await axios.get(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ parentName }),
-        });
-        console.log("After axios fetch");
-
+        const { data } = await axios.get(url);
         setRequest(data);
-        console.debug(data); //debugging check
+        console.log("After data fetch"); //debugging check
       } catch (error) {
-        console.log("Data loading error ! Please check your code again", error);
+        console.log("Error getting data ! Please check your code again", error);
+        alert("Error getting data ! Please check your code again");
       } finally {
         setIsLoading(false);
       }
@@ -42,7 +31,6 @@ export function Requests() {
 
   return (
     <>
-     
       <h3>Available Requests</h3>
       <section>
         <span
@@ -52,8 +40,7 @@ export function Requests() {
         >
           <p>Click here to place your request for assistance! </p>
         </span>
-        {showPost && <PostOfferForm />}
-       
+        {showPost && <PostRequestForm />}
       </section>
     </>
   );

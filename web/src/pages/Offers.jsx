@@ -9,7 +9,6 @@ export function Offers() {
   const [offers, setOffers] = useState([]);
   // console.log(data);
 
-  // const dummyData = offers;
   const url = "/api/offers";
 
   useEffect(() => {
@@ -23,12 +22,13 @@ export function Offers() {
         console.debug(data); //debugging check
       } catch (error) {
         console.log("Data loading error ! Please check your code again", error);
+        alert("Error getting data ! Please check your code again");
       } finally {
         setIsLoading(false);
       }
     }
     loadOffers();
-  }, [showPost]);
+  }, [showPost]); //show post is the tri
 
   return (
     <>
@@ -73,7 +73,13 @@ export function Offers() {
           <span onClick={() => setShowPost(!showPost)}>
             Click here to post an offer to help!!
           </span>
-          {showPost && <OfferForm onSubmit={() => { setShowPost(false) }}/>}
+          {showPost && (
+            <OfferForm
+              onSubmit={() => {
+                setShowPost(false);
+              }}
+            />
+          )}
         </div>
       </section>
     </>
