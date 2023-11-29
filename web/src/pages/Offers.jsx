@@ -28,7 +28,7 @@ export function Offers() {
       }
     }
     loadOffers();
-  }, []);
+  }, [showPost]);
 
   return (
     <>
@@ -73,7 +73,7 @@ export function Offers() {
           <span onClick={() => setShowPost(!showPost)}>
             Click here to post an offer to help!!
           </span>
-          {showPost && <OfferForm />}
+          {showPost && <OfferForm onSubmit={() => { setShowPost(false) }}/>}
         </div>
       </section>
     </>
