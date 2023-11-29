@@ -21,9 +21,11 @@ export const styles = StyleSheet.create({
     justifyContent: "top",
     // backgroundColor: "green",
 
-    width: Platform.OS === "ios" ? 400 : 340,
+    width: Platform.OS === "ios" ? 400 : 330,
 
+    margin: 10,
     padding: 20,
+    marginBottom: 20,
 
     ...Platform.select({
       ios: {
@@ -31,12 +33,21 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 1,
         shadowRadius: 12,
+        scrollViewContent: {
+          alignItems: "center",
+          justifyContent: "center",
+        },
       },
       android: { elevation: 4 },
     }),
   },
   // Used the spread operator to be able to style for ios and android seperately
   //found the solution online!!!
+  scrollViewContent: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   textPrimary: {
     color: colors.white,
     fontSize: 16,
@@ -68,9 +79,7 @@ export const styles = StyleSheet.create({
   input: {
     color: colors.black,
     width: "100%",
-    marginBottom: Platform.OS === "ios" ? 15 : 10,
-    marginTop: Platform.OS === "ios" ? 6 : 2,
-
+    margin: 0,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: colors.black,
@@ -108,7 +117,7 @@ export const styles = StyleSheet.create({
     color: "#000000",
   },
   horizontalLine: {
-    borderBottomColor: "black",
+    borderBottomColor: "rgba(0,0,0,0.3)",
     borderBottomWidth: 1,
     width: "100%",
     marginVertical: 10,
@@ -117,9 +126,10 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: "flex-start",
     textDecorationLine: "underline",
+    textDecorationColor: "rgba(0,0,0,0.3)",
+  },
+  loadingContainer: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
-// export const combinedHorizAvailText = StyleSheet.flatten([
-//   styles.availabilityText,
-//   styles.horizontalLine,
-// ]);

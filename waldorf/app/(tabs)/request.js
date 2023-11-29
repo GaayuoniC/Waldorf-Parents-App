@@ -8,17 +8,17 @@ export default function Requests() {
   const [showPost, setShowPost] = useState(false);
 
   return (
-    <>
-      <Text style={[styles.welcome]}>Waldorf Parents' App</Text>
+    <View style={[styles.container]}>
+      <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
 
-      <View style={[styles.container]}>
+      <View>
         <View>
-          <Text>Available requests :</Text>
+          <Text style={[styles.availabilityText]}>Available requests</Text>
         </View>
-        <Button title="Show/hide" onPress={() => setShowPost(!showPost)} />
+        <Button title="ADD REQUEST" onPress={() => setShowPost(!showPost)} />
         {showPost && <PostRequestForm />}
       </View>
-    </>
+    </View>
   );
 }
 // const styles = StyleSheet.create({

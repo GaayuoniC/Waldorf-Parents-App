@@ -7,9 +7,9 @@ export default function HomePage() {
   const { isSignedIn } = useUser();
 
   return (
-    <>
-      <Text style={[styles.welcome]}>Waldorf Parents' App</Text>
-      <View style={[styles.container]}>
+    <View style={[styles.container]}>
+      <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
+      <View>
         <Text style={styles.text}>
           Welcome to the Waldorf school parents helper App. The site is made
           with the main intention of making life a little bit easier for
@@ -34,6 +34,6 @@ export default function HomePage() {
           </View>
         ) : null}
       </View>
-    </>
+    </View>
   );
 }

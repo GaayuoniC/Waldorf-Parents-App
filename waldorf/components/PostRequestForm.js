@@ -18,7 +18,7 @@ export function PostRequestForm() {
   }
 
   return (
-    <View style={[styles.container]}>
+    <View>
       {/* <Text>Post a request for help here!</Text> */}
       <View style={[styles.form]}>
         <Text>Title of request</Text>
@@ -30,7 +30,7 @@ export function PostRequestForm() {
           value={postRequest.title}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Description of request needed: </Text>
         <TextInput
           style={[styles.input]}
@@ -43,3 +43,5 @@ export function PostRequestForm() {
     </View>
   );
 }
+// style={[styles.form]}
+// style={[styles.container]}

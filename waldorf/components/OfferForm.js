@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
-import { styles, colors } from "../styles/FormStyles2";
+import { styles } from "../styles/FormStyles2";
 
 export function OfferForm() {
   const [postRequest, setPostRequest] = useState({
@@ -23,10 +23,10 @@ export function OfferForm() {
   }
 
   return (
-    <View style={[styles.container]}>
+    <View>
       {/* <Text>Post a request for help here!</Text> */}
-      <View style={[styles.form]}>
-        <Text>Enter name :</Text>
+      <View>
+        <Text> Name :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -36,8 +36,8 @@ export function OfferForm() {
           value={postRequest.parentName}
         />
       </View>
-      <View style={[styles.form]}>
-        <Text>Enter starting street :</Text>
+      <View>
+        <Text>Starting street :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -46,8 +46,8 @@ export function OfferForm() {
           value={postRequest.startStreet}
         />
       </View>
-      <View style={[styles.form]}>
-        <Text>Enter start zip/postcode :</Text>
+      <View>
+        <Text>Start zip/postcode :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -56,8 +56,8 @@ export function OfferForm() {
           value={postRequest.startZip}
         />
       </View>
-      <View style={[styles.form]}>
-        <Text>Enter start city :</Text>
+      <View>
+        <Text>Start city :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -66,8 +66,8 @@ export function OfferForm() {
           value={postRequest.startCity}
         />
       </View>
-      <View style={[styles.form]}>
-        <Text>Enter date of transportation :</Text>
+      <View>
+        <Text>Date of transportation :</Text>
         <TextInput
           // style={}
           style={[styles.input]}
@@ -78,7 +78,7 @@ export function OfferForm() {
           value={postRequest.dateOfTransportation}
         />
       </View>
-      <View style={[styles.form]}>
+      <View>
         <Text>Mode of transport :</Text>
         <TextInput
           // style={}
@@ -90,8 +90,8 @@ export function OfferForm() {
           value={postRequest.modeOfTransportation}
         />
       </View>
-      <View style={[styles.form]}>
-        <Text>Direction of travel : </Text>
+      <View>
+        <Text>Destination : </Text>
         <TextInput
           style={[styles.input]}
           // placeholder="Please enter your direction of travel"

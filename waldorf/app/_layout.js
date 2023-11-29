@@ -11,11 +11,12 @@ export default function HomeLayout() {
         return null;
       }
     },
+
     async saveToken(key, value) {
       try {
         return SecureStore.setItemAsync(key, value);
       } catch (error) {
-        return;
+        return console.log("Token saving problem", error);
       }
     },
   };
