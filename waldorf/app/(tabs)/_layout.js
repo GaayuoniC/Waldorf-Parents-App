@@ -1,7 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { Entypo } from "@expo/vector-icons";
 import { Redirect, Tabs } from "expo-router";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 
 export default function HomeLayout() {
   const { isSignedIn, isLoaded } = useUser();
@@ -10,6 +10,7 @@ export default function HomeLayout() {
     return (
       <View>
         <Text>Loading Page</Text>
+        <ActivityIndicator size="large" color="yellow" />
       </View>
     );
   }
@@ -87,24 +88,3 @@ export default function HomeLayout() {
     </Tabs>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    // flex: 2,
-    // backgroundColor: "#cf77ce",
-    backgroundColor: "#f7f7ff",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // padding: 20,
-    //
-  },
-  text: {
-    fontSize: Platform.OS === "ios" ? 20 : 18,
-  },
-  safearea: {
-    flex: 1,
-    // backgroundColor: "green",
-    // width: 400,
-    // padding: 20,
-    // borderRadius: 12,
-  },
-});
