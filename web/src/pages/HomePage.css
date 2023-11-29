@@ -37,17 +37,17 @@
 }
 button {
   justify-content: center;
-  width: 7em;
-  height: 3.1em;
-  text-transform: uppercase;
-  font-weight: bold;
+  /* text-transform: uppercase; */
+  font-weight: 300;
   font-size: 1em;
-  background-color: var(--footer-clr);
   border-radius: 12px;
+  margin: 10px;
+  align-items: center;
+  padding: 5px;
 }
 button:hover {
-  background-color: #77cf77;
-  color: black;
+  background-color:var(--hover-clr);
+  border:1px solid blue
 }
 @media (max-width: 768px) {
   .home-welcome > div {

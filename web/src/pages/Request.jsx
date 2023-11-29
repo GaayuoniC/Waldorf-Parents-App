@@ -42,7 +42,8 @@ export function Requests() {
 
   return (
     <>
-      <h2>Requests</h2>
+     
+      <h3>Available Requests</h3>
       <section>
         <span
           onClick={() => {
@@ -52,7 +53,7 @@ export function Requests() {
           <p>Click here to place your request for assistance! </p>
         </span>
         {showPost && <PostOfferForm />}
-        <h3>Available Requests for help:</h3>
+       
       </section>
     </>
   );

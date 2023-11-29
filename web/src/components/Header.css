@@ -11,6 +11,7 @@
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 .links {
   text-decoration: none;
@@ -28,4 +29,14 @@ span:hover {
   cursor: pointer;
   color: green;
   font-size: larger;
+}
+
+@media screen and (min-width:480px) {
+  .nav-bar{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
 }

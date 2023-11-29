@@ -125,7 +125,7 @@ export function OfferForm() {
           ></input>
         </label>
 
-        <button type="submit">Post</button>
+        <button type="submit">Add offer</button>
       </form>
     </div>
   );

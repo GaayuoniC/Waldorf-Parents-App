@@ -45,7 +45,7 @@ input {
 
 @media (max-width: 768px) {
   .offer-container {
-    max-width: 300px;
+    max-width: 700px;
     margin: auto;
   }
   .offer-form-container {
@@ -59,7 +59,7 @@ input {
 }
 @media (max-width: 500px) {
   .offer-container {
-    max-width: 200px;
+    max-width: 300px;
     margin: auto;
   }
 }
