@@ -17,9 +17,11 @@ export const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: colors.white,
   },
-  safeArea: {
-    backgroundColor: colors.baseOrange,
-    // flex: 2,
+  innerLoginView: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: colors.white,
   },
   heading: {
     color: colors.headerColor,

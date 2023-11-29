@@ -11,6 +11,8 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 
 import { styles } from "../../app/styles";
@@ -65,56 +67,66 @@ function Login() {
       style={[styles.container]}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      {/* Keyboard avoiding view needed for shifting login page up when keyboard is activated */}
       {/* Take note of the synthax for styles file in native  */}
-      <Image source={require("../../assets/icon.png")} style={[styles.logo]} />
-
-      <Text style={[styles.heading]}>Waldorf Parents' App </Text>
-      <Text style={[styles.moto]}>Always ready to help!</Text>
-
-      <View>
-        <View>
-          <Text style={[styles.label]}>Email</Text>
-          <TextInput
-            autoCapitalize="none"
-            autoCompleteType="email"
-            autoCorrect={false}
-            placeholderTextColor="rgba(28,53,63, 1)"
-            style={[styles.input, isEmailFocused && styles.inputFocus]}
-            onChangeText={(value) => handleChangeData("email", value)}
-            value={formDetails.email}
-            onFocus={() => setIsEmailFocused(true)}
-            onBlur={() => setIsEmailFocused(false)}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={[styles.innerLoginView]}>
+          <Image
+            source={require("../../assets/icon.png")}
+            style={[styles.logo]}
           />
+
+          <Text style={[styles.heading]}>Waldorf Parents' App </Text>
+          <Text style={[styles.moto]}>Always ready to help!</Text>
+
+          <View>
+            <View>
+              <Text style={[styles.label]}>Email</Text>
+              <TextInput
+                require
+                autoCapitalize="none"
+                autoCompleteType="email"
+                autoCorrect={false}
+                placeholderTextColor="rgba(28,53,63, 1)"
+                style={[styles.input, isEmailFocused && styles.inputFocus]}
+                onChangeText={(value) => handleChangeData("email", value)}
+                value={formDetails.email}
+                onFocus={() => setIsEmailFocused(true)}
+                onBlur={() => setIsEmailFocused(false)}
+              />
+            </View>
+            <View>
+              <Text style={[styles.label]}>Password</Text>
+              <TextInput
+                style={[styles.input, isPasswordFocused && styles.inputFocus]}
+                onChangeText={(value) => handleChangeData("password", value)}
+                value={formDetails.password}
+                secureTextEntry
+                autoCapitalize="none"
+                require
+                onFocus={() => setIsPasswordFocused(true)}
+                onBlur={() => setIsPasswordFocused(false)}
+              />
+            </View>
+            <TouchableOpacity
+              onPress={() => handleSubmit()}
+              onPressIn={() => setIsPressed(true)}
+              onPressOut={() => setIsPressed(false)}
+              activeOpacity={0.5}
+              style={[styles.button, isPressed && styles.buttonPressed]}
+            >
+              <Text style={[styles.label]}> Login</Text>
+            </TouchableOpacity>
+            <Pressable onPress={() => handleTestLogin()}>
+              <Text style={[styles.label]}>Test-Login</Text>
+            </Pressable>
+            <Pressable onPress={() => handleFailedLogin()}>
+              <Text style={[styles.label]}>Failed-Login</Text>
+            </Pressable>
+            <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
+          </View>
         </View>
-        <View>
-          <Text style={[styles.label]}>Password</Text>
-          <TextInput
-            style={[styles.input, isPasswordFocused && styles.inputFocus]}
-            onChangeText={(value) => handleChangeData("password", value)}
-            value={formDetails.password}
-            secureTextEntry
-            autoCapitalize="none"
-            onFocus={() => setIsPasswordFocused(true)}
-            onBlur={() => setIsPasswordFocused(false)}
-          />
-        </View>
-        <TouchableOpacity
-          onPress={() => handleSubmit()}
-          onPressIn={() => setIsPressed(true)}
-          onPressOut={() => setIsPressed(false)}
-          activeOpacity={0.5}
-          style={[styles.button, isPressed && styles.buttonPressed]}
-        >
-          <Text style={[styles.label]}> Login</Text>
-        </TouchableOpacity>
-        <Pressable onPress={() => handleTestLogin()}>
-          <Text style={[styles.label]}>Test-Login</Text>
-        </Pressable>
-        <Pressable onPress={() => handleFailedLogin()}>
-          <Text style={[styles.label]}>Failed-Login</Text>
-        </Pressable>
-        <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
-      </View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 }
