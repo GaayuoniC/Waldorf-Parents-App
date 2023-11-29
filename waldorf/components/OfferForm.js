@@ -1,6 +1,8 @@
+import axios from "axios";
+import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
-import dayjs from "dayjs";
+import DatePicker from "react-datepicker";
 
 import { styles } from "../styles/FormStyles2";
 
@@ -19,7 +21,7 @@ export function OfferForm() {
     setPostOffer((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmitOfferForm(e) {
+  async function handleSubmitOfferForm(e) {
     e.preventDefault();
     const dataToPost = {
       parentName: postOffer.parentName,
@@ -30,6 +32,16 @@ export function OfferForm() {
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
     };
+    try {
+      const { data } = await axios.post(
+        "http://192.168.178.32:3000/offers",
+        dataToPost
+      );
+
+      onsubmit(); //TO DO: hide the form after submission!!
+    } catch (error) {
+      console.log("Could not post your offer", error);
+    }
   }
 
   return (
