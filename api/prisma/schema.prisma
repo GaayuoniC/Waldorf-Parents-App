@@ -11,13 +11,14 @@ datasource db {
 }
 
 model Offer {
-  id           Int           @id @default(autoincrement())
-  parentName  String    
-  startStreet String
-  startZip String
-  startCity String
+  id                   Int      @id @default(autoincrement())
+  parentName           String
+  startStreet          String
+  startZip             String
+  startCity            String
   dateOfTransportation DateTime
   modeOfTransportation String
-  direction String
+  direction            String
+  numberOfChildren     Int
+  isRequest            Boolean
 }
-
