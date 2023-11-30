@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export function OfferForm({ onSubmit }) {
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
@@ -15,6 +15,7 @@ export function OfferForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "",
     direction: "",
+    numberOfKids: "",
   });
 
   function handleChange(event, field) {
@@ -35,15 +36,19 @@ export function OfferForm({ onSubmit }) {
       dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
+      numberOfKids: postOffer.numberOfKids,
     };
     console.log("Data to post", dataToPost);
     try {
+      isLoading(true);
       const { data } = await axios.post("/api/offers", dataToPost);
       console.log(data);
       // TODO: hide form ???
       onSubmit();
     } catch (err) {
       console.log("Error posting offer", err);
+    } finally {
+      setIsLoading(false);
     }
   }
 

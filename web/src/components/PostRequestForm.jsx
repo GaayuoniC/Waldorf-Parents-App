@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
 export function PostRequestForm({ onSubmit }) {
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [postRequest, setPostRequest] = useState({
     parentName: "Ayoma Doe",
@@ -42,12 +42,15 @@ export function PostRequestForm({ onSubmit }) {
     };
     console.log("Data to post", dataToPost);
     try {
+      isLoading(true);
       const { data } = await axios.post("/api/offers", dataToPost); //TO DO: need to check how to do this
       console.log(data);
 
       onSubmit(); //dependence prop trigger get all available request!
     } catch (err) {
       console.log("Error posting offer", err);
+    } finally {
+      setIsLoading(false);
     }
   }
 
