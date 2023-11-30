@@ -1,9 +1,8 @@
+import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
-import DatePicker from "react-native-date-picker";
-import { Picker } from "@react-native-picker/picker";
 
 import { styles } from "../styles/FormStyles2";
 
@@ -120,17 +119,19 @@ export function OfferForm({ onSubmit }) {
       </View>
       <View>
         <Text>Destination : </Text>
-        {/* <Picker
-          style={[styles.input]}
-          onChangeText={(text) => handleOfferChange("direction", text)}
-          value={postOffer.direction}
-        /> */}
 
-        <Picker>
+        {/* Picker has no onchange text but a onchange value instedad */}
+        <Picker
+          style={[styles.input]}
+          onValueChange={(itemValue) =>
+            handleOfferChange("direction", itemValue)
+          }
+          value={postOffer.direction}
+        >
           <Picker.Item label="Select travel destination" value="" />
-          <Picker.Item label="Walking" value="walk" />
-          <Picker.Item label="Bicycle" value="bike" />
-          <Picker.Item label="Car" value="car" />
+          <Picker.Item label="To school" value="to_school" />
+          <Picker.Item label="From school" value="from_school" />
+          <Picker.Item label="To and from school" value="both" />
         </Picker>
       </View>
       <Button title="Add offer" onPress={handleSubmitOfferForm} />

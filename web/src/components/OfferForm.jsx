@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export function OfferForm({onSubmit}) {
+export function OfferForm({ onSubmit }) {
   const [isloading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
     parentName: "Ayoma Doe",
@@ -38,12 +38,15 @@ export function OfferForm({onSubmit}) {
     };
     console.log("Data to post", dataToPost);
     try {
+      setIsLoading(true);
       const { data } = await axios.post("/api/offers", dataToPost);
       console.log(data);
       // TODO: hide form ???
       onSubmit();
     } catch (err) {
       console.log("Error posting offer", err);
+    } finally {
+      setIsLoading(false);
     }
   }
 
