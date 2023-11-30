@@ -14,7 +14,7 @@ import { ApiParam, ApiProperty, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { OfferEntity } from './entities';
 import { PrismaService } from './prisma.service';
 
-export class PostOfferRequest {
+export class PostRequestRequest {
   id: number;
 
   @ApiProperty({
@@ -66,11 +66,11 @@ export class PostOfferRequest {
   numberOfChildren: number;
 }
 
-class OfferResponse extends OfferEntity {}
+class RequestResponse extends OfferEntity {}
 
-@ApiTags('Offer')
-@Controller('/offers')
-export class OfferController {
+@ApiTags('Requests')
+@Controller('/requests')
+export class RequestController {
   constructor(
     private readonly logger: Logger,
     private prisma: PrismaService,
@@ -79,8 +79,8 @@ export class OfferController {
   @Post('/')
   @ApiResponse({
     status: 201,
-    description: 'Offer created',
-    type: OfferResponse,
+    description: 'Request created',
+    type: RequestResponse,
   })
   @ApiResponse({
     status: 400,
@@ -91,11 +91,11 @@ export class OfferController {
     description: 'Unexpected error',
   })
   async createOffer(
-    @Body() offerData: PostOfferRequest,
-  ): Promise<OfferResponse> {
+    @Body() offerData: PostRequestRequest,
+  ): Promise<RequestResponse> {
     try {
       const offer = await this.prisma.offer.create({
-        data: { ...offerData, isRequest: false },
+        data: { ...offerData, isRequest: true },
       });
       return offer;
     } catch (err) {
@@ -110,16 +110,16 @@ export class OfferController {
   @Get('/')
   @ApiResponse({
     status: 200,
-    description: 'List of offers',
-    type: [OfferResponse],
+    description: 'List of requests',
+    type: [RequestResponse],
   })
   @ApiResponse({
     status: 500,
     description: 'Unexpected error',
   })
-  async getOffers(): Promise<OfferResponse[]> {
+  async getOffers(): Promise<RequestResponse[]> {
     const offers = await this.prisma.offer.findMany({
-      where: { isRequest: false },
+      where: { isRequest: true },
     });
     return offers;
   }
@@ -127,35 +127,35 @@ export class OfferController {
   @Get('/:id')
   @ApiParam({
     name: 'id',
-    description: 'Offer Id',
+    description: 'request Id',
     type: Number,
     example: 1,
   })
   @ApiResponse({
     status: 200,
-    description: 'Offer',
-    type: OfferResponse,
+    description: 'Request',
+    type: RequestResponse,
   })
   @ApiResponse({
     status: 404,
-    description: 'Offer not found',
+    description: 'Request not found',
   })
   @ApiResponse({
     status: 500,
     description: 'Unexpected error',
   })
-  async getOffer(@Param('id') id: string): Promise<OfferResponse> {
+  async getOffer(@Param('id') id: string): Promise<RequestResponse> {
     try {
       const offer = await this.prisma.offer.findUnique({
-        where: { id: Number(id), isRequest: false },
+        where: { id: Number(id), isRequest: true },
       });
-      if (!offer) throw { message: 'offer not found', code: '404' };
+      if (!offer) throw { message: 'request not found', code: '404' };
       return offer;
     } catch (error) {
       this.logger.error(error);
       switch (error.code) {
         case '404':
-          throw new NotFoundException('Offer not found');
+          throw new NotFoundException('Request not found');
         default:
           throw new InternalServerErrorException('Unexpected error');
       }
@@ -165,11 +165,11 @@ export class OfferController {
   @Delete('/:id')
   @ApiResponse({
     status: 204,
-    description: 'Offer deleted',
+    description: 'Request deleted',
   })
   @ApiResponse({
     status: 404,
-    description: "Offer doesn't exist",
+    description: "Request doesn't exist",
   })
   @ApiResponse({
     status: 500,
@@ -177,7 +177,7 @@ export class OfferController {
   })
   @ApiParam({
     name: 'id',
-    description: 'Offer Id',
+    description: 'Request Id',
     type: Number,
     example: 1,
   })
@@ -189,7 +189,7 @@ export class OfferController {
       this.logger.error(err);
       switch (err.code) {
         case 'P2025':
-          throw new NotFoundException("Offer doesn't exist");
+          throw new NotFoundException("Request doesn't exist");
         default:
           throw new InternalServerErrorException('Unexpected error');
       }
