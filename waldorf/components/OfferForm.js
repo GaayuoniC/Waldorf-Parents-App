@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import DatePicker from "react-native-date-picker";
+import { Picker } from "@react-native-picker/picker";
 
 import { styles } from "../styles/FormStyles2";
 
@@ -15,6 +16,7 @@ export function OfferForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "",
     direction: "",
+    numberOfKids: "",
   });
   function handleOfferChange(name, value) {
     // const { name, value } = e.target;
@@ -57,12 +59,20 @@ export function OfferForm({ onSubmit }) {
       {/* <DatePicker
         mode="calendar"
         showTimeInput
-        dateFormat="dd.YYYY"
+        dateFormat="d.MM.YYYY HH:mm"
         selected={postOffer.dateOfTransportation}
         onDateChange={(date) => {
           setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
         }}
       /> */}
+      <View>
+        <Text>Number of kids I can care for :</Text>
+        <TextInput
+          style={[styles.input]}
+          onChangeText={(text) => handleOfferChange("startStreet", text)}
+          value={postOffer.numberOfKids}
+        />
+      </View>
 
       <View>
         <Text>Starting street :</Text>
@@ -110,13 +120,20 @@ export function OfferForm({ onSubmit }) {
       </View>
       <View>
         <Text>Destination : </Text>
-        <TextInput
+        {/* <Picker
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("direction", text)}
           value={postOffer.direction}
-        />
-        <Button title="Add offer" onPress={handleSubmitOfferForm} />
+        /> */}
+
+        <Picker>
+          <Picker.Item label="Select travel destination" value="" />
+          <Picker.Item label="Walking" value="walk" />
+          <Picker.Item label="Bicycle" value="bike" />
+          <Picker.Item label="Car" value="car" />
+        </Picker>
       </View>
+      <Button title="Add offer" onPress={handleSubmitOfferForm} />
     </View>
   );
 }

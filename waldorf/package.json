@@ -13,6 +13,7 @@
     "@clerk/clerk-expo": "^0.19.18",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
+    "@react-native-picker/picker": "^2.6.1",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
     "expo": "~49.0.15",
