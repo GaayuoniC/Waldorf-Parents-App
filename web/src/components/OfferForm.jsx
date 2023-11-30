@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export function OfferForm({onSubmit}) {
+export function OfferForm({ onSubmit }) {
   const [isloading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
     parentName: "Ayoma Doe",
@@ -56,7 +56,7 @@ export function OfferForm({onSubmit}) {
 
       <form className="offer-form-container" onSubmit={handleSubmitOfferForm}>
         <label className="title-label">
-          <p> Enter name: </p>
+          <p>Name: </p>
           <input
             type="text"
             value={postOffer.parentName}
@@ -77,7 +77,7 @@ export function OfferForm({onSubmit}) {
           }}
         />
         <label className="title-label">
-          <p> Enter starting street: </p>
+          <p>Starting street: </p>
           <input
             type="text"
             value={postOffer.startStreet}
@@ -86,7 +86,7 @@ export function OfferForm({onSubmit}) {
         </label>
 
         <label className="title-label">
-          <p> Enter start zip/postcode: </p>
+          <p> Start zip/postcode: </p>
           <input
             type="text"
             value={postOffer.startZip}
