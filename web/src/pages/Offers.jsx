@@ -45,11 +45,14 @@ export function Offers() {
                   <li className="parent-info">
                     <span className="parent-info-titles"> Parent name: </span>
                     {item.parentName} <br />
+                    <span className="parent-info-titles">Starting street:</span>
+                    {item.startStreet} <br />
+                    <span className="parent-info-titles">Start city:</span>
+                    {item.startCity} <br />
                     <span className="parent-info-titles">
-                      Starting address:
+                      Start zip/postcode:
                     </span>
-                    {item.startingAddress}
-                    <br />
+                    {item.startZip} <br />
                     <span className="parent-info-titles">
                       Direction of travel:
                     </span>
@@ -73,7 +76,13 @@ export function Offers() {
           <span onClick={() => setShowPost(!showPost)}>
             Click here to post an offer to help!!
           </span>
-          {showPost && <OfferForm onSubmit={() => { setShowPost(false) }}/>}
+          {showPost && (
+            <OfferForm
+              onSubmit={() => {
+                setShowPost(false);
+              }}
+            />
+          )}
         </div>
       </section>
     </>
