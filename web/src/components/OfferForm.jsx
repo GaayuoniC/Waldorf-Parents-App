@@ -8,13 +8,13 @@ import "react-datepicker/dist/react-datepicker.css";
 export function OfferForm({ onSubmit }) {
   const [isloading, setIsLoading] = useState(false);
   const [postOffer, setPostOffer] = useState({
-    parentName: "Ayoma Doe",
-    startStreet: "Test street",
-    startZip: "12345",
-    startCity: "Bonn",
+    parentName: "",
+    startStreet: "",
+    startZip: "",
+    startCity: "",
     dateOfTransportation: new Date(),
-    modeOfTransportation: "car",
-    direction: "to_school",
+    modeOfTransportation: "",
+    direction: "",
   });
 
   function handleChange(event, field) {
@@ -26,7 +26,7 @@ export function OfferForm({ onSubmit }) {
 
   async function handleSubmitOfferForm(event) {
     event.preventDefault();
-    console.log("Form submitted", postOffer);
+    console.log("Form submitted", postOffer); //debug point!!
     const dataToPost = {
       parentName: postOffer.parentName,
       startStreet: postOffer.startStreet,
@@ -53,6 +53,7 @@ export function OfferForm({ onSubmit }) {
         <span> Make an offer to help here! </span>
       </p>
       <p>{JSON.stringify(postOffer.dateOfTransportation)}</p>
+      {/* Remove before live */}
 
       <form className="offer-form-container" onSubmit={handleSubmitOfferForm}>
         <label className="title-label">
@@ -62,6 +63,9 @@ export function OfferForm({ onSubmit }) {
             value={postOffer.parentName}
             onChange={(e) => handleChange(e, "parentName")}
           ></input>
+        </label>
+        <label>
+          <p> Date and time: </p>
         </label>
         <DatePicker
           showTimeInput
@@ -94,41 +98,48 @@ export function OfferForm({ onSubmit }) {
           ></input>
         </label>
         <label className="title-label">
-          <p> Enter start city: </p>
+          <p> Start city: </p>
           <input
             type="text"
             value={postOffer.startCity}
             onChange={(e) => handleChange(e, "startCity")}
           ></input>
         </label>
-        {/* <label className="title-label">
-          <p> Date of transportation: </p>
-          <input
-            type="text"
-            value={postOffer.dateOfTransportation}
-            onChange={(e) => handleChange(e, "dateOfTransportation")}
-          ></input>
-        </label> */}
 
         <label className="title-label">
           <p> Mode to transport: </p>
-          <input
+          <select
             type="text"
             value={postOffer.modeOfTransportation}
             onChange={(e) => handleChange(e, "modeOfTransportation")}
-          ></input>
+          >
+            <option value="">Select mode of travel</option>
+            <option value="walk">Walking</option>
+            <option value="bike">Bicycle</option>
+            <option value="car">car</option>
+          </select>
         </label>
 
         <label className="title-label">
-          <p> Direction </p>
-          <input
+          <p> Direction:</p>
+          {/* TO DO: check and correct spacing */}
+          <select
+            // style={{ height: 30 }}
             type="text"
             value={postOffer.direction}
             onChange={(e) => handleChange(e, "direction")}
-          ></input>
+          >
+            <option value="">Select direction</option>
+            <option value="to_school">To school</option>
+            <option value="from_school">From school</option>
+            <option value="both">To and from school</option>
+          </select>
         </label>
-
-        <button type="submit">Add offer</button>
+        <span className="button-container">
+          <button id="add-offer-btn" type="submit">
+            Add offer
+          </button>
+        </span>
       </form>
     </div>
   );
