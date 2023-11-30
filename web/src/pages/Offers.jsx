@@ -22,7 +22,7 @@ export function Offers() {
         console.debug(data); //debugging check
       } catch (error) {
         console.log("Data loading error ! Please check your code again", error);
-        alert("Error getting data ! Please check your code again");
+        alert("Error getting offers ! Please check your code again");
       } finally {
         setIsLoading(false);
       }

@@ -16,7 +16,7 @@ export function PostRequestForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "car",
     direction: "to_school",
-    numberOfKids: "",
+    numberOfChildren: "",
   }); //using use state as an object to utilize just one function
 
   function handleChange(event, field) {
@@ -38,12 +38,12 @@ export function PostRequestForm({ onSubmit }) {
       ).toISOString(),
       modeOfTransportation: postRequest.modeOfTransportation,
       direction: postRequest.direction,
-      numberOfKids: postRequest.numberOfKids,
+      numberOfChildren: Number(postRequest.numberOfChildren),
     };
     console.log("Data to post", dataToPost);
     try {
-      isLoading(true);
-      const { data } = await axios.post("/api/offers", dataToPost); //TO DO: need to check how to do this
+      setIsLoading(true);
+      const { data } = await axios.post("/api/requests", dataToPost); //TO DO: need to check how to do this
       console.log(data);
 
       onSubmit(); //dependence prop trigger get all available request!
@@ -92,7 +92,7 @@ export function PostRequestForm({ onSubmit }) {
           <input
             type="text"
             value={postRequest.numberOfKids}
-            onChange={(e) => handleChange(e, "startZip")}
+            onChange={(e) => handleChange(e, "numberOfChildren")}
           ></input>
         </label>
         <label className="title-label">

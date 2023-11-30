@@ -9,7 +9,7 @@ export function Requests() {
   //working progress
 
   const [request, setRequest] = useState([]);
-  const url = "/api/post";
+  const url = "/api/requests";
   useEffect(() => {
     async function loadRequests() {
       try {
@@ -21,7 +21,7 @@ export function Requests() {
         console.log("After data fetch"); //debugging check
       } catch (error) {
         console.log("Error getting data ! Please check your code again", error);
-        alert("Error getting data ! Please check your code again");
+        alert("Error getting requests ! Please check your code again");
       } finally {
         setIsLoading(false);
       }
@@ -43,10 +43,19 @@ export function Requests() {
                   <li className="parent-info">
                     <span className="parent-info-titles"> Parent name: </span>
                     {item.parentName} <br />
+                    <span className="parent-info-titles">Starting street:</span>
+                    {item.startStreet}
+                    <br />
+                    <span className="parent-info-titles">Starting city:</span>
+                    {item.startCity}
+                    <br />
+                    <span className="parent-info-titles">Zip/Postcode:</span>
+                    {item.startZip}
+                    <br />
                     <span className="parent-info-titles">
-                      Starting address:
+                      Number of kids needing care:
                     </span>
-                    {item.startingAddress}
+                    {item.numberOfChildren}
                     <br />
                     <span className="parent-info-titles">
                       Direction of travel:
