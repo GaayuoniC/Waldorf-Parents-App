@@ -15,7 +15,7 @@ export function OfferForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "",
     direction: "",
-    numberOfKids: "",
+    numberOfChildren: "",
   });
   function handleOfferChange(name, value) {
     // const { name, value } = e.target;
@@ -31,7 +31,7 @@ export function OfferForm({ onSubmit }) {
       dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
-      numberOfKids: postOffer.numberOfKids,
+      numberOfChildren: Number(postOffer.numberOfChildren),
     };
     try {
       const { data } = await axios.post(
@@ -69,8 +69,8 @@ export function OfferForm({ onSubmit }) {
         <Text>Number of kids I can care for :</Text>
         <TextInput
           style={[styles.input]}
-          onChangeText={(text) => handleOfferChange("startStreet", text)}
-          value={postOffer.numberOfKids}
+          onChangeText={(text) => handleOfferChange("numberOfChildren", text)}
+          value={postOffer.numberOfChildren}
         />
       </View>
 
@@ -110,24 +110,36 @@ export function OfferForm({ onSubmit }) {
       </View> */}
       <View>
         <Text>Mode of transport :</Text>
-        <TextInput
+        <Picker
+          style={[styles.input]}
+          onValueChange={(itemValue) =>
+            handleOfferChange("modeOfTransportation", itemValue)
+          }
+          selectedValue={postOffer.modeOfTransportation}
+        >
+          <Picker.Item label="Select travel mode" value="" />
+          <Picker.Item label="Walk" value="walk" />
+          <Picker.Item label="Bicycle" value="bike" />
+          <Picker.Item label="Car" value="car" />
+        </Picker>
+
+        {/* <TextInput
           style={[styles.input]}
           onChangeText={(text) =>
             handleOfferChange("modeOfTransportation", text)
           }
           value={postOffer.modeOfTransportation}
-        />
+        /> */}
       </View>
       <View>
         <Text>Destination : </Text>
-
         {/* Picker has no onchange text but a onchange value instedad */}
         <Picker
           style={[styles.input]}
           onValueChange={(itemValue) =>
             handleOfferChange("direction", itemValue)
           }
-          value={postOffer.direction}
+          selectedValue={postOffer.direction}
         >
           <Picker.Item label="Select travel destination" value="" />
           <Picker.Item label="To school" value="to_school" />
