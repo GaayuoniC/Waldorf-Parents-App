@@ -57,7 +57,7 @@ export function OfferForm({ onSubmit }) {
       {/* <DatePicker
         mode="calendar"
         showTimeInput
-        timeFormat="p"
+        dateFormat="dd.YYYY"
         selected={postOffer.dateOfTransportation}
         onDateChange={(date) => {
           setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
