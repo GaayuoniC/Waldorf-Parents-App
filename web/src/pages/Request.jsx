@@ -41,10 +41,9 @@ export function Requests() {
   }, []);
 
   return (
-    <>
-     
+    <div>
       <h3>Available Requests</h3>
-      <section>
+      <div>
         <span
           onClick={() => {
             setShowPost(!showPost);
@@ -53,8 +52,7 @@ export function Requests() {
           <p>Click here to place your request for assistance! </p>
         </span>
         {showPost && <PostOfferForm />}
-       
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

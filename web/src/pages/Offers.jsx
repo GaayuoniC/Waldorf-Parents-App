@@ -18,7 +18,6 @@ export function Offers() {
         setIsLoading(true);
 
         const { data } = await axios.get(url);
-
         setOffers(data);
         console.debug(data); //debugging check
       } catch (error) {
@@ -53,6 +52,10 @@ export function Offers() {
                       Start zip/postcode:
                     </span>
                     {item.startZip} <br />
+                    <span className="parent-info-titles">
+                      Number of kids I can care for:
+                    </span>
+                    {item.numberOfChildren} <br />
                     <span className="parent-info-titles">
                       Direction of travel:
                     </span>
