@@ -15,7 +15,7 @@ export function OfferForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "",
     direction: "",
-    numberOfKids: "",
+    numberOfChildren: "",
   });
 
   function handleChange(event, field) {
@@ -36,11 +36,12 @@ export function OfferForm({ onSubmit }) {
       dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
-      numberOfKids: postOffer.numberOfKids,
+      numberOfChildren: Number(postOffer.numberOfChildren),
+      // Number function to convert string to number!
     };
     console.log("Data to post", dataToPost);
     try {
-      isLoading(true);
+      setIsLoading(true);
       const { data } = await axios.post("/api/offers", dataToPost);
       console.log(data);
       // TODO: hide form ???
@@ -89,8 +90,8 @@ export function OfferForm({ onSubmit }) {
           <p> Number of kids I can care for: </p>
           <input
             type="text"
-            value={postOffer.numberOfKids}
-            onChange={(e) => handleChange(e, "startZip")}
+            value={postOffer.numberOfChildren}
+            onChange={(e) => handleChange(e, "numberOfChildren")}
           ></input>
         </label>
         <label className="title-label">
