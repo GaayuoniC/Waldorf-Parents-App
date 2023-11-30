@@ -16,6 +16,7 @@ export function PostRequestForm({ onSubmit }) {
     dateOfTransportation: new Date(),
     modeOfTransportation: "car",
     direction: "to_school",
+    numberOfKids: "",
   }); //using use state as an object to utilize just one function
 
   function handleChange(event, field) {
@@ -37,6 +38,7 @@ export function PostRequestForm({ onSubmit }) {
       ).toISOString(),
       modeOfTransportation: postRequest.modeOfTransportation,
       direction: postRequest.direction,
+      numberOfKids: postRequest.numberOfKids,
     };
     console.log("Data to post", dataToPost);
     try {
@@ -59,16 +61,20 @@ export function PostRequestForm({ onSubmit }) {
         onSubmit={handleSubmitPostRequestForm}
       >
         <label className="title-label">
-          <p> Enter name: </p>
+          <p>Name: </p>
           <input
             type="text"
             value={postRequest.parentName}
             onChange={(e) => handleChange(e, "parentName")}
           ></input>
         </label>
+        <label>
+          <p> Date and time: </p>
+        </label>
         <DatePicker
           showTimeInput
-          timeFormat="p"
+          // timeFormat="HH:mm"
+          dateFormat="d.MM.yyyy HH:mm"
           selected={postRequest.dateOfTransportation}
           onChange={(date) => {
             console.log("Date changed", date);
@@ -79,7 +85,15 @@ export function PostRequestForm({ onSubmit }) {
           }} //TO DO: need to fix time display!
         />
         <label className="title-label">
-          <p> Enter starting street: </p>
+          <p> Number of kids to care for: </p>
+          <input
+            type="text"
+            value={postRequest.numberOfKids}
+            onChange={(e) => handleChange(e, "startZip")}
+          ></input>
+        </label>
+        <label className="title-label">
+          <p>Starting street: </p>
           <input
             type="text"
             value={postRequest.startStreet}
@@ -88,7 +102,7 @@ export function PostRequestForm({ onSubmit }) {
         </label>
 
         <label className="title-label">
-          <p> Enter start zip/postcode: </p>
+          <p> Start zip/postcode: </p>
           <input
             type="text"
             value={postRequest.startZip}
@@ -96,38 +110,40 @@ export function PostRequestForm({ onSubmit }) {
           ></input>
         </label>
         <label className="title-label">
-          <p> Enter start city: </p>
+          <p> Start city: </p>
           <input
             type="text"
             value={postRequest.startCity}
             onChange={(e) => handleChange(e, "startCity")}
           ></input>
         </label>
-        {/* <label className="title-label">
-          <p> Date of transportation: </p>
-          <input
-            type="text"
-            value={postOffer.dateOfTransportation}
-            onChange={(e) => handleChange(e, "dateOfTransportation")}
-          ></input>
-        </label> */}
 
         <label className="title-label">
           <p> Mode to transport: </p>
-          <input
+          <select
             type="text"
             value={postRequest.modeOfTransportation}
             onChange={(e) => handleChange(e, "modeOfTransportation")}
-          ></input>
+          >
+            <option value="">Select mode of travel</option>
+            <option value="walk">Walking</option>
+            <option value="bike">Bicycle</option>
+            <option value="car">car</option>
+          </select>
         </label>
 
         <label className="title-label">
           <p> Direction </p>
-          <input
+          <select
             type="text"
             value={postRequest.direction}
             onChange={(e) => handleChange(e, "direction")}
-          ></input>
+          >
+            <option value="">Select travel direction</option>
+            <option value="to_school">To school</option>
+            <option value="from_school">From school</option>
+            <option value="both">To and from school</option>
+          </select>
         </label>
 
         <button type="submit">Add request</button>

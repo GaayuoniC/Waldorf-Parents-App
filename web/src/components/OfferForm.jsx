@@ -81,6 +81,14 @@ export function OfferForm({ onSubmit }) {
           }}
         />
         <label className="title-label">
+          <p> Number of kids I can care for: </p>
+          <input
+            type="text"
+            value={postOffer.numberOfKids}
+            onChange={(e) => handleChange(e, "startZip")}
+          ></input>
+        </label>
+        <label className="title-label">
           <p>Starting street: </p>
           <input
             type="text"
@@ -124,22 +132,19 @@ export function OfferForm({ onSubmit }) {
           <p> Direction:</p>
           {/* TO DO: check and correct spacing */}
           <select
-            // style={{ height: 30 }}
             type="text"
             value={postOffer.direction}
             onChange={(e) => handleChange(e, "direction")}
           >
-            <option value="">Select direction</option>
+            <option value="">Select travel direction</option>
             <option value="to_school">To school</option>
             <option value="from_school">From school</option>
             <option value="both">To and from school</option>
           </select>
         </label>
-        <span className="button-container">
-          <button id="add-offer-btn" type="submit">
-            Add offer
-          </button>
-        </span>
+        {/* <span className="button-container"> */}
+        <button type="submit">Add offer</button>
+        {/* </span> */}
       </form>
     </div>
   );
