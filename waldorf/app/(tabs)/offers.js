@@ -60,9 +60,9 @@ export default function Offers() {
       contentContainerStyle={[styles.scrollViewContent]}
     >
       {isLoading ? (
-        <View style={styles.loadingContainer}>
+        <View style={[styles.container]}>
           <Text>Loading offers</Text>
-          <ActivityIndicator size="large" color="yellow" />
+          <ActivityIndicator size="large" color="green" />
           {/* Come back and refactor color here */}
         </View>
       ) : (
