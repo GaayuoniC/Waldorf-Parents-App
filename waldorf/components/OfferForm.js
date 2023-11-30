@@ -31,6 +31,7 @@ export function OfferForm({ onSubmit }) {
       dateOfTransportation: dayjs(postOffer.dateOfTransportation).toISOString(),
       modeOfTransportation: postOffer.modeOfTransportation,
       direction: postOffer.direction,
+      numberOfKids: postOffer.numberOfKids,
     };
     try {
       const { data } = await axios.post(
