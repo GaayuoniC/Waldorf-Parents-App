@@ -1,7 +1,7 @@
 export function AcceptanceCard() {
   return (
     <div className="acceptance-card">
-      <h1>Acceptance Card</h1>
+      <h1>Acceptance message</h1>
       <form className="acceptance-card-form">
         <label>
           <span>Name</span>
