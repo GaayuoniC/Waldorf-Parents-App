@@ -146,7 +146,8 @@ export function PostRequestForm({ onSubmit }) {
             <option value="">Select travel direction</option>
             <option value="to_school">To school</option>
             <option value="from_school">From school</option>
-            <option value="both">To and from school</option>
+            <option value="to and from school">To and from school</option>
+            {/* TO DO: check how values work here!! */}
           </select>
         </label>
 
