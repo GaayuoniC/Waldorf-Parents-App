@@ -1,4 +1,4 @@
-import { Picker } from "@react-native-picker/picker";
+import { DatePicker, Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -49,33 +49,39 @@ export function OfferForm({ onSubmit }) {
   return (
     <View>
       <View>
-        <Text> Name :</Text>
+        <Text> Name </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("parentName", text)}
           value={postOffer.parentName}
         />
       </View>
-      {/* <DatePicker
-        mode="calendar"
-        showTimeInput
-        dateFormat="d.MM.YYYY HH:mm"
-        selected={postOffer.dateOfTransportation}
-        onDateChange={(date) => {
-          setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
-        }}
-      /> */}
       <View>
-        <Text>Number of kids I can care for :</Text>
+        <Text>Date</Text>
+        <DatePicker
+          style={{ width: 200 }}
+          mode="date"
+          // showTimeInput
+          // dateFormat="d.MM.YYYY HH:mm"
+          selected={postOffer.dateOfTransportation}
+          onDateChange={(date) => {
+            // setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
+            handleOfferChange("dateOfTransportation", date);
+          }}
+        />
+      </View>
+      <View>
+        <Text>Number of kids I can care for </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("numberOfChildren", text)}
           value={postOffer.numberOfChildren}
+          keyboardType="numeric" //Only numeric allowed
         />
       </View>
 
       <View>
-        <Text>Starting street :</Text>
+        <Text>Starting street </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("startStreet", text)}
@@ -83,7 +89,7 @@ export function OfferForm({ onSubmit }) {
         />
       </View>
       <View>
-        <Text>Start zip/postcode :</Text>
+        <Text>Start zip/postcode </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("startZip", text)}
@@ -132,7 +138,7 @@ export function OfferForm({ onSubmit }) {
         /> */}
       </View>
       <View>
-        <Text>Destination : </Text>
+        <Text>Destination </Text>
         {/* Picker has no onchange text but a onchange value instedad */}
         <Picker
           style={[styles.input]}

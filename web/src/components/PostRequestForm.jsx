@@ -80,13 +80,14 @@ export function PostRequestForm({ onSubmit }) {
           // timeFormat="HH:mm"
           dateFormat="d.MM.yyyy HH:mm"
           selected={postRequest.dateOfTransportation}
-          onChange={(date) => {
-            console.log("Date changed", date);
-            setPostRequest({
-              ...postRequest,
-              dateOfTransportation: date,
-            });
-          }} //TO DO: need to fix time display!
+          onChange={(date) => handleChange(date)}
+          // onChange={(date) => {
+          //   console.log("Date changed", date);
+          //   setPostRequest({
+          //     ...postRequest,
+          //     dateOfTransportation: date,
+          //   });
+          // }} //TO DO: need to fix time display!
         />
         <label className="title-label">
           <p> Number of kids to care for: </p>
@@ -152,7 +153,6 @@ export function PostRequestForm({ onSubmit }) {
         </label>
 
         <button type="submit" disabled={isLoading}>
-          Add request
           {isLoading ? "Posting your request...." : "Add request"}
         </button>
       </form>

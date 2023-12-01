@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { OfferForm } from "../components/OfferForm";
 import { OfferCardItem } from "../components/OfferCardItem";
 import axios from "axios";
-import "../pages/Offers.css";
+// import "../pages/Offers.css";
+// no effect on display from this import!!
 
 export function Offers() {
   const [showPost, setShowPost] = useState(false);
