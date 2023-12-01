@@ -13,6 +13,7 @@ import {
 
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/MainStyles";
+import { OfferCardItem } from "../../components/OfferCardItem";
 
 const url = process.env.EXPO_PUBLIC_API_URL + "/offers";
 if (!process.env.EXPO_PUBLIC_API_URL) {
@@ -49,10 +50,6 @@ export default function Offers() {
     loadOffers();
   }, [showPost]);
 
-  function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
-  }
-
   return (
     //Need to utilise scroll view here!!!
     <ScrollView
@@ -74,37 +71,7 @@ export default function Offers() {
               <Text style={[styles.availabilityText]}>Available offers</Text>
 
               {offers.map((item) => {
-                return (
-                  <View key={item.id} style={[styles.horizontalLine]}>
-                    <Text>
-                      <Text style={[styles.parentDetail]}>Parent Name: </Text>
-                      {item.parentName} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Starting street:{" "}
-                      </Text>
-                      {item.startStreet}
-                      {"\n"}
-                      <Text style={[styles.parentDetail]}>Postal code: </Text>
-                      {item.startZip} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Starting city:{""}{" "}
-                      </Text>
-                      {item.startCity} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Date of transport:{" "}
-                      </Text>
-                      {handleDateDayJs(item.dateOfTransportation)} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Mode of transportation:{" "}
-                      </Text>
-                      {item.modeOfTransportation} {"\n"}
-                      <Text style={[styles.parentDetail]}>
-                        Direction of travel:{" "}
-                      </Text>
-                      {item.direction} {"\n"}
-                    </Text>
-                  </View>
-                );
+                return <OfferCardItem offers={item} key={item.id} />;
               })}
               <Button
                 title="ADD OFFER"

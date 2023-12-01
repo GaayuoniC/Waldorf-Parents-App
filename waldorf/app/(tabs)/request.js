@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { Button, Text, View, ScrollView, Alert } from "react-native";
-import dayjs from "dayjs";
-import axios from "axios";
 import { useAuth } from "@clerk/clerk-expo";
+import axios from "axios";
+import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import { Alert, Button, ScrollView, Text, View } from "react-native";
 
 import { PostRequestForm } from "../../components/PostRequestForm";
 import { styles } from "../../styles/MainStyles";
@@ -60,16 +60,3 @@ export default function Requests() {
     </ScrollView>
   );
 }
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     // backgroundColor: "#d6531f",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     padding: 20,
-//     margin: 10,
-//   },
-//   text: {
-//     fontSize: Platform.OS === "ios" ? 20 : 18,
-//   },
-// });
