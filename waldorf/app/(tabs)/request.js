@@ -1,7 +1,14 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Alert, Button, ScrollView, Text, View } from "react-native";
+import {
+  Alert,
+  Button,
+  ScrollView,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
 
 import { PostRequestForm } from "../../components/PostRequestForm";
 import { RequestCardItem } from "../../components/RequestCardItem";
@@ -42,24 +49,32 @@ export default function Requests() {
 
   return (
     <ScrollView contentContainerStyle={[styles.scrollViewContent]}>
-      <View style={[styles.container]}>
-        <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
-
-        <View>
-          <View>
-            <Text style={[styles.availabilityText]}>Available requests</Text>
-          </View>
-          {requests.map((item) => {
-            return <RequestCardItem requests={item} key={item.id} />;
-          })}
-
-          <Button
-            title={showPost ? "Close form" : "Add request"}
-            onPress={() => setShowPost(!showPost)}
-          />
-          {showPost && <PostRequestForm />}
+      {isLoading ? (
+        <View style={[styles.container]}>
+          <Text>Loading offers</Text>
+          <ActivityIndicator size="large" color="green" />
+          {/* Come back and refactor color here */}
         </View>
-      </View>
+      ) : (
+        <View style={[styles.container]}>
+          <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
+
+          <View>
+            <View>
+              <Text style={[styles.availabilityText]}>Available requests</Text>
+            </View>
+            {requests.map((item) => {
+              return <RequestCardItem requests={item} key={item.id} />;
+            })}
+
+            <Button
+              title={showPost ? "Close form" : "Add request"}
+              onPress={() => setShowPost(!showPost)}
+            />
+            {showPost && <PostRequestForm />}
+          </View>
+        </View>
+      )}
     </ScrollView>
   );
 }
