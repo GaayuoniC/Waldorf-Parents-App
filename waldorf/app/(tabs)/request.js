@@ -1,10 +1,10 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
-import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { Alert, Button, ScrollView, Text, View } from "react-native";
 
 import { PostRequestForm } from "../../components/PostRequestForm";
+import { RequestCardItem } from "../../components/RequestCardItem";
 import { styles } from "../../styles/MainStyles";
 
 const url = process.env.EXPO_PUBLIC_API_URL + "/requests";
@@ -40,10 +40,6 @@ export default function Requests() {
     loadRquests();
   }, [showPost]);
 
-  function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
-  }
-
   return (
     <ScrollView contentContainerStyle={[styles.scrollViewContent]}>
       <View style={[styles.container]}>
@@ -53,6 +49,9 @@ export default function Requests() {
           <View>
             <Text style={[styles.availabilityText]}>Available requests</Text>
           </View>
+          {requests.map((item) => {
+            return <RequestCardItem requests={item} key={item.id} />;
+          })}
 
           <Button
             title={showPost ? "Close form" : "Add request"}
