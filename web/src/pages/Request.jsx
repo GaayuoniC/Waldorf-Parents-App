@@ -36,44 +36,40 @@ export function Requests() {
         {isLoading ? (
           <h4> Loading offfers...please wait</h4>
         ) : (
-          <div className="parents-container">
+          <ul className="parents-container">
             {request.map((item) => {
               return (
-                <ul key={item.id} className="parents-card">
-                  <li className="parent-info">
-                    <span className="parent-info-titles"> Parent name: </span>
-                    {item.parentName} <br />
-                    <span className="parent-info-titles">Starting street:</span>
-                    {item.startStreet}
-                    <br />
-                    <span className="parent-info-titles">Starting city:</span>
-                    {item.startCity}
-                    <br />
-                    <span className="parent-info-titles">Zip/Postcode:</span>
-                    {item.startZip}
-                    <br />
-                    <span className="parent-info-titles">
-                      Number of kids needing care:
-                    </span>
-                    {item.numberOfChildren}
-                    <br />
-                    <span className="parent-info-titles">
-                      Direction of travel:
-                    </span>
-                    {item.direction}
-                    <br />
-                    <span className="parent-info-titles">
-                      Mode of Transport:
-                    </span>
-                    {item.modeOfTransportation}
-                    <br />
-                    <span className="parent-info-titles"> Date: </span>
-                    {item.dateOfTtransportation}
-                  </li>
-                </ul>
+                <li key={item.id} className="parent-info parents-card">
+                  <span className="parent-info-titles"> Parent name: </span>
+                  {item.parentName} <br />
+                  <span className="parent-info-titles">Starting street:</span>
+                  {item.startStreet}
+                  <br />
+                  <span className="parent-info-titles">Starting city:</span>
+                  {item.startCity}
+                  <br />
+                  <span className="parent-info-titles">Zip/Postcode:</span>
+                  {item.startZip}
+                  <br />
+                  <span className="parent-info-titles">
+                    Number of kids needing care:
+                  </span>
+                  {item.numberOfChildren}
+                  <br />
+                  <span className="parent-info-titles">
+                    Direction of travel:
+                  </span>
+                  {item.direction}
+                  <br />
+                  <span className="parent-info-titles">Mode of Transport:</span>
+                  {item.modeOfTransportation}
+                  <br />
+                  <span className="parent-info-titles"> Date: </span>
+                  {item.dateOfTtransportation}
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
       </section>
 
