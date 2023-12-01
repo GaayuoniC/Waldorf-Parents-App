@@ -4,6 +4,8 @@
 }
 
 .offer-form-container {
+  /* display: flex;
+  flex-direction: column; */
   gap: 2px;
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
@@ -12,6 +14,7 @@
   border-radius: var(--border-radius);
   justify-content: center;
   align-items: center;
+  width: 300px;
 }
 #offer-help {
   margin: auto;
@@ -22,26 +25,26 @@
   margin-bottom: 30px;
   /* font-weight: bold; */
 }
-input {
+input,
+select {
   width: 100%;
   padding: 8px;
-  margin-bottom: 8px;
-  margin-top: 6px;
+  margin: 6px 0;
   border-radius: var(--border-radius);
-  /* background-color: var(--clr-test-2); */
-
   /* test background color */
-  height: 50px;
-}
-/* .text-area {
-  border-radius: var(--border-radius);
-  min-width: 200px;
-  max-width: 600px;
   height: 35px;
-  max-height: 300px;
-  margin-top: 5px;
-  padding: 10px;
-} */
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#add-offer-btn {
+  /* margin-left: 25px; */
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 768px) {
   .offer-container {

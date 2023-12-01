@@ -1,14 +1,14 @@
 import { Logger, Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import { PrismaService } from './prisma.service';
-import { OfferService } from './offer.service';
 import { OfferController } from './offer.controller';
+import { PrismaService } from './prisma.service';
+import { RequestController } from './request.controller';
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  controllers: [AppController, OfferController],
-  providers: [AppService, PrismaService, OfferService, Logger],
+  controllers: [AppController, OfferController, RequestController],
+  providers: [AppService, PrismaService, Logger],
 })
 export class AppModule {}

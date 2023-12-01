@@ -11,6 +11,8 @@ async function main() {
       dateOfTransportation: '2023-11-28T16:00:00.000Z',
       modeOfTransportation: 'car',
       direction: 'to_school',
+      numberOfChildren: 1,
+      isRequest: false,
     },
   });
   await prisma.offer.create({
@@ -22,6 +24,8 @@ async function main() {
       dateOfTransportation: '2023-11-29T09:00:00.000Z',
       modeOfTransportation: 'walk',
       direction: 'both',
+      numberOfChildren: 2,
+      isRequest: false,
     },
   });
   await prisma.offer.create({
@@ -33,6 +37,8 @@ async function main() {
       dateOfTransportation: '2023-11-27T11:00:00.000Z',
       modeOfTransportation: 'bus',
       direction: 'from_school',
+      numberOfChildren: 3,
+      isRequest: true
     },
   });
 }
