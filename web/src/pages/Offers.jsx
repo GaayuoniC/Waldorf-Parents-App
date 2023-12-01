@@ -33,7 +33,6 @@ export function Offers() {
 
   return (
     <>
-      <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
         {isLoading ? (
