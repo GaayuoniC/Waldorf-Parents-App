@@ -17,7 +17,7 @@ export function OfferCardItem({ offers }) {
         {"\n"}
         <Text style={[styles.parentDetail]}>Postal code: </Text>
         {offers.startZip} {"\n"}
-        <Text style={[styles.parentDetail]}>Starting city:{""} </Text>
+        <Text style={[styles.parentDetail]}>Starting city: </Text>
         {offers.startCity} {"\n"}
         <Text style={[styles.parentDetail]}>Date of transport: </Text>
         {handleDateDayJs(offers.dateOfTransportation)} {"\n"}

@@ -1,19 +1,18 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
-import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import {
-  Button,
-  Text,
-  View,
   ActivityIndicator,
   Alert,
+  Button,
   ScrollView,
+  Text,
+  View,
 } from "react-native";
 
+import { OfferCardItem } from "../../components/OfferCardItem";
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/MainStyles";
-import { OfferCardItem } from "../../components/OfferCardItem";
 
 const url = process.env.EXPO_PUBLIC_API_URL + "/offers";
 if (!process.env.EXPO_PUBLIC_API_URL) {
@@ -74,7 +73,7 @@ export default function Offers() {
                 return <OfferCardItem offers={item} key={item.id} />;
               })}
               <Button
-                title="ADD OFFER"
+                title={showPost ? "Close offer form" : "Add offer"}
                 onPress={() => setShowPost(!showPost)}
               />
               {showPost && (
