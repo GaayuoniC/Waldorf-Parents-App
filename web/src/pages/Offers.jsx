@@ -5,11 +5,10 @@ import "../pages/Offers.css";
 
 export function Offers() {
   const [showPost, setShowPost] = useState(false);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [offers, setOffers] = useState([]);
   // console.log(data);
 
-  // const dummyData = offers;
   const url = "/api/offers";
 
   useEffect(() => {
@@ -22,19 +21,20 @@ export function Offers() {
         console.debug(data); //debugging check
       } catch (error) {
         console.log("Data loading error ! Please check your code again", error);
+        alert("Error getting offers ! Please check your code again");
       } finally {
         setIsLoading(false);
       }
     }
     loadOffers();
-  }, [showPost]);
+  }, [showPost]); //show post is the tri
 
   return (
     <>
       <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
-        {isloading ? (
+        {isLoading ? (
           <h4> Loading offfers...please wait</h4>
         ) : (
           <div className="parents-container">
