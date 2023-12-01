@@ -1,4 +1,9 @@
+import dayjs from "dayjs";
+
 export function OfferCardItem({ offer }) {
+  function handleDateDayJs(date) {
+    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
+  }
   return (
     <ul key={offer.id} className="parents-card">
       <li className="parent-info">
@@ -21,7 +26,7 @@ export function OfferCardItem({ offer }) {
         {offer.modeOfTransportation}
         <br />
         <span className="parent-info-titles"> Date: </span>
-        {offer.dateOfTtransportation}
+        {handleDateDayJs(offer.dateOfTtransportation)}
       </li>
     </ul>
   );

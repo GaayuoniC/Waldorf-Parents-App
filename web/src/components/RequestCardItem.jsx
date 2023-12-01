@@ -1,13 +1,17 @@
 import { useState } from "react";
+import dayjs from "dayjs";
+
 import { AcceptanceCard } from "./AcceptanceCard";
 import "../components/RequestCardItem.css";
 
 export function RequestCardItem({ request }) {
   const [showAcceptanceCard, setShowAcceptanceCard] = useState(false);
-  // const [activeIndex, setActiveIndex] = useState(null);
 
   function handleShowAcceptanceCard() {
     setShowAcceptanceCard(!showAcceptanceCard);
+  }
+  function handleDateDayJs(date) {
+    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
   }
 
   return (
@@ -33,7 +37,7 @@ export function RequestCardItem({ request }) {
       {request.modeOfTransportation}
       <br /> */}
       <span className="parent-info-titles"> Date: </span>
-      {request.dateOfTtransportation}
+      {handleDateDayJs(request.dateOfTtransportation)}
       <button onClick={handleShowAcceptanceCard}>Accept</button>
       {showAcceptanceCard && <AcceptanceCard />}
     </li>
