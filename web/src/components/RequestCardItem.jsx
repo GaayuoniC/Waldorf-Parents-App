@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AcceptanceCard } from "./AcceptanceCard";
+import "../components/RequestCardItem.css";
 
 export function RequestCardItem({ request }) {
   const [showAcceptanceCard, setShowAcceptanceCard] = useState(false);
@@ -12,7 +13,7 @@ export function RequestCardItem({ request }) {
   return (
     <li key={request.id} className="parent-info parents-card">
       <span className="parent-info-titles"> Parent name: </span>
-      {request.parentName} <br />
+      <span className="card-items-list"> {request.parentName} </span> <br />
       <span className="parent-info-titles">Starting street:</span>
       {request.startStreet}
       <br />

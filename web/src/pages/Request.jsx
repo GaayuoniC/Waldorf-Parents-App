@@ -52,7 +52,9 @@ export function Requests() {
             setShowPost(!showPost);
           }}
         >
-          <p>Click here to place your request for assistance! </p>
+          {showPost
+            ? " Close the request form"
+            : "Click here to place your request for assistance!"}
         </span>
         {showPost && (
           <PostRequestForm

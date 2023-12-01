@@ -9,13 +9,13 @@ export function PostRequestForm({ onSubmit }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [postRequest, setPostRequest] = useState({
-    parentName: "Ayoma Doe",
-    startStreet: "Test street",
-    startZip: "12345",
-    startCity: "Bonn",
+    parentName: "",
+    startStreet: "",
+    startZip: "",
+    startCity: "",
     dateOfTransportation: new Date(),
-    modeOfTransportation: "car",
-    direction: "to_school",
+    modeOfTransportation: "",
+    direction: "",
     numberOfChildren: "",
   }); //using use state as an object to utilize just one function
 
@@ -59,6 +59,7 @@ export function PostRequestForm({ onSubmit }) {
       <p id="offer-help">
         <span>Place a request for help here! </span>
       </p>
+
       <form
         className="offer-form-container"
         onSubmit={handleSubmitPostRequestForm}
@@ -149,7 +150,10 @@ export function PostRequestForm({ onSubmit }) {
           </select>
         </label>
 
-        <button type="submit">Add request</button>
+        <button type="submit" disabled={isLoading}>
+          Add request
+          {isLoading ? "Posting your request...." : "Add request"}
+        </button>
       </form>
     </div>
   );
