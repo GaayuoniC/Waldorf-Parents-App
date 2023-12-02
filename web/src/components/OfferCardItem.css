@@ -13,7 +13,7 @@
   flex-wrap: nowrap;
   border: 1px solid transparent;
   text-decoration: none;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px; */
+  box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px;
   /* border-radius: var(--border-radius); */
   /* padding: 20px; */
   /* width: 400px; */
@@ -52,7 +52,7 @@ ul {
     flex-wrap: wrap;
   }
   .parent-info {
-    width: 30%;
+    width: 20%;
     margin-bottom: 20px;
   }
 }
