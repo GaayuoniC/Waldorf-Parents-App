@@ -4,12 +4,12 @@ import "../components/OfferCardItem.css";
 
 export function OfferCardItem({ offer }) {
   function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
+    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
   }
   return (
-    <ul key={offer.id} className=" parents-info parents-card">
+    <ul key={offer.id} className="parents-card">
       <li className="parent-info">
-        <span className="parent-info-titles"> Parent name </span>
+        <span className="parent-info-titles">Name </span>
         {offer.parentName} <br />
         <span className="parent-info-titles">Starting street</span>
         {offer.startStreet} <br />

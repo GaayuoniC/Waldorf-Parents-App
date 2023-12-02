@@ -11,13 +11,13 @@ export function RequestCardItem({ request }) {
     setShowAcceptanceCard(!showAcceptanceCard);
   }
   function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
+    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
   }
 
   return (
-    <ul key={request.id} className="parent-info parents-card">
+    <ul key={request.id} className=" parents-card">
       <li className="parent-info">
-        <span className="parent-info-titles"> Parent name </span>
+        <span className="parent-info-titles">Parent name </span>
         <span className="card-items-list"> {request.parentName} </span> <br />
         <span className="parent-info-titles">Starting street</span>
         {request.startStreet}
@@ -39,9 +39,11 @@ export function RequestCardItem({ request }) {
       <br /> */}
         <span className="parent-info-titles"> Date </span>
         {handleDateDayJs(request.dateOfTtransportation)}
-        <button onClick={handleShowAcceptanceCard}>Accept</button>
+        <button id="accept-btn" onClick={handleShowAcceptanceCard}>
+          Accept
+        </button>
         {showAcceptanceCard && <AcceptanceCard />}
-      </li>{" "}
+      </li>
     </ul>
   );
 }
