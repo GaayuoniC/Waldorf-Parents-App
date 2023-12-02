@@ -1,6 +1,7 @@
 .parents-container {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr 1fr;
 
   gap: 20px;
 }
@@ -12,10 +13,10 @@
   flex-wrap: nowrap;
   border: 1px solid transparent;
   text-decoration: none;
-  box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px;
-  border-radius: var(--border-radius);
+  /* box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px; */
+  /* border-radius: var(--border-radius); */
   /* padding: 20px; */
-  width: 400px;
+  /* width: 400px; */
 }
 .parent-info-titles {
   display: inline-block;
@@ -47,5 +48,11 @@ ul {
   .parents-card {
     flex-direction: column;
     gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .parent-info {
+    width: 30%;
+    margin-bottom: 20px;
   }
 }

@@ -39,6 +39,7 @@ export function Offers() {
           <h4> Loading offfers...please wait</h4>
         ) : (
           <div className="parents-container">
+            {/* problem to check and solve */}
             {offers.map((item) => {
               return <OfferCardItem offer={item} key={item.id} />;
             })}

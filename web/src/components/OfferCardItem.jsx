@@ -7,7 +7,7 @@ export function OfferCardItem({ offer }) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
   }
   return (
-    <ul key={offer.id} className="parents-card">
+    <ul key={offer.id} className=" parents-info parents-card">
       <li className="parent-info">
         <span className="parent-info-titles"> Parent name </span>
         {offer.parentName} <br />

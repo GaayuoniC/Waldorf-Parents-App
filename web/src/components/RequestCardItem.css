@@ -1,9 +1,9 @@
-.parents-container {
+/* .parents-container {
   display: flex;
   flex-wrap: wrap;
 
   gap: 20px;
-}
+} */
 
 .parents-card {
   /* display: flex; */
@@ -22,7 +22,7 @@
   flex-wrap: wrap;
   text-align: left;
   /* font-weight: 500; */
-  font-size: 15px;
+  font-size: 19px;
   margin-right: 20px;
   width: 180px;
   /* color: var(--clr-h-1); */
@@ -31,6 +31,7 @@
   display: inline-block;
   text-align: right;
   width: calc(100%-300px);
+  /* background-color: blue; */
 }
 
 .post-offer {
