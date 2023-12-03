@@ -1,4 +1,5 @@
-import { DatePicker, Picker } from "@react-native-picker/picker";
+import { Picker } from "@react-native-picker/picker";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -58,17 +59,25 @@ export function OfferForm({ onSubmit }) {
       </View>
       <View>
         <Text>Date</Text>
-        <DatePicker
+        <DateTimePicker
+          value={postOffer.dateOfTransportation}
+          mode="date"
+          onChange={(event, selectedDate) => {
+            handleOfferChange("dateOfTransportation", selectedDate);
+          }}
+        />
+        {/* <DatePicker
           style={{ width: 200 }}
           mode="date"
-          // showTimeInput
-          // dateFormat="d.MM.YYYY HH:mm"
+          showTimeInput
+          dateFormat="d.MM.YYYY HH:mm"
           selected={postOffer.dateOfTransportation}
+          selected={Date.now()}
           onDateChange={(date) => {
             // setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
             handleOfferChange("dateOfTransportation", date);
           }}
-        />
+        /> */}
       </View>
       <View>
         <Text>Number of kids I can care for </Text>
@@ -104,16 +113,7 @@ export function OfferForm({ onSubmit }) {
           value={postOffer.startCity}
         />
       </View>
-      {/* <View>
-        <Text>Date of transportation :</Text>
-        <TextInput
-          style={[styles.input]}
-          onChangeText={(text) =>
-            handleOfferChange("dateOfTransportation", text)
-          }
-          value={postOffer.dateOfTransportation}
-        />
-      </View> */}
+
       <View>
         <Text>Mode of transport :</Text>
         <Picker
@@ -128,17 +128,9 @@ export function OfferForm({ onSubmit }) {
           <Picker.Item label="Bicycle" value="bike" />
           <Picker.Item label="Car" value="car" />
         </Picker>
-
-        {/* <TextInput
-          style={[styles.input]}
-          onChangeText={(text) =>
-            handleOfferChange("modeOfTransportation", text)
-          }
-          value={postOffer.modeOfTransportation}
-        /> */}
       </View>
       <View>
-        <Text>Destination </Text>
+        <Text>Destination</Text>
         {/* Picker has no onchange text but a onchange value instedad */}
         <Picker
           style={[styles.input]}
