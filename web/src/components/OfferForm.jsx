@@ -58,8 +58,6 @@ export function OfferForm({ onSubmit }) {
       <p id="offer-help">
         <span> Make an offer to help here! </span>
       </p>
-      <p>{JSON.stringify(postOffer.dateOfTransportation)}</p>
-      {/* Remove before live */}
 
       <form className="offer-form-container" onSubmit={handleSubmitOfferForm}>
         <label className="title-label">
@@ -149,7 +147,9 @@ export function OfferForm({ onSubmit }) {
           </select>
         </label>
         {/* <span className="button-container"> */}
-        <button type="submit">Add offer</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Adding offer...." : "Add offer"}
+        </button>
         {/* </span> */}
       </form>
     </div>

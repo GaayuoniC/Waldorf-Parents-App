@@ -9,13 +9,13 @@ export function PostRequestForm({ onSubmit }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [postRequest, setPostRequest] = useState({
-    parentName: "Ayoma Doe",
-    startStreet: "Test street",
-    startZip: "12345",
-    startCity: "Bonn",
+    parentName: "",
+    startStreet: "",
+    startZip: "",
+    startCity: "",
     dateOfTransportation: new Date(),
-    modeOfTransportation: "car",
-    direction: "to_school",
+    modeOfTransportation: "",
+    direction: "",
     numberOfChildren: "",
   }); //using use state as an object to utilize just one function
 
@@ -59,6 +59,7 @@ export function PostRequestForm({ onSubmit }) {
       <p id="offer-help">
         <span>Place a request for help here! </span>
       </p>
+
       <form
         className="offer-form-container"
         onSubmit={handleSubmitPostRequestForm}
@@ -79,13 +80,14 @@ export function PostRequestForm({ onSubmit }) {
           // timeFormat="HH:mm"
           dateFormat="d.MM.yyyy HH:mm"
           selected={postRequest.dateOfTransportation}
-          onChange={(date) => {
-            console.log("Date changed", date);
-            setPostRequest({
-              ...postRequest,
-              dateOfTransportation: date,
-            });
-          }} //TO DO: need to fix time display!
+          onChange={(date) => handleChange(date)}
+          // onChange={(date) => {
+          //   console.log("Date changed", date);
+          //   setPostRequest({
+          //     ...postRequest,
+          //     dateOfTransportation: date,
+          //   });
+          // }} //TO DO: need to fix time display!
         />
         <label className="title-label">
           <p> Number of kids to care for: </p>
@@ -145,11 +147,14 @@ export function PostRequestForm({ onSubmit }) {
             <option value="">Select travel direction</option>
             <option value="to_school">To school</option>
             <option value="from_school">From school</option>
-            <option value="both">To and from school</option>
+            <option value="to and from school">To and from school</option>
+            {/* TO DO: check how values work here!! */}
           </select>
         </label>
 
-        <button type="submit">Add request</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Posting your request...." : "Add request"}
+        </button>
       </form>
     </div>
   );

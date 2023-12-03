@@ -1,4 +1,5 @@
 import { PostRequestForm } from "../components/PostRequestForm";
+import { RequestCardItem } from "../components/RequestCardItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -38,36 +39,8 @@ export function Requests() {
         ) : (
           <ul className="parents-container">
             {request.map((item) => {
-              return (
-                <li key={item.id} className="parent-info parents-card">
-                  <span className="parent-info-titles"> Parent name: </span>
-                  {item.parentName} <br />
-                  <span className="parent-info-titles">Starting street:</span>
-                  {item.startStreet}
-                  <br />
-                  <span className="parent-info-titles">Starting city:</span>
-                  {item.startCity}
-                  <br />
-                  <span className="parent-info-titles">Zip/Postcode:</span>
-                  {item.startZip}
-                  <br />
-                  <span className="parent-info-titles">
-                    Number of kids needing care:
-                  </span>
-                  {item.numberOfChildren}
-                  <br />
-                  <span className="parent-info-titles">
-                    Direction of travel:
-                  </span>
-                  {item.direction}
-                  <br />
-                  <span className="parent-info-titles">Mode of Transport:</span>
-                  {item.modeOfTransportation}
-                  <br />
-                  <span className="parent-info-titles"> Date: </span>
-                  {item.dateOfTtransportation}
-                </li>
-              );
+              return <RequestCardItem request={item} key={item.id} />;
+              // refactored here and make it a separate component
             })}
           </ul>
         )}
@@ -79,7 +52,9 @@ export function Requests() {
             setShowPost(!showPost);
           }}
         >
-          <p>Click here to place your request for assistance! </p>
+          {showPost
+            ? " Close the request form"
+            : "Click here to place your request for assistance!"}
         </span>
         {showPost && (
           <PostRequestForm

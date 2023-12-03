@@ -1,6 +1,5 @@
-.parents-container {
+/* .parents-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -11,8 +10,9 @@
   box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px;
   border-radius: var(--border-radius);
   /* padding: 20px; */
-  width: 350px;
-}
+/* width: 450px; */
+/* TO DO: check width here again!!!!! */
+/* } */
 .parent-info-titles {
   font-weight: 500;
   margin-right: 3px;
