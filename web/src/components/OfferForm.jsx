@@ -148,7 +148,6 @@ export function OfferForm({ onSubmit }) {
         </label>
         {/* <span className="button-container"> */}
         <button type="submit" disabled={isLoading}>
-          Add offer
           {isLoading ? "Adding offer...." : "Add offer"}
         </button>
         {/* </span> */}

@@ -37,7 +37,7 @@ export function RequestCardItem({ request }) {
         {/* <span className="parent-info-titles">Mode of Transport:</span>
       {request.modeOfTransportation}
       <br /> */}
-        <span className="parent-info-titles"> Date </span>
+        <span className="parent-info-titles"> Date/Time </span>
         {handleDateDayJs(request.dateOfTtransportation)}
         <button id="accept-btn" onClick={handleShowAcceptanceCard}>
           Accept

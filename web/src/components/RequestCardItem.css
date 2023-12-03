@@ -21,17 +21,13 @@
   display: inline-block;
   flex-wrap: wrap;
   text-align: left;
-  /* font-weight: 500; */
   font-size: 19px;
   margin-right: 20px;
-  /* width: 180px; */
-  /* color: var(--clr-h-1); */
 }
 .card-items-list {
   display: inline-block;
   text-align: left;
   width: calc(100%-300px);
-  /* background-color: blue; */
 }
 
 .post-offer {
@@ -44,11 +40,6 @@ ul {
   padding: auto;
   /* TO DO: refactor */
 }
-/* #accept-btn {
-  position: fixed;
-  right: 1px;
-  top: 2px;
-} */
 
 @media (max-width: 768px) {
   .parents-card {

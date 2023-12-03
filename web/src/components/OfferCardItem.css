@@ -1,7 +1,5 @@
 .parents-container {
   display: grid;
-  /* flex-wrap: wrap; */
-  /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
@@ -9,26 +7,19 @@
 .parents-card {
   display: flex;
   flex-direction: row;
-
   justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid transparent;
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.16) 10px 20px 40px;
-  /* border-radius: var(--border-radius); */
-  /* padding: 20px; */
-  /* width: 400px; */
+  border-radius: var(--border-radius);
 }
 .parent-info-titles {
-  /* display: inline-block; */
-  /* flex-wrap: wrap; */
   text-align: left;
-  /* font-weight: 500; */
-  /* font-size: 50px; */
+
   margin-right: 20px;
   width: 180px;
   font-style: italic;
-  /* color: var(--clr-h-1); */
 }
 .card-items-list {
   display: inline-block;
@@ -45,7 +36,8 @@ ul {
 .parent-info {
   padding: 15px;
   width: auto;
-  background-color: aqua;
+  /* background-color: aqua; */
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
