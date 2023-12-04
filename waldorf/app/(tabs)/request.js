@@ -14,8 +14,8 @@ import { PostRequestForm } from "../../components/PostRequestForm";
 import { RequestCardItem } from "../../components/RequestCardItem";
 import { styles } from "../../styles/MainStyles";
 
-const url = process.env.EXPO_PUBLIC_API_URL + "/requests";
-if (!process.env.EXPO_PUBLIC_API_URL) {
+const apiHost = process.env.EXPO_PUBLIC_API_URL;
+if (!apiHost) {
   throw new Error("process.env.EXPO_PUBLIC_API_URL is undefined");
 }
 
@@ -26,10 +26,10 @@ export default function Requests() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    async function loadRquests() {
+    async function loadRequests() {
       try {
         setIsLoading(true);
-        const { data } = await axios.get(url, {
+        const { data } = await axios.get(`${apiHost}/requests`, {
           headers: {
             Authorization: `Bearer ${await getToken()}`,
           },
@@ -44,8 +44,23 @@ export default function Requests() {
         setIsLoading(false);
       }
     }
-    loadRquests();
+    loadRequests();
   }, [showPost]);
+
+  async function handleSubmitPostRequest(dataToPost) {
+    try {
+      const { data } = await axios.post(`${apiHost}/requests`, dataToPost, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
+      console.log(data);
+    } catch (error) {
+      console.log("Could not post your offer", error);
+    } finally {
+      setShowPost(false);
+    }
+  }
 
   return (
     <ScrollView contentContainerStyle={[styles.scrollViewContent]}>
@@ -71,7 +86,7 @@ export default function Requests() {
               title={showPost ? "Close form" : "Add request"}
               onPress={() => setShowPost(!showPost)}
             />
-            {showPost && <PostRequestForm />}
+            {showPost && <PostRequestForm onSubmit={handleSubmitPostRequest} />}
           </View>
         </View>
       )}

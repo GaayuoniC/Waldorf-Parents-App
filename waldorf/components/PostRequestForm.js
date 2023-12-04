@@ -1,3 +1,4 @@
+import { useAuth } from "@clerk/clerk-expo";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import dayjs from "dayjs";
@@ -6,7 +7,10 @@ import { Button, Text, TextInput, View } from "react-native";
 
 import { styles } from "../styles/FormStyles2";
 
+const apiHost = process.env.EXPO_PUBLIC_API_URL;
+
 export function PostRequestForm({ onSubmit }) {
+  const { getToken } = useAuth();
   const [postRequest, setPostRequest] = useState({
     parentName: "",
     startStreet: "",
@@ -23,8 +27,7 @@ export function PostRequestForm({ onSubmit }) {
     setPostRequest((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function handleSubmitPostRequest(e) {
-    e.preventDefault();
+  async function handleSubmitPostRequest() {
     const dataToPost = {
       parentName: postRequest.parentName,
       startStreet: postRequest.startStreet,
@@ -37,17 +40,7 @@ export function PostRequestForm({ onSubmit }) {
       direction: postRequest.direction,
       numberOfChildren: Number(postRequest.numberOfChildren),
     };
-    try {
-      const { data } = await axios.post(
-        "http://192.168.178.32:3000/requests",
-        dataToPost
-      );
-      console.log(data);
-
-      onSubmit(); // hide the form after submission!! used as a prop
-    } catch (error) {
-      console.log("Could not post your offer", error);
-    }
+    onSubmit(dataToPost);
   }
 
   return (

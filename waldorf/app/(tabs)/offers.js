@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   ActivityIndicator,
   Alert,
@@ -14,8 +14,8 @@ import { OfferCardItem } from "../../components/OfferCardItem";
 import { OfferForm } from "../../components/OfferForm";
 import { styles } from "../../styles/MainStyles";
 
-const url = process.env.EXPO_PUBLIC_API_URL + "/offers";
-if (!process.env.EXPO_PUBLIC_API_URL) {
+const apiHost = process.env.EXPO_PUBLIC_API_URL;
+if (!apiHost) {
   throw new Error("process.env.EXPO_PUBLIC_API_URL is undefined");
 }
 
@@ -26,28 +26,44 @@ export default function Offers() {
   // console.log(offers);
   const [isLoading, setIsLoading] = useState(false);
 
+  const fetchOffers = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(`${apiHost}/offers`, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
+      // console.debug(data);
+
+      setOffers(data);
+    } catch (error) {
+      console.log("Your data was not fetched", error);
+      Alert.alert("There was a problem loading the data ");
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   //for app http synthax is a must
   useEffect(() => {
-    async function loadOffers() {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${await getToken()}`,
-          },
-        });
-        // console.debug(data);
+    fetchOffers();
+  }, [fetchOffers]);
 
-        setOffers(data);
-      } catch (error) {
-        console.log("Your data was not fetched", error);
-        Alert.alert("The was a problem loading the data ");
-      } finally {
-        setIsLoading(false);
-      }
+  async function handleSubmitOfferForm(dataToPost) {
+    try {
+      const { data } = await axios.post(`${apiHost}/offers`, dataToPost, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
+      console.log(data);
+    } catch (error) {
+      console.log("Could not post your offer", error);
+    } finally {
+      setShowPost(false);
     }
-    loadOffers();
-  }, [showPost]);
+  }
 
   return (
     //Need to utilise scroll view here!!!
@@ -76,13 +92,7 @@ export default function Offers() {
                 title={showPost ? "Close offer form" : "Add offer"}
                 onPress={() => setShowPost(!showPost)}
               />
-              {showPost && (
-                <OfferForm
-                  onSubmit={() => {
-                    setShowPost(false);
-                  }}
-                />
-              )}
+              {showPost && <OfferForm onSubmit={handleSubmitOfferForm} />}
             </View>
           </View>
         </View>

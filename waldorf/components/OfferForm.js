@@ -38,18 +38,7 @@ export function OfferForm({ onSubmit }) {
       direction: postOffer.direction,
       numberOfChildren: Number(postOffer.numberOfChildren),
     };
-    try {
-      const { data } = await axios.post(`${apiHost}/offers`, dataToPost, {
-        headers: {
-          Authorization: `Bearer ${await getToken()}`,
-        },
-      });
-      console.log(data);
-
-      onSubmit(); //TO DO: hide the form after submission!! used as a prop
-    } catch (error) {
-      console.log("Could not post your offer", error);
-    }
+    onSubmit(dataToPost);
   }
 
   return (
