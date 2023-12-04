@@ -8,8 +8,9 @@ export function HomePage() {
   return (
     <div className="home-container">
       <div className="home-items">
+        <h2>Welcome/Willkommen</h2>
+
         <div className="home-welcome">
-          <h2>Welcome/Willkommen</h2>
           <div className="welcome-items">
             <div>
               <p>
@@ -26,7 +27,7 @@ export function HomePage() {
               </p>
               <p>
                 Feel free to give us any feedback that you think might be of
-                help to us and other parents
+                help to us and other parents.
               </p>
             </div>
 

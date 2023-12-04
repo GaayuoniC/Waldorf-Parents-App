@@ -34,6 +34,7 @@
 .welcome-items {
   display: flex;
   gap: 20px;
+  margin-top: 5px;
 }
 button {
   justify-content: center;
