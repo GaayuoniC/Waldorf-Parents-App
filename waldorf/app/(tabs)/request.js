@@ -86,22 +86,18 @@ export default function Requests() {
         </View>
       ) : (
         <View style={[styles.container]}>
-          <Text style={[styles.welcome]}>Waldorf Parents' Helper</Text>
+          <Text style={[styles.welcome]}>Parents looking for help</Text>
 
-          <View>
-            <View>
-              <Text style={[styles.availabilityText]}>Available requests</Text>
-            </View>
-            {requests.map((item) => {
-              return <RequestCardItem requests={item} key={item.id} />;
-            })}
+          {/* <Text style={[styles.availabilityText]}>Available requests</Text> */}
+          {requests.map((item) => {
+            return <RequestCardItem requests={item} key={item.id} />;
+          })}
 
-            <Button
-              title={showPost ? "Close form" : "Add request"}
-              onPress={() => setShowPost(!showPost)}
-            />
-            {showPost && <PostRequestForm onSubmit={handleSubmitPostRequest} />}
-          </View>
+          <Button
+            title={showPost ? "Close form" : "Add request"}
+            onPress={() => setShowPost(!showPost)}
+          />
+          {showPost && <PostRequestForm onSubmit={handleSubmitPostRequest} />}
         </View>
       )}
     </ScrollView>
