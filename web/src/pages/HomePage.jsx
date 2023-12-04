@@ -18,11 +18,11 @@ export function HomePage() {
                 made with the main intention of making life a little bit easier
                 for parents. As a parent or guardian, you can place an offer to
                 help other parents kids get to school safely and timely. You can
-                also ask for help in out post requests section.
+                also ask for help in our post requests section.
               </p>
               <p>
                 Once you register as a parent, you can have easy access to all
-                our services;asking for help and offering to help other parents
+                our services; asking for help and offering to help other parents
                 who might need help with their kids.
               </p>
               <p>

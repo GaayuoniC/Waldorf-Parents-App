@@ -7,6 +7,10 @@
   gap: 20px;
   flex-direction: column;
 }
+p {
+  line-height: 1.88;
+  margin-bottom: 10px;
+}
 .home-sides {
   display: flex;
   flex-direction: row;

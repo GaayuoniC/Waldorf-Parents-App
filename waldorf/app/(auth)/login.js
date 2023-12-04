@@ -54,13 +54,13 @@ function Login() {
     await login(formDetails.email, formDetails.password);
   }
 
-  const handleTestLogin = async () => {
-    await login("gayuoni@hotmail.com", "ShitMicrosoft112");
-  };
+  // const handleTestLogin = async () => {
+  //   await login("gayuoni@hotmail.com", "ShitMicrosoft112");
+  // };
 
-  const handleFailedLogin = async () => {
-    await login("a@b.com", "sdfsdf");
-  };
+  // const handleFailedLogin = async () => {
+  //   await login("a@b.com", "sdfsdf");
+  // };
 
   return (
     <KeyboardAvoidingView
@@ -117,13 +117,13 @@ function Login() {
             >
               <Text style={[styles.label]}> Login</Text>
             </TouchableOpacity>
-            <Pressable onPress={() => handleTestLogin()}>
+            {/* <Pressable onPress={() => handleTestLogin()}>
               <Text style={[styles.label]}>Test-Login</Text>
-            </Pressable>
-            <Pressable onPress={() => handleFailedLogin()}>
+            </Pressable> */}
+            {/* <Pressable onPress={() => handleFailedLogin()}>
               <Text style={[styles.label]}>Failed-Login</Text>
-            </Pressable>
-            <Text>{isSignedIn ? "signed in" : "signed out"}</Text>
+            </Pressable>    */}
+            {/* <Text>{isSignedIn ? "signed in" : "signed out"}</Text> */}
           </View>
         </View>
       </TouchableWithoutFeedback>
