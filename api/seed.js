@@ -12,6 +12,21 @@ import { knex } from "./util/knex.js";
 import { uniqueNamesGenerator, names } from "unique-names-generator";
 import dayjs from "dayjs";
 
+const defaultNames = {
+  "gayuoni@hotmail.com": {
+    name: "Christian Gayuoni",
+  },
+  "gayuoni@proton.me": {
+    name: "Jane Doe",
+  },
+  "ralf.siewert@actyvyst.com": {
+    name: "Ralf Siewert",
+  },
+  "isewat@gmail.com": {
+    name: "Isabel Sewat",
+  },
+};
+
 const addresses = [
   { street: "Dorotheenstr. 39", zip: "53111", city: "Bonn" },
   { street: "Am Markt 7", zip: "53115", city: "Bonn" },
@@ -56,7 +71,10 @@ for (const user of users) {
   const primaryEmailAddress = user.emailAddresses.find(
     (emailAddress) => emailAddress.id === user.primaryEmailAddressId
   );
-  const randomName = uniqueNamesGenerator({ dictionaries: [names] });
+
+  const randomName =
+    defaultNames[primaryEmailAddress.emailAddress]?.name ||
+    uniqueNamesGenerator({ dictionaries: [names] });
   const randomAddress = addresses[addressIndex];
   addressIndex++;
   const randomDate = dayjs()

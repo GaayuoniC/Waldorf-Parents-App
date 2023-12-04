@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { Text, View, Pressable } from "react-native";
 
-import { styles } from "../styles/MainStyles";
+import { styles, colors } from "../styles/MainStyles";
 
 const directions = {
   from_school: "From school",
@@ -10,11 +10,18 @@ const directions = {
 };
 
 export function RequestCardItem({ requests: request }) {
-  function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   A");
-  }
   return (
-    <View key={request.id} style={[styles.horizontalLine, { gap: 4 }]}>
+    <View
+      key={request.id}
+      style={[
+        styles.horizontalLine,
+        { gap: 4 },
+        request.acceptedByUserId && {
+          borderBottomColor: colors.baseOrange,
+          borderBottomWidth: 2,
+        },
+      ]}
+    >
       <Text style={[{ fontSize: 24, fontWeight: "500" }]}>
         {request.parentName}
       </Text>
@@ -43,10 +50,23 @@ export function RequestCardItem({ requests: request }) {
             {request.startZip} {request.startCity}
           </Text>
         </View>
-        <Pressable style={[styles.button, { alignSelf: "flex-end" }]}>
-          <Text>Accept</Text>
-        </Pressable>
+        {!request.acceptedByUserId && (
+          <Pressable style={[styles.button, { alignSelf: "flex-end" }]}>
+            <Text>Accept</Text>
+          </Pressable>
+        )}
       </View>
+      {request.acceptedByUserId && (
+        <>
+          <Text style={{ fontSize: 10, fontWeight: "200", marginTop: 4 }}>
+            Accepted By
+          </Text>
+          <Text>{request.acceptedByName}</Text>
+          <Text>{request.acceptedByEmail}</Text>
+          <Text>{request.acceptedMessage}</Text>
+        </>
+      )}
+
       {/* <Text>
         <Text style={[styles.parentDetail]}>Parent Name: </Text>
         {requests.parentName} {"\n"}
