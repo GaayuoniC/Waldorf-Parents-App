@@ -78,7 +78,7 @@ export function Requests() {
   return (
     <>
       <section>
-        <h2>Available Requests</h2>
+        <h2>Parents looking for help</h2>
         {isLoading ? (
           <h4> Loading offfers...please wait</h4>
         ) : (

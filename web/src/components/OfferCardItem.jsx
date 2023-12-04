@@ -3,6 +3,12 @@ import dayjs from "dayjs";
 import "../components/OfferCardItem.css";
 
 export function OfferCardItem({ offer }) {
+  const directions = {
+    from_school: "From school",
+    to_school: "To school",
+    both: "To and from school",
+  };
+
   function handleDateDayJs(date) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
   }
@@ -20,7 +26,7 @@ export function OfferCardItem({ offer }) {
         <span className="parent-info-titles">Number of kids</span>
         {offer.numberOfChildren} <br />
         <span className="parent-info-titles">Direction of travel</span>
-        {offer.direction}
+        {directions[offer.direction]}
         <br />
         <span className="parent-info-titles">Mode of Transport</span>
         {offer.modeOfTransportation}

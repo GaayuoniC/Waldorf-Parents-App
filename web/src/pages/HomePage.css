@@ -46,7 +46,8 @@ button {
   padding: 5px;
 }
 button:hover {
-  background-color:var(--hover-clr);
+  background-color: var(--hover-clr);
+  cursor: pointer;
   /* border:1px solid blue */
 }
 @media (max-width: 768px) {
