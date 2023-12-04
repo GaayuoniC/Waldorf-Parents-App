@@ -31,7 +31,8 @@ await knex.schema.createTable("offers", function (table) {
   table.string("parentEmail").notNullable();
   table.string("acceptedByUserId");
   table.string("acceptedByEmail");
-  table.string("acceptedByChildName");
+  table.string("acceptedByName");
+  table.string("acceptedMessage");
   table.string("parentName");
   table.string("startStreet");
   table.string("startZip");

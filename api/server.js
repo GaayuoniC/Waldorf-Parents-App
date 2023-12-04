@@ -42,5 +42,5 @@ app.post("/offers", ClerkExpressRequireAuth(), createOffer);
 app.post("/requests", ClerkExpressRequireAuth(), createRequest);
 
 app.listen(port, () => {
-  console.log(`car-service-api running on port ${port}`);
+  console.log(`waldorf-helper-api running on port ${port}`);
 });
