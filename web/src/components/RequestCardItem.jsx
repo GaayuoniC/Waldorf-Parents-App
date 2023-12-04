@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import { AcceptanceCard } from "./AcceptanceCard";
 import "../components/RequestCardItem.css";
 
-export function RequestCardItem({ request }) {
+export function RequestCardItem({ request, onAcceptRequest = () => {} }) {
   const [showAcceptanceCard, setShowAcceptanceCard] = useState(false);
 
   function handleShowAcceptanceCard() {
@@ -13,10 +13,15 @@ export function RequestCardItem({ request }) {
   function handleDateDayJs(date) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
   }
+  function handleAccept(name, message) {
+    console.log("Accepting", name, message);
+    setShowAcceptanceCard(false);
+    onAcceptRequest(request.id, name, message);
+  }
 
   return (
-    <ul key={request.id} className=" parents-card">
-      <li className="parent-info">
+    <li className="parents-card">
+      <div className="parent-info">
         <span className="parent-info-titles">Parent name </span>
         <span className="card-items-list"> {request.parentName} </span> <br />
         <span className="parent-info-titles">Starting street</span>
@@ -34,16 +39,13 @@ export function RequestCardItem({ request }) {
         <span className="parent-info-titles">Direction of travel</span>
         {request.direction}
         <br />
-        {/* <span className="parent-info-titles">Mode of Transport:</span>
-      {request.modeOfTransportation}
-      <br /> */}
         <span className="parent-info-titles"> Date/Time </span>
         {handleDateDayJs(request.dateOfTtransportation)}
         <button id="accept-btn" onClick={handleShowAcceptanceCard}>
-          Accept
+          {showAcceptanceCard ? "Cancel" : "Accept"}
         </button>
-        {showAcceptanceCard && <AcceptanceCard />}
-      </li>
-    </ul>
+        {showAcceptanceCard && <AcceptanceCard onAccept={handleAccept} />}
+      </div>
+    </li>
   );
 }

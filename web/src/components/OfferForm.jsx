@@ -1,12 +1,10 @@
 import { useState } from "react";
 import "../components/OfferForm.css";
-import axios from "axios";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export function OfferForm({ onSubmit }) {
-  const [isLoading, setIsLoading] = useState(false);
+export function OfferForm({ onSubmit, isLoading = false }) {
   const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
@@ -39,18 +37,8 @@ export function OfferForm({ onSubmit }) {
       numberOfChildren: Number(postOffer.numberOfChildren),
       // Number function to convert string to number!
     };
-    console.log("Data to post", dataToPost);
-    try {
-      setIsLoading(true);
-      const { data } = await axios.post("/api/offers", dataToPost);
-      console.log(data);
-      // TODO: hide form ???
-      onSubmit();
-    } catch (err) {
-      console.log("Error posting offer", err);
-    } finally {
-      setIsLoading(false);
-    }
+    // Check if data is valid!
+    onSubmit(dataToPost);
   }
 
   return (
@@ -74,7 +62,7 @@ export function OfferForm({ onSubmit }) {
         <DatePicker
           showTimeInput
           timeFormat="HH:mm"
-          dateFormat="d.MM.yyyy HH:mm"
+          dateFormat="dd.MM.yyyy HH:mm"
           selected={postOffer.dateOfTransportation}
           onChange={(date) => {
             console.log("Date changed", date);
