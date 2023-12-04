@@ -103,7 +103,6 @@ export const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: Platform.OS === "ios" ? 30 : 28,
-    // fontStyle: "italic",
     marginBottom: 8,
 
     color: colors.baseOrange,
@@ -131,8 +130,6 @@ export const styles = StyleSheet.create({
   availabilityText: {
     fontSize: 25,
     alignSelf: "flex-start",
-    // textDecorationLine: "underline",
-    // textDecorationColor: "rgba(0,0,0,0.3)",
   },
   loadingContainer: {
     alignItems: "center",

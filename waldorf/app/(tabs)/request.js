@@ -88,7 +88,6 @@ export default function Requests() {
         <View style={[styles.container]}>
           <Text style={[styles.welcome]}>Parents looking for help</Text>
 
-          {/* <Text style={[styles.availabilityText]}>Available requests</Text> */}
           {requests.map((item) => {
             return <RequestCardItem requests={item} key={item.id} />;
           })}

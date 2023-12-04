@@ -69,7 +69,6 @@ export default function Offers() {
   return (
     //Need to utilise scroll view here!!!
     <ScrollView
-      // style={[styles.container]}
       contentContainerStyle={[styles.scrollViewContent]}
       refreshControl={
         <RefreshControl
@@ -89,12 +88,10 @@ export default function Offers() {
         </View>
       ) : (
         <View View style={[styles.container]}>
-          <Text style={styles.welcome}>Waldorf Parents' Helper</Text>
+          <Text style={styles.welcome}>Parents offering to help</Text>
 
           <View style={[styles.offerContainer]}>
             <View style={styles.offerTitle}>
-              <Text style={[styles.availabilityText]}>Available offers</Text>
-
               {offers.map((item) => {
                 return <OfferCardItem offers={item} key={item.id} />;
               })}

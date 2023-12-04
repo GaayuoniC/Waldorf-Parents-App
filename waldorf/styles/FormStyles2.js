@@ -119,7 +119,3 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-// export const combinedHorizAvailText = StyleSheet.flatten([
-//   styles.availabilityText,
-//   styles.horizontalLine,
-// ]);

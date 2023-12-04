@@ -39,7 +39,9 @@ export function RequestCardItem({ requests: request }) {
           {dayjs(request.dateOfTransportation).format("HH:mm")}
         </Text>
       </View>
+
       <Text>{directions[request.direction]}</Text>
+
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <View style={{ gap: 2 }}>
           <Text style={{ fontSize: 10, fontWeight: "200", marginTop: 4 }}>
