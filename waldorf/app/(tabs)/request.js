@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/clerk-expo";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Alert,
   Button,
@@ -8,6 +8,7 @@ import {
   Text,
   View,
   ActivityIndicator,
+  RefreshControl,
 } from "react-native";
 
 import { PostRequestForm } from "../../components/PostRequestForm";
@@ -25,27 +26,28 @@ export default function Requests() {
   const { getToken } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    async function loadRequests() {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get(`${apiHost}/requests`, {
-          headers: {
-            Authorization: `Bearer ${await getToken()}`,
-          },
-        });
-        // console.debug(data);
+  const fetchRequests = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(`${apiHost}/requests`, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
+      // console.debug(data);
 
-        setRequests(data);
-      } catch (error) {
-        console.log("Your data was not fetched", error);
-        Alert.alert("The was a problem loading the data ");
-      } finally {
-        setIsLoading(false);
-      }
+      setRequests(data);
+    } catch (error) {
+      console.log("Your data was not fetched", error);
+      Alert.alert("The was a problem loading the data ");
+    } finally {
+      setIsLoading(false);
     }
-    loadRequests();
-  }, [showPost]);
+  }, []);
+
+  useEffect(() => {
+    fetchRequests();
+  }, [fetchRequests]);
 
   async function handleSubmitPostRequest(dataToPost) {
     try {
@@ -55,6 +57,7 @@ export default function Requests() {
         },
       });
       console.log(data);
+      fetchRequests();
     } catch (error) {
       console.log("Could not post your offer", error);
     } finally {
@@ -63,7 +66,18 @@ export default function Requests() {
   }
 
   return (
-    <ScrollView contentContainerStyle={[styles.scrollViewContent]}>
+    <ScrollView
+      contentContainerStyle={[styles.scrollViewContent]}
+      refreshControl={
+        <RefreshControl
+          refreshing={isLoading}
+          onRefresh={() => {
+            console.log("refreshing");
+            fetchRequests();
+          }}
+        />
+      }
+    >
       {isLoading ? (
         <View style={[styles.container]}>
           <Text>Loading offers</Text>

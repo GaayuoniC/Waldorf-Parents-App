@@ -8,6 +8,7 @@ import {
   ScrollView,
   Text,
   View,
+  RefreshControl,
 } from "react-native";
 
 import { OfferCardItem } from "../../components/OfferCardItem";
@@ -70,6 +71,15 @@ export default function Offers() {
     <ScrollView
       // style={[styles.container]}
       contentContainerStyle={[styles.scrollViewContent]}
+      refreshControl={
+        <RefreshControl
+          refreshing={isLoading}
+          onRefresh={() => {
+            console.log("refreshing");
+            fetchOffers();
+          }}
+        />
+      }
     >
       {isLoading ? (
         <View style={[styles.container]}>
