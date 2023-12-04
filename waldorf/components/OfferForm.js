@@ -1,5 +1,6 @@
-import { Picker } from "@react-native-picker/picker";
+import { useAuth } from "@clerk/clerk-expo";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -7,7 +8,10 @@ import { Button, Text, TextInput, View } from "react-native";
 
 import { styles } from "../styles/FormStyles2";
 
+const apiHost = process.env.EXPO_PUBLIC_API_URL;
+
 export function OfferForm({ onSubmit }) {
+  const { getToken } = useAuth();
   const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
@@ -35,10 +39,11 @@ export function OfferForm({ onSubmit }) {
       numberOfChildren: Number(postOffer.numberOfChildren),
     };
     try {
-      const { data } = await axios.post(
-        "http://192.168.178.32:3000/offers",
-        dataToPost
-      );
+      const { data } = await axios.post(`${apiHost}/offers`, dataToPost, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
       console.log(data);
 
       onSubmit(); //TO DO: hide the form after submission!! used as a prop
