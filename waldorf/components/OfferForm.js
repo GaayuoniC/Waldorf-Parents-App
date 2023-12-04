@@ -1,5 +1,5 @@
-import { DatePicker, Picker } from "@react-native-picker/picker";
-import axios from "axios";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
@@ -12,13 +12,17 @@ export function OfferForm({ onSubmit }) {
     startStreet: "",
     startZip: "",
     startCity: "",
-    dateOfTransportation: new Date(),
+    dateOfTransportation: dayjs()
+      .add(1, "day")
+      .set("hour", 7)
+      .set("minute", 30)
+      .set("second", 0)
+      .toDate(),
     modeOfTransportation: "",
     direction: "",
     numberOfChildren: "",
   });
   function handleOfferChange(name, value) {
-    // const { name, value } = e.target;
     setPostOffer((prev) => ({ ...prev, [name]: value }));
   }
 
@@ -33,41 +37,36 @@ export function OfferForm({ onSubmit }) {
       direction: postOffer.direction,
       numberOfChildren: Number(postOffer.numberOfChildren),
     };
-    try {
-      const { data } = await axios.post(
-        "http://192.168.178.32:3000/offers",
-        dataToPost
-      );
-      console.log(data);
-
-      onSubmit(); //TO DO: hide the form after submission!! used as a prop
-    } catch (error) {
-      console.log("Could not post your offer", error);
-    }
+    onSubmit(dataToPost);
   }
 
   return (
     <View>
+      <View>
+        <Text>Date</Text>
+        <View
+          style={{
+            paddingVertical: 10,
+            paddingBottom: 16,
+            flexDirection: "row",
+            justifyContent: "flex-start",
+          }}
+        >
+          <DateTimePicker
+            value={postOffer.dateOfTransportation}
+            mode="datetime"
+            onChange={(event, selectedDate) => {
+              handleOfferChange("dateOfTransportation", selectedDate);
+            }}
+          />
+        </View>
+      </View>
       <View>
         <Text> Name </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("parentName", text)}
           value={postOffer.parentName}
-        />
-      </View>
-      <View>
-        <Text>Date</Text>
-        <DatePicker
-          style={{ width: 200 }}
-          mode="date"
-          // showTimeInput
-          // dateFormat="d.MM.YYYY HH:mm"
-          selected={postOffer.dateOfTransportation}
-          onDateChange={(date) => {
-            // setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
-            handleOfferChange("dateOfTransportation", date);
-          }}
         />
       </View>
       <View>
@@ -104,16 +103,7 @@ export function OfferForm({ onSubmit }) {
           value={postOffer.startCity}
         />
       </View>
-      {/* <View>
-        <Text>Date of transportation :</Text>
-        <TextInput
-          style={[styles.input]}
-          onChangeText={(text) =>
-            handleOfferChange("dateOfTransportation", text)
-          }
-          value={postOffer.dateOfTransportation}
-        />
-      </View> */}
+
       <View>
         <Text>Mode of transport :</Text>
         <Picker
@@ -128,17 +118,9 @@ export function OfferForm({ onSubmit }) {
           <Picker.Item label="Bicycle" value="bike" />
           <Picker.Item label="Car" value="car" />
         </Picker>
-
-        {/* <TextInput
-          style={[styles.input]}
-          onChangeText={(text) =>
-            handleOfferChange("modeOfTransportation", text)
-          }
-          value={postOffer.modeOfTransportation}
-        /> */}
       </View>
       <View>
-        <Text>Destination </Text>
+        <Text>Destination</Text>
         {/* Picker has no onchange text but a onchange value instedad */}
         <Picker
           style={[styles.input]}

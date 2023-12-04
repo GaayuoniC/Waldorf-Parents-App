@@ -3,11 +3,8 @@ import "../components/OfferForm.css";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 
-export function PostRequestForm({ onSubmit }) {
-  const [isLoading, setIsLoading] = useState(false);
-
+export function PostRequestForm({ onSubmit, isLoading = false }) {
   const [postRequest, setPostRequest] = useState({
     parentName: "",
     startStreet: "",
@@ -40,18 +37,7 @@ export function PostRequestForm({ onSubmit }) {
       direction: postRequest.direction,
       numberOfChildren: Number(postRequest.numberOfChildren),
     };
-    console.log("Data to post", dataToPost);
-    try {
-      setIsLoading(true);
-      const { data } = await axios.post("/api/requests", dataToPost); //TO DO: need to check how to do this
-      console.log(data);
-
-      onSubmit(); //dependence prop trigger get all available request!
-    } catch (err) {
-      console.log("Error posting offer", err);
-    } finally {
-      setIsLoading(false);
-    }
+    onSubmit(dataToPost);
   }
 
   return (
@@ -78,15 +64,16 @@ export function PostRequestForm({ onSubmit }) {
         <DatePicker
           showTimeInput
           // timeFormat="HH:mm"
-          dateFormat="d.MM.yyyy HH:mm"
+          dateFormat="dd.MM.yyyy HH:mm"
           selected={postRequest.dateOfTransportation}
-          onChange={(date) => handleChange(date)}
-          // onChange={(date) => {
-          //   console.log("Date changed", date);
-          //   setPostRequest({
-          //     ...postRequest,
-          //     dateOfTransportation: date,
-          //   });
+          // onChange={(date) => handleChange(date)}
+          onChange={(date) => {
+            console.log("Date changed", date);
+            setPostRequest({
+              ...postRequest,
+              dateOfTransportation: date,
+            });
+          }}
           // }} //TO DO: need to fix time display!
         />
         <label className="title-label">

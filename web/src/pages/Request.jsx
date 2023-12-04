@@ -1,9 +1,11 @@
 import { PostRequestForm } from "../components/PostRequestForm";
 import { RequestCardItem } from "../components/RequestCardItem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useAuth } from "@clerk/clerk-react";
 import axios from "axios";
 
 export function Requests() {
+  const { getToken } = useAuth();
   const [showPost, setShowPost] = useState(false);
   const [isLoading, setIsLoading] = useState();
 
@@ -11,24 +13,67 @@ export function Requests() {
 
   const [request, setRequest] = useState([]);
   const url = "/api/requests";
-  useEffect(() => {
-    async function loadRequests() {
-      try {
-        setIsLoading(true);
-        console.log("before data fetch"); //debug point
 
-        const { data } = await axios.get(url);
-        setRequest(data);
-        console.log("After data fetch"); //debugging check
-      } catch (error) {
-        console.log("Error getting data ! Please check your code again", error);
-        alert("Error getting requests ! Please check your code again");
-      } finally {
-        setIsLoading(false);
-      }
+  const fetchRequest = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(url);
+      setRequest(data);
+    } catch (error) {
+      console.log("Error getting data ! Please check your code again", error);
+      alert("Error getting requests ! Please check your code again");
+    } finally {
+      setIsLoading(false);
     }
-    loadRequests();
-  }, [showPost]);
+  }, []);
+
+  useEffect(() => {
+    fetchRequest();
+  }, [fetchRequest]);
+
+  async function handleAcceptRequest(requestId, name, message) {
+    console.log("Accepting", name, message);
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post(
+        `/api/requests/${requestId}/accept`,
+        {
+          name,
+          message,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${await getToken()}`,
+          },
+        }
+      );
+      fetchRequest();
+      console.log(data);
+    } catch (err) {
+      console.log("Error accepting request", err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleSubmitPostRequestForm(dataToPost) {
+    console.log("Form submitted");
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post("/api/requests", dataToPost, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      }); //TO DO: need to check how to do this
+      fetchRequest();
+      console.log(data);
+    } catch (err) {
+      console.log("Error posting offer", err);
+    } finally {
+      setIsLoading(false);
+      setShowPost(false);
+    }
+  }
 
   return (
     <>
@@ -39,7 +84,13 @@ export function Requests() {
         ) : (
           <ul className="parents-container">
             {request.map((item) => {
-              return <RequestCardItem request={item} key={item.id} />;
+              return (
+                <RequestCardItem
+                  request={item}
+                  key={item.id}
+                  onAcceptRequest={handleAcceptRequest}
+                />
+              );
               // refactored here and make it a separate component
             })}
           </ul>
@@ -53,14 +104,13 @@ export function Requests() {
           }}
         >
           {showPost
-            ? " Close the request form"
+            ? "Close the request form"
             : "Click here to place your request for assistance!"}
         </span>
         {showPost && (
           <PostRequestForm
-            onSubmit={() => {
-              setShowPost(false);
-            }}
+            onSubmit={handleSubmitPostRequestForm}
+            isLoading={isLoading}
           />
         )}
       </section>

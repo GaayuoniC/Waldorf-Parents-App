@@ -6,6 +6,7 @@ export const colors = {
   black: "#293241",
   white: "#eeffff",
   highlight: "#ee6c4d",
+  baseOrange: "#d6531f",
 };
 // export const newInputStyle = {
 //   ...input,
@@ -21,11 +22,14 @@ export const styles = StyleSheet.create({
     justifyContent: "top",
     // backgroundColor: "green",
 
-    width: Platform.OS === "ios" ? 400 : 330,
+    // width: Platform.OS === "ios" ? 400 : 330,
+    width: "96%",
 
-    margin: 10,
+    // margin: 10,
     padding: 20,
+    marginTop: 10,
     marginBottom: 20,
+    marginHorizontal: 0,
 
     ...Platform.select({
       ios: {
@@ -61,7 +65,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     padding: 10,
-    borderColor: colors.mediumBlue,
+    borderColor: colors.baseOrange,
     borderWidth: 1,
     borderRadius: 5,
   },
@@ -99,9 +103,10 @@ export const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: Platform.OS === "ios" ? 30 : 28,
-    fontStyle: "italic",
-    marginBottom: 20,
-    color: "green",
+    // fontStyle: "italic",
+    marginBottom: 8,
+
+    color: colors.baseOrange,
   },
   loginButton: {
     color: "#cf77ce",
@@ -117,6 +122,7 @@ export const styles = StyleSheet.create({
     color: "#000000",
   },
   horizontalLine: {
+    paddingBottom: 10,
     borderBottomColor: "rgba(0,0,0,0.3)",
     borderBottomWidth: 1,
     width: "100%",
@@ -125,8 +131,8 @@ export const styles = StyleSheet.create({
   availabilityText: {
     fontSize: 25,
     alignSelf: "flex-start",
-    textDecorationLine: "underline",
-    textDecorationColor: "rgba(0,0,0,0.3)",
+    // textDecorationLine: "underline",
+    // textDecorationColor: "rgba(0,0,0,0.3)",
   },
   loadingContainer: {
     alignItems: "center",

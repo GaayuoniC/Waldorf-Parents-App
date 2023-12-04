@@ -7,8 +7,8 @@ export function OfferCardItem({ offer }) {
     return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
   }
   return (
-    <ul key={offer.id} className="parents-card">
-      <li className="parent-info">
+    <li className="parents-card">
+      <div className="parent-info">
         <span className="parent-info-titles">Name </span>
         {offer.parentName} <br />
         <span className="parent-info-titles">Starting street</span>
@@ -27,7 +27,7 @@ export function OfferCardItem({ offer }) {
         <br />
         <span className="parent-info-titles"> Date </span>
         {handleDateDayJs(offer.dateOfTtransportation)}
-      </li>
-    </ul>
+      </div>
+    </li>
   );
 }
