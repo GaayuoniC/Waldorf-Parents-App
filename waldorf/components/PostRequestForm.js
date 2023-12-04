@@ -1,22 +1,23 @@
-import { useAuth } from "@clerk/clerk-expo";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
-import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
 import { styles } from "../styles/FormStyles2";
 
-const apiHost = process.env.EXPO_PUBLIC_API_URL;
-
 export function PostRequestForm({ onSubmit }) {
-  const { getToken } = useAuth();
   const [postRequest, setPostRequest] = useState({
     parentName: "",
     startStreet: "",
     startZip: "",
     startCity: "",
-    dateOfTransportation: new Date(),
+    dateOfTransportation: dayjs()
+      .add(1, "day")
+      .set("hour", 7)
+      .set("minute", 30)
+      .set("second", 0)
+      .toDate(),
     modeOfTransportation: "",
     direction: "",
     numberOfChildren: "",
@@ -46,6 +47,25 @@ export function PostRequestForm({ onSubmit }) {
   return (
     <View>
       <View>
+        <Text>Date</Text>
+        <View
+          style={{
+            paddingVertical: 10,
+            paddingBottom: 16,
+            flexDirection: "row",
+            justifyContent: "flex-start",
+          }}
+        >
+          <DateTimePicker
+            value={postRequest.dateOfTransportation}
+            mode="datetime"
+            onChange={(event, selectedDate) => {
+              handlePostChange("dateOfTransportation", selectedDate);
+            }}
+          />
+        </View>
+      </View>
+      <View>
         <Text> Name :</Text>
         <TextInput
           style={[styles.input]}
@@ -53,15 +73,7 @@ export function PostRequestForm({ onSubmit }) {
           value={postRequest.parentName}
         />
       </View>
-      {/* <DatePicker
-      mode="calendar"
-      showTimeInput
-      dateFormat="d.MM.YYYY HH:mm"
-      selected={postOffer.dateOfTransportation}
-      onDateChange={(date) => {
-        setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
-      }}
-    /> */}
+
       <View>
         <Text>Number of kids I can care for :</Text>
         <TextInput
@@ -95,31 +107,7 @@ export function PostRequestForm({ onSubmit }) {
           value={postRequest.startCity}
         />
       </View>
-      {/* <View>
-      <Text>Date of transportation :</Text>
-      <TextInput
-        style={[styles.input]}
-        onChangeText={(text) =>
-          handleOfferChange("dateOfTransportation", text)
-        }
-        value={postOffer.dateOfTransportation}
-      />
-    </View> */}
-      {/* <View>
-        <Text>Mode of transport :</Text>
-        <Picker
-          style={[styles.input]}
-          onValueChange={(itemValue) =>
-            handlePostChange("modeOfTransportation", itemValue)
-          }
-          selectedValue={postRequest.modeOfTransportation}
-        >
-          <Picker.Item label="Select travel mode" value="" />
-          <Picker.Item label="Walk" value="walk" />
-          <Picker.Item label="Bicycle" value="bike" />
-          <Picker.Item label="Car" value="car" />
-        </Picker>
-      </View> */}
+
       <View>
         <Text>Destination : </Text>
         {/* Picker has no onchange text but a onchange value instedad */}

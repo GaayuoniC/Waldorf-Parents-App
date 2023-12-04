@@ -1,29 +1,28 @@
-import { useAuth } from "@clerk/clerk-expo";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
-import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
 import { styles } from "../styles/FormStyles2";
 
-const apiHost = process.env.EXPO_PUBLIC_API_URL;
-
 export function OfferForm({ onSubmit }) {
-  const { getToken } = useAuth();
   const [postOffer, setPostOffer] = useState({
     parentName: "",
     startStreet: "",
     startZip: "",
     startCity: "",
-    dateOfTransportation: new Date(),
+    dateOfTransportation: dayjs()
+      .add(1, "day")
+      .set("hour", 7)
+      .set("minute", 30)
+      .set("second", 0)
+      .toDate(),
     modeOfTransportation: "",
     direction: "",
     numberOfChildren: "",
   });
   function handleOfferChange(name, value) {
-    // const { name, value } = e.target;
     setPostOffer((prev) => ({ ...prev, [name]: value }));
   }
 
@@ -44,34 +43,31 @@ export function OfferForm({ onSubmit }) {
   return (
     <View>
       <View>
+        <Text>Date</Text>
+        <View
+          style={{
+            paddingVertical: 10,
+            paddingBottom: 16,
+            flexDirection: "row",
+            justifyContent: "flex-start",
+          }}
+        >
+          <DateTimePicker
+            value={postOffer.dateOfTransportation}
+            mode="datetime"
+            onChange={(event, selectedDate) => {
+              handleOfferChange("dateOfTransportation", selectedDate);
+            }}
+          />
+        </View>
+      </View>
+      <View>
         <Text> Name </Text>
         <TextInput
           style={[styles.input]}
           onChangeText={(text) => handleOfferChange("parentName", text)}
           value={postOffer.parentName}
         />
-      </View>
-      <View>
-        <Text>Date</Text>
-        <DateTimePicker
-          value={postOffer.dateOfTransportation}
-          mode="date"
-          onChange={(event, selectedDate) => {
-            handleOfferChange("dateOfTransportation", selectedDate);
-          }}
-        />
-        {/* <DatePicker
-          style={{ width: 200 }}
-          mode="date"
-          showTimeInput
-          dateFormat="d.MM.YYYY HH:mm"
-          selected={postOffer.dateOfTransportation}
-          selected={Date.now()}
-          onDateChange={(date) => {
-            // setPostOffer((prev) => ({ ...prev, dateOfTransportation: date }));
-            handleOfferChange("dateOfTransportation", date);
-          }}
-        /> */}
       </View>
       <View>
         <Text>Number of kids I can care for </Text>
