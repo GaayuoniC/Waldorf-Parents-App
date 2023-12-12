@@ -6,7 +6,7 @@ export function RootLayout() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ marginTop: 35 }}>
         <h1>Waldorf Parents Helper!!</h1>
 
         <Outlet />

@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     padding: 0,
   },
   input: {
-    color: colors.black,
+    // color: colors.black,
     width: "100%",
     marginBottom: Platform.OS === "ios" ? 15 : 10,
     marginTop: Platform.OS === "ios" ? 6 : 2,
@@ -119,7 +119,3 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-// export const combinedHorizAvailText = StyleSheet.flatten([
-//   styles.availabilityText,
-//   styles.horizontalLine,
-// ]);

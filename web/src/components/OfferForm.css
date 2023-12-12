@@ -4,17 +4,13 @@
 }
 
 .offer-form-container {
-  /* display: flex;
-  flex-direction: column; */
   gap: 2px;
-  border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
   margin: auto;
   padding: 10px;
   border-radius: var(--border-radius);
   justify-content: center;
   align-items: center;
-  width: 300px;
 }
 #offer-help {
   margin: auto;
@@ -23,7 +19,6 @@
 
 .title-label {
   margin-bottom: 30px;
-  /* font-weight: bold; */
 }
 input,
 select {
@@ -33,6 +28,7 @@ select {
   border-radius: var(--border-radius);
   /* test background color */
   height: 35px;
+  border: 1px solid black;
 }
 .button-container {
   display: flex;

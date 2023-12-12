@@ -1,84 +1,81 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { OfferForm } from "../components/OfferForm";
+import { OfferCardItem } from "../components/OfferCardItem";
 import axios from "axios";
-import "../pages/Offers.css";
+import { useAuth } from "@clerk/clerk-react";
+// import "../pages/Offers.css";
+// no effect on display from this import!!
 
 export function Offers() {
+  const { getToken } = useAuth();
   const [showPost, setShowPost] = useState(false);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [offers, setOffers] = useState([]);
   // console.log(data);
 
   const url = "/api/offers";
 
-  useEffect(() => {
-    async function loadOffers() {
-      try {
-        setIsLoading(true);
+  const fetchOffers = useCallback(async () => {
+    try {
+      setIsLoading(true);
 
-        const { data } = await axios.get(url);
-
-        setOffers(data);
-        console.debug(data); //debugging check
-      } catch (error) {
-        console.log("Data loading error ! Please check your code again", error);
-        alert("Error getting offers ! Please check your code again");
-      } finally {
-        setIsLoading(false);
-      }
+      const { data } = await axios.get(url);
+      setOffers(data);
+      console.debug(data); //debugging check
+    } catch (error) {
+      console.log("Data loading error ! Please check your code again", error);
+      alert("Error getting offers ! Please check your code again");
+    } finally {
+      setIsLoading(false);
     }
-    loadOffers();
-  }, [showPost]); //show post is the tri
+  }, []);
+
+  useEffect(() => {
+    fetchOffers();
+  }, [fetchOffers]); //show post is the tri
+
+  async function handleSubmitOfferForm(dataToPost) {
+    // Check if data is valid!
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post("/api/offers", dataToPost, {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
+      });
+      console.log(data);
+      fetchOffers();
+    } catch (err) {
+      console.log("Error posting offer", err);
+    } finally {
+      setShowPost(false);
+      setIsLoading(false);
+    }
+  }
 
   return (
     <>
-      <h2>Offers</h2>
       <section>
         <h2>Available offers:</h2>
-        {isloading ? (
+        {isLoading ? (
           <h4> Loading offfers...please wait</h4>
         ) : (
           <div className="parents-container">
+            {/* problem to check and solve */}
             {offers.map((item) => {
-              return (
-                <ul key={item.id} className="parents-card">
-                  <li className="parent-info">
-                    <span className="parent-info-titles"> Parent name: </span>
-                    {item.parentName} <br />
-                    <span className="parent-info-titles">
-                      Starting address:
-                    </span>
-                    {item.startingAddress}
-                    <br />
-                    <span className="parent-info-titles">
-                      Direction of travel:
-                    </span>
-                    {item.direction}
-                    <br />
-                    <span className="parent-info-titles">
-                      Mode of Transport:
-                    </span>
-                    {item.modeOfTransportation}
-                    <br />
-                    <span className="parent-info-titles"> Date: </span>
-                    {item.dateOfTtransportation}
-                  </li>
-                </ul>
-              );
+              return <OfferCardItem offer={item} key={item.id} />;
             })}
           </div>
         )}
 
         <div className="post-offer">
           <span onClick={() => setShowPost(!showPost)}>
-            Click here to post an offer to help!!
+            {showPost
+              ? "Close offer form"
+              : "Click here to post an offer to help!!"}
           </span>
           {showPost && (
-            <OfferForm
-              onSubmit={() => {
-                setShowPost(false);
-              }}
-            />
+            <OfferForm onSubmit={handleSubmitOfferForm} isLoading={isLoading} />
           )}
         </div>
       </section>

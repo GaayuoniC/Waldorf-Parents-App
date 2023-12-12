@@ -16,12 +16,14 @@
   --border-radius: 6px;
 }
 main {
-  padding: 10px 60px;
+  padding: 20px 20px;
   background-color: var(--background-color);
+  flex: 1;
+  overflow-y: auto;
 
   /* Soft white background color */
   /* TODO: not sure how to do ... */
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 * {
