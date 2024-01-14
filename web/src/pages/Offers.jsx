@@ -32,7 +32,7 @@ export function Offers() {
 
   useEffect(() => {
     fetchOffers();
-  }, [fetchOffers]); //show post is the tri
+  }, [fetchOffers]); //show post is the trigger
 
   async function handleSubmitOfferForm(dataToPost) {
     // Check if data is valid!

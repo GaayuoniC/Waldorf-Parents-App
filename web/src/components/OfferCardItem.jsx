@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { useEffect, useState } from "react";
 
 import "../components/OfferCardItem.css";
 
@@ -8,9 +9,18 @@ export function OfferCardItem({ offer }) {
     to_school: "To school",
     both: "To and from school",
   };
+  const [date, setDate] = useState(null);
+  // In OfferCardItem component
+  useEffect(() => {
+    console.log("OfferCardItem received updated offer:", offer);
+  }, [offer]);
+  //trying to debug here
 
   function handleDateDayJs(date) {
-    return dayjs(date).format("ddd. DD-MM-YYYY HH:mm   ");
+    const formatedDate = dayjs(date).format("ddd. DD-MM-YYYY HH:mm");
+    // setDate(dayjs(date).format("ddd. DD-MM-YYYY HH:mm"));
+    // console.log("Formated Date: ", formatedDate);
+    return formatedDate;
   }
   return (
     <li className="parents-card">

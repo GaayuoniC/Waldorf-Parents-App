@@ -33,7 +33,7 @@ export function OfferCardItem({ offers }) {
 
       <Text>{directions[offers.direction]}</Text>
       <View style={{ gap: 2 }}>
-        <Text style={{ fontSize: 10, fontWeight: "250", marginTop: 4 }}>
+        <Text style={{ fontSize: 10, fontWeight: "200", marginTop: 4 }}>
           Pickup Address
         </Text>
         <Text>{offers.startStreet}</Text>

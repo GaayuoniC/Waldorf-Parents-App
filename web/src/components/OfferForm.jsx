@@ -64,12 +64,13 @@ export function OfferForm({ onSubmit, isLoading = false }) {
           timeFormat="HH:mm"
           dateFormat="dd.MM.yyyy HH:mm"
           selected={postOffer.dateOfTransportation}
+          //Date is not changing and reflecting as expected.
           onChange={(date) => {
             console.log("Date changed", date);
-            setPostOffer({
-              ...postOffer,
+            setPostOffer((prevPostOffer) => ({
+              ...prevPostOffer,
               dateOfTransportation: date,
-            });
+            }));
           }}
         />
         <label className="title-label">

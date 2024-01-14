@@ -32,6 +32,7 @@ app.use(bodyParser.json());
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
+  console.log("hello");
   return res.json({ message: "waldorf-helper-api" });
 });
 
