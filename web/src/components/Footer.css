@@ -31,3 +31,16 @@ footer {
     background-color: var(--primary-header);
   }
 }
+@media screen and (max-width: 468px) {
+  footer {
+    display: flex;
+
+    background-color: green;
+  }
+}
+@media screen and (max-width: 412px) {
+  footer {
+    display: flex;
+    background-color: green;
+  }
+}
