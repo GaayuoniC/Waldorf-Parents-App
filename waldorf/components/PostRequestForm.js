@@ -60,7 +60,11 @@ export function PostRequestForm({ onSubmit }) {
             value={postRequest.dateOfTransportation}
             mode="datetime"
             onChange={(event, selectedDate) => {
-              handlePostChange("dateOfTransportation", selectedDate);
+              if (selectedDate) {
+                handlePostChange("dateOfTransportation", selectedDate);
+                console.log("debugging what the problem is", selectedDate);
+                console.debug();
+              }
             }}
           />
         </View>

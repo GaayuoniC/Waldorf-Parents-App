@@ -80,7 +80,7 @@ export default function Requests() {
     >
       {isLoading ? (
         <View style={[styles.container]}>
-          <Text>Loading offers</Text>
+          <Text>Loading requests</Text>
           <ActivityIndicator size="large" color="green" />
           {/* Come back and refactor color here */}
         </View>
