@@ -35,20 +35,20 @@ footer {
   footer {
     display: flex;
 
-    background-color: green;
+    background-color: var(--secondary-header-clr);
   }
 }
 @media screen and (max-width: 412px) {
   footer {
     display: flex;
-    background-color: green;
+    background-color: var(--secondary-header-clr);
   }
 }
 
 @media screen and (max-width: 614px) {
   footer {
     display: flex;
-    background-color: green;
+    background-color: var(--secondary-header-clr);
     gap: 50px;
     width: 100%;
     justify-content: space-evenly;
