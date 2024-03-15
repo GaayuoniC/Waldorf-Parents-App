@@ -1,6 +1,6 @@
 .header-container {
   display: flex;
-  height: 50px;
+  height: 12%;
   position: fixed;
   top: 0;
   width: 100%;
@@ -8,24 +8,25 @@
 
 .nav-bar {
   display: flex;
-  /* background-color: var(--primary-color); */
   background-color: var(--footer-clr);
-  gap: 50px;
+  gap: 13%;
   width: 100%;
-  justify-content: space-evenly;
+  padding: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
 .links {
   text-decoration: none;
   color: black;
+  font-weight: 600;
+  font-size: 18px;
 }
 .links:hover {
   text-decoration: underline;
 }
 
 .nav-bar a.active {
-  /* color: black; */
+  color: white;
   text-decoration: underline;
 }
 span:hover {
@@ -38,18 +39,26 @@ span:hover {
   .nav-bar {
     display: flex;
     flex-direction: row;
-    gap: 2px;
+    gap: 13%;
     flex-wrap: wrap;
     background-color: var(--secondary-header-clr);
+  }
+  .nav-bar a.active {
+    color: black;
+    text-decoration: underline;
   }
 }
 @media screen and (max-width: 412px) {
   .nav-bar {
     display: flex;
     flex-direction: row;
-    gap: 2px;
+    gap: 13%;
     flex-wrap: wrap;
     background-color: var(--secondary-header-clr);
+  }
+  .nav-bar a.active {
+    color: black;
+    text-decoration: underline;
   }
 }
 
@@ -57,8 +66,12 @@ span:hover {
   .nav-bar {
     display: flex;
     flex-direction: row;
-    gap: 2px;
+    gap: 13%;
     flex-wrap: wrap;
     background-color: var(--secondary-header-clr);
+  }
+  .nav-bar a.active {
+    color: black;
+    text-decoration: underline;
   }
 }
