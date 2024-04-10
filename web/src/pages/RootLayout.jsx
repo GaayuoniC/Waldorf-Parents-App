@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export function RootLayout() {
   return (
-    <>
+    <div>
       <Header />
       <main style={{ marginTop: 35 }}>
         <h1>Waldorf Parents Helper!!</h1>
@@ -12,6 +12,6 @@ export function RootLayout() {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

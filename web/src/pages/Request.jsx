@@ -91,7 +91,7 @@ export function Requests() {
                   onAcceptRequest={handleAcceptRequest}
                 />
               );
-              // refactored here and make it a separate component
+              // refactored here and made it a separate component
             })}
           </ul>
         )}

@@ -1,8 +1,10 @@
 .header-container {
   display: flex;
-  height: 12%;
+  height: 6vh;
   position: fixed;
   top: 0;
+  z-index: 1000;
+
   width: 100%;
 }
 
@@ -31,7 +33,7 @@
 }
 span:hover {
   cursor: pointer;
-  color: green;
+  /* color: green; */
   /* font-size: larger; */
 }
 

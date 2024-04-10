@@ -25,10 +25,11 @@ footer {
     border-top: 1px solid white;
   }
   button {
-    background-color: var(--clr-h-1);
+    background-color: var(--secondary-header-clr);
+    outline: none;
   }
   button:hover {
-    background-color: var(--primary-header);
+    outline: 1px solid black;
   }
 }
 @media screen and (max-width: 468px) {
