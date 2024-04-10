@@ -34,6 +34,9 @@ p {
   padding: 20px;
   max-width: 100%;
 }
+.intro-text-home-page p {
+  font-size: 1.3rem;
+}
 
 .welcome-items {
   display: flex;

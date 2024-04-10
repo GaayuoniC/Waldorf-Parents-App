@@ -12,7 +12,7 @@ export function HomePage() {
 
         <div className="home-welcome">
           <div className="welcome-items">
-            <div>
+            <div className="intro-text-home-page">
               <p>
                 Welcome to the Waldorf school parents helper site. The site is
                 made with the main intention of making life a little bit easier
