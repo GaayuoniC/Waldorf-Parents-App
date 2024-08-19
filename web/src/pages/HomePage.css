@@ -8,10 +8,11 @@
   flex-direction: column;
 }
 p {
-  line-height: 1.88;
+   line-height: 1.88; 
   margin-bottom: 10px;
-  font-weight: 400;
-  letter-spacing: -0.36px;
+  font-weight: 600;
+  font-size: 18px;
+ 
 }
 .home-sides {
   display: flex;
@@ -36,8 +37,11 @@ p {
   padding: 20px;
   max-width: 100%;
 }
-.intro-text-home-page p {
-  font-size: 1.3rem;
+.intro-text-home-page>p {
+  font-size: 18px;
+  font-weight: 400;
+   /* letter-spacing: -0.36px;
+  line-height: 26px;  */
 }
 
 .welcome-items {
