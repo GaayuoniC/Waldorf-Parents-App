@@ -13,22 +13,15 @@ export function HomePage() {
         <div className="home-welcome">
           <div className="welcome-items">
             <div className="intro-text-home-page">
-              <p>
-                Welcome to the Waldorf school parents helper site. The site is
-                made with the main intention of making life a little bit easier
-                for parents. As a parent or guardian, you can place an offer to
-                help other parents kids get to school safely and timely. You can
-                also ask for help in our post requests section.
-              </p>
-              <p>
-                Once you register as a parent, you can have easy access to all
-                our services; asking for help and offering to help other parents
-                who might need help with their kids.
-              </p>
-              <p>
-                Feel free to give us any feedback that you think might be of
-                help to us and other parents.
-              </p>
+            <p>
+    Welcome to the Waldorf School Parents Helper site. This platform is designed with the primary goal of making life easier for parents. As a parent or guardian, you have the ability to offer assistance in ensuring that other parents' children arrive at school safely and on time. Additionally, you can request help through our post requests section.
+</p>
+<p>
+    By registering as a parent, you will gain easy access to all our services, including the ability to request and offer assistance to fellow parents who may need support with their children.
+</p>
+<p>
+    We welcome your feedback, as it can help us improve our services and better support the community of parents.
+</p>
             </div>
 
             {!isSignedIn ? (

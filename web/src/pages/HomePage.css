@@ -27,12 +27,11 @@ p {
 }
 .home-welcome > div {
   width: 700px;
-  height: 400px;
+  /*height: 400px;*/
   flex-wrap: wrap;
   text-align: justify;
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
-
   border-radius: 12px;
   padding: 20px;
   max-width: 100%;

@@ -1,7 +1,7 @@
 .header-container {
   display: flex;
-  height: 6vh;
-  position: fixed;
+  /*height: 6vh;
+  position: fixed;*/
   top: 0;
   z-index: 1000;
 
@@ -41,7 +41,7 @@ span:hover {
   .nav-bar {
     display: flex;
     flex-direction: row;
-    gap: 13%;
+    gap: 10%;
     flex-wrap: wrap;
     background-color: var(--secondary-header-clr);
   }
